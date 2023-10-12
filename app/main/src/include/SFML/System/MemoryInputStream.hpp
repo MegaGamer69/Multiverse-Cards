@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Config.hpp>
-#include <SFML/System/InputStream.hpp>
-#include <SFML/System/Export.hpp>
-#include <cstdlib>
+#include "app/main/src/SFML/Config.hpp"
+#include "app/main/src/SFML/System/InputStream.hpp"
+#include "app/main/src/SFML/System/Export.hpp"
+#include "cstdlib>
 
 
 namespace sf

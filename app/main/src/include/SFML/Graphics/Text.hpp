@@ -28,15 +28,15 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/Transformable.hpp>
-#include <SFML/Graphics/Font.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-#include <SFML/System/String.hpp>
-#include <string>
-#include <vector>
+#include "app/main/src/SFML/Graphics/Export.hpp"
+#include "app/main/src/SFML/Graphics/Drawable.hpp"
+#include "app/main/src/SFML/Graphics/Transformable.hpp"
+#include "app/main/src/SFML/Graphics/Font.hpp"
+#include "app/main/src/SFML/Graphics/Rect.hpp"
+#include "app/main/src/SFML/Graphics/VertexArray.hpp"
+#include "app/main/src/SFML/System/String.hpp"
+#include "string"
+#include "vector>
 
 
 namespace sf

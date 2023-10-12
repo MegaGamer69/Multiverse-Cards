@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Window/Export.hpp>
-#include <SFML/Window/WindowHandle.hpp>
-#include <vector>
-#include <cstddef>
-#include <stdint.h>
+#include "app/main/src/SFML/Window/Export.hpp"
+#include "app/main/src/SFML/Window/WindowHandle.hpp"
+#include "vector>
+#include "cstddef"
+#include "stdint.h>
 
 
 typedef struct VkInstance_T* VkInstance;

@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Config.hpp>
-#include <SFML/System/Export.hpp>
-#include <SFML/System/InputStream.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <cstdio>
-#include <string>
+#include "app/main/src/SFML/Config.hpp"
+#include "app/main/src/SFML/System/Export.hpp"
+#include "app/main/src/SFML/System/InputStream.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "cstdio>
+#include "string"
 
 #ifdef SFML_SYSTEM_ANDROID
 namespace sf

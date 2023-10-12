@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Export.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <cstdlib>
+#include "app/main/src/SFML/System/Export.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "cstdlib>
 
 
 namespace sf
@@ -190,7 +190,7 @@ private:
     priv::ThreadFunc* m_entryPoint; //!< Abstraction of the function to run
 };
 
-#include <SFML/System/Thread.inl>
+#include "app/main/src/SFML/System/Thread.inl>
 
 } // namespace sf
 

@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Window/ContextSettings.hpp>
-#include <SFML/Window/GlResource.hpp>
-#include <SFML/Window/WindowBase.hpp>
+#include "app/main/src/SFML/Window/ContextSettings.hpp"
+#include "app/main/src/SFML/Window/GlResource.hpp"
+#include "app/main/src/SFML/Window/WindowBase.hpp"
 
 
 namespace sf

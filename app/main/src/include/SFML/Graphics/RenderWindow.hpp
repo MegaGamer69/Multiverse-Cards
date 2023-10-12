@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/Image.hpp>
-#include <SFML/Window/Window.hpp>
-#include <string>
+#include "app/main/src/SFML/Graphics/Export.hpp"
+#include "app/main/src/SFML/Graphics/RenderTarget.hpp"
+#include "app/main/src/SFML/Graphics/Image.hpp"
+#include "app/main/src/SFML/Window/Window.hpp"
+#include "string"
 
 
 namespace sf

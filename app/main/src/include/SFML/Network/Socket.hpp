@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <SFML/Network/SocketHandle.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <vector>
+#include "app/main/src/SFML/Network/Export.hpp"
+#include "app/main/src/SFML/Network/SocketHandle.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "vector>
 
 
 namespace sf

@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/AlResource.hpp>
-#include <SFML/System/Vector3.hpp>
+#include "app/main/src/SFML/Audio/Export.hpp"
+#include "app/main/src/SFML/Audio/AlResource.hpp"
+#include "app/main/src/SFML/System/Vector3.hpp"
 
 
 namespace sf

@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Export.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <cstdlib>
+#include "app/main/src/SFML/System/Export.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "cstdlib>
 
 
 namespace sf

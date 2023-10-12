@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <SFML/Network/Socket.hpp>
-#include <SFML/Network/IpAddress.hpp>
-#include <vector>
+#include "app/main/src/SFML/Network/Export.hpp"
+#include "app/main/src/SFML/Network/Socket.hpp"
+#include "app/main/src/SFML/Network/IpAddress.hpp"
+#include "vector>
 
 
 namespace sf

@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/AlResource.hpp>
-#include <SFML/System/Time.hpp>
-#include <string>
-#include <vector>
-#include <set>
+#include "app/main/src/SFML/Audio/Export.hpp"
+#include "app/main/src/SFML/Audio/AlResource.hpp"
+#include "app/main/src/SFML/System/Time.hpp"
+#include "string"
+#include "vector>
+#include "set>
 
 
 namespace sf

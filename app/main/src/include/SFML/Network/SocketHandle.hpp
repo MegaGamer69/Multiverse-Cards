@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Config.hpp>
+#include "app/main/src/SFML/Config.hpp"
 
 #if defined(SFML_SYSTEM_WINDOWS)
-    #include <basetsd.h>
+    #include "basetsd.h>
 #endif
 
 

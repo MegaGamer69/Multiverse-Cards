@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
-#include <string>
-#include <cstddef>
-
+#include "app/main/src/SFML/Audio/Export.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "app/main/src/SFML/System/Time.hpp"
+#include "string"
+#include "cstddef"
+cstddef
 
 namespace sf
 {

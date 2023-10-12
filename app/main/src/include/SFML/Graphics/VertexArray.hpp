@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Vertex.hpp>
-#include <SFML/Graphics/PrimitiveType.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <SFML/Graphics/Drawable.hpp>
-#include <vector>
+#include "app/main/src/SFML/Graphics/Export.hpp"
+#include "app/main/src/SFML/Graphics/Vertex.hpp"
+#include "app/main/src/SFML/Graphics/PrimitiveType.hpp"
+#include "app/main/src/SFML/Graphics/Rect.hpp"
+#include "app/main/src/SFML/Graphics/Drawable.hpp"
+#include "vector>
 
 
 namespace sf

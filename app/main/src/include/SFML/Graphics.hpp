@@ -29,33 +29,33 @@
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics/BlendMode.hpp>
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/ConvexShape.hpp>
-#include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/Font.hpp>
-#include <SFML/Graphics/Glyph.hpp>
-#include <SFML/Graphics/Image.hpp>
-#include <SFML/Graphics/PrimitiveType.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/RenderTexture.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/Shader.hpp>
-#include <SFML/Graphics/Shape.hpp>
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Transform.hpp>
-#include <SFML/Graphics/Transformable.hpp>
-#include <SFML/Graphics/Vertex.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-#include <SFML/Graphics/VertexBuffer.hpp>
-#include <SFML/Graphics/View.hpp>
+#include "app/main/src/SFML/Window.hpp"
+#include "app/main/src/SFML/Graphics/BlendMode.hpp"
+#include "app/main/src/SFML/Graphics/CircleShape.hpp"
+#include "app/main/src/SFML/Graphics/Color.hpp"
+#include "app/main/src/SFML/Graphics/ConvexShape.hpp"
+#include "app/main/src/SFML/Graphics/Drawable.hpp"
+#include "app/main/src/SFML/Graphics/Font.hpp"
+#include "app/main/src/SFML/Graphics/Glyph.hpp"
+#include "app/main/src/SFML/Graphics/Image.hpp"
+#include "app/main/src/SFML/Graphics/PrimitiveType.hpp"
+#include "app/main/src/SFML/Graphics/Rect.hpp"
+#include "app/main/src/SFML/Graphics/RectangleShape.hpp"
+#include "app/main/src/SFML/Graphics/RenderStates.hpp"
+#include "app/main/src/SFML/Graphics/RenderTarget.hpp"
+#include "app/main/src/SFML/Graphics/RenderTexture.hpp"
+#include "app/main/src/SFML/Graphics/RenderWindow.hpp"
+#include "app/main/src/SFML/Graphics/Shader.hpp"
+#include "app/main/src/SFML/Graphics/Shape.hpp"
+#include "app/main/src/SFML/Graphics/Sprite.hpp"
+#include "app/main/src/SFML/Graphics/Text.hpp"
+#include "app/main/src/SFML/Graphics/Texture.hpp"
+#include "app/main/src/SFML/Graphics/Transform.hpp"
+#include "app/main/src/SFML/Graphics/Transformable.hpp"
+#include "app/main/src/SFML/Graphics/Vertex.hpp"
+#include "app/main/src/SFML/Graphics/VertexArray.hpp"
+#include "app/main/src/SFML/Graphics/VertexBuffer.hpp"
+#include "app/main/src/SFML/Graphics/View.hpp"
 
 
 #endif // SFML_GRAPHICS_HPP

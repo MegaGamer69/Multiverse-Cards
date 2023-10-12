@@ -28,13 +28,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <SFML/Network/IpAddress.hpp>
-#include <SFML/Network/TcpSocket.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
-#include <map>
-#include <string>
+#include "app/main/src/SFML/Network/Export.hpp"
+#include "app/main/src/SFML/Network/IpAddress.hpp"
+#include "app/main/src/SFML/Network/TcpSocket.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "app/main/src/SFML/System/Time.hpp"
+#include "map>
+#include "string"
 
 
 namespace sf
@@ -173,7 +173,7 @@ public:
         ////////////////////////////////////////////////////////////
         // Types
         ////////////////////////////////////////////////////////////
-        typedef std::map<std::string, std::string> FieldTable;
+        typedef std::map<std::string, std::string" FieldTable;
 
         ////////////////////////////////////////////////////////////
         // Member data
@@ -333,7 +333,7 @@ public:
         ////////////////////////////////////////////////////////////
         // Types
         ////////////////////////////////////////////////////////////
-        typedef std::map<std::string, std::string> FieldTable;
+        typedef std::map<std::string, std::string" FieldTable;
 
         ////////////////////////////////////////////////////////////
         // Member data

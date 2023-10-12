@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Config.hpp>
-#include <algorithm>
-#include <locale>
-#include <string>
-#include <cstdlib>
+#include "app/main/src/SFML/Config.hpp"
+#include "algorithm>
+#include "locale>
+#include "string"
+#include "cstdlib>
 
 
 namespace sf
@@ -728,7 +728,7 @@ public:
     static Out encodeWide(Uint32 codepoint, Out output, wchar_t replacement = 0);
 };
 
-#include <SFML/System/Utf.inl>
+#include "app/main/src/SFML/System/Utf.inl>
 
 // Make typedefs to get rid of the template syntax
 typedef Utf<8>  Utf8;

@@ -1,0 +1,45 @@
+find_path(SFML_INCLUDE_DIR
+  NAMES app/main/include/SFML/Graphics.hpp
+  PATH_SUFFIXES include
+)
+
+find_library(SFML_SYSTEM_LIBRARY
+  NAMES sfml-system
+  PATH_SUFFIXES lib lib64
+)
+
+find_library(SFML_WINDOW_LIBRARY
+  NAMES sfml-window
+  PATH_SUFFIXES lib lib64
+)
+
+find_library(SFML_GRAPHICS_LIBRARY
+  NAMES sfml-graphics
+  PATH_SUFFIXES lib lib64
+)
+
+set(SFML_FOUND FALSE)
+if (SFML_INCLUDE_DIR AND SFML_SYSTEM_LIBRARY AND SFML_WINDOW_LIBRARY AND SFML_GRAPHICS_LIBRARY)
+  set(SFML_FOUND TRUE)
+endif()
+
+if (NOT SFML_FOUND)
+  if (NOT SFML_INCLUDE_DIR)
+    message(SEND_ERROR "SFML_INCLUDE_DIR not found")
+  endif()
+  if (NOT SFML_SYSTEM_LIBRARY)
+    message(SEND_ERROR "SFML_SYSTEM_LIBRARY not found")
+  endif()
+  if (NOT SFML_WINDOW_LIBRARY)
+    message(SEND_ERROR "SFML_WINDOW_LIBRARY not found")
+  endif()
+  if (NOT SFML_GRAPHICS_LIBRARY)
+    message(SEND_ERROR "SFML_GRAPHICS_LIBRARY not found")
+  endif()
+endif()
+
+if (SFML_FOUND)
+  set(SFML_INCLUDE_DIRS ${SFML_INCLUDE_DIR})
+  set(SFML_LIBRARIES ${SFML_SYSTEM_LIBRARY} ${SFML_WINDOW_LIBRARY} ${SFML_GRAPHICS_LIBRARY})
+  set(SFML_FOUND TRUE)
+endif()

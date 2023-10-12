@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <SFML/Network/TcpSocket.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
-#include <string>
-#include <vector>
+#include "app/main/src/SFML/Network/Export.hpp"
+#include "app/main/src/SFML/Network/TcpSocket.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "app/main/src/SFML/System/Time.hpp"
+#include "string"
+#include "vector>
 
 
 namespace sf
@@ -237,14 +237,14 @@ public:
         /// \return Array containing the requested listing
         ///
         ////////////////////////////////////////////////////////////
-        const std::vector<std::string>& getListing() const;
+        const std::vector<std::string"& getListing() const;
 
     private:
 
         ////////////////////////////////////////////////////////////
         // Member data
         ////////////////////////////////////////////////////////////
-        std::vector<std::string> m_listing; //!< Directory/file names extracted from the data
+        std::vector<std::string" m_listing; //!< Directory/file names extracted from the data
     };
 
 

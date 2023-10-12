@@ -28,14 +28,14 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Glsl.hpp>
-#include <SFML/Window/GlResource.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/System/Vector3.hpp>
-#include <map>
-#include <string>
+#include "app/main/src/SFML/Graphics/Export.hpp"
+#include "app/main/src/SFML/Graphics/Glsl.hpp"
+#include "app/main/src/SFML/Window/GlResource.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "app/main/src/SFML/System/Vector2.hpp"
+#include "app/main/src/SFML/System/Vector3.hpp"
+#include "map>
+#include "string"
 
 
 namespace sf

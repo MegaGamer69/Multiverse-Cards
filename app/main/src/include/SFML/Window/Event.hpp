@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Config.hpp>
-#include <SFML/Window/Joystick.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Mouse.hpp>
-#include <SFML/Window/Sensor.hpp>
+#include "app/main/src/SFML/Config.hpp"
+#include "app/main/src/SFML/Window/Joystick.hpp"
+#include "app/main/src/SFML/Window/Keyboard.hpp"
+#include "app/main/src/SFML/Window/Mouse.hpp"
+#include "app/main/src/SFML/Window/Sensor.hpp"
 
 
 namespace sf

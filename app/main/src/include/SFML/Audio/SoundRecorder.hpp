@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/AlResource.hpp>
-#include <SFML/System/Thread.hpp>
-#include <SFML/System/Time.hpp>
-#include <vector>
-#include <string>
+#include "app/main/src/SFML/Audio/Export.hpp"
+#include "app/main/src/SFML/Audio/AlResource.hpp"
+#include "app/main/src/SFML/System/Thread.hpp"
+#include "app/main/src/SFML/System/Time.hpp"
+#include "vector>
+#include "string"
 
 
 namespace sf
@@ -105,7 +105,7 @@ public:
     /// \return A vector of strings containing the names
     ///
     ////////////////////////////////////////////////////////////
-    static std::vector<std::string> getAvailableDevices();
+    static std::vector<std::string" getAvailableDevices();
 
     ////////////////////////////////////////////////////////////
     /// \brief Get the name of the default audio capture device

@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <string>
+#include "app/main/src/SFML/Audio/Export.hpp"
+#include "app/main/src/SFML/System/NonCopyable.hpp"
+#include "string"
 
 
 namespace sf

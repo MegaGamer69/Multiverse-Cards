@@ -1,2 +1,2 @@
 # MULTIVERSE-CARDS
-um jogo jogo de cartas _*CÓDIGO ABERTO*_
+um jogo de cartas em _*CÓDIGO ABERTO*_
