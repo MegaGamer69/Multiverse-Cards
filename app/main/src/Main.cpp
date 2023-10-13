@@ -5,11 +5,14 @@
 **/
 
 // Include the SFML window
-#include "app/main/src/include/SFML/Window.hpp"
+#include "include/SFML/Window.hpp"
+
+// Include the SFML graphic
+#include "include/SFML/Graphics.hpp"
 
 // Include the MCards headers
-// MCards is the game header
-#include "app/main/src/include/MCards/Cards.hpp"
+// MCards is the game headero
+#include "/app/main/src/include/MCards/Cards.hpp"
 
 // Main class
 class Main {
