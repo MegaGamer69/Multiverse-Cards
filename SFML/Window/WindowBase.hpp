@@ -28,16 +28,16 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Window/Cursor.hpp>
-#include <SFML/Window/Export.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Vulkan.hpp>
-#include <SFML/Window/WindowHandle.hpp>
-#include <SFML/Window/WindowStyle.hpp>
-#include <SFML/System/Clock.hpp>
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/String.hpp>
-#include <SFML/System/Vector2.hpp>
+#include "../SFML/Window/Cursor.hpp"
+#include "../SFML/Window/Export.hpp"
+#include "../SFML/Window/VideoMode.hpp"
+#include "../SFML/Window/Vulkan.hpp"
+#include "../SFML/Window/WindowHandle.hpp"
+#include "../SFML/Window/WindowStyle.hpp"
+#include "../SFML/System/Clock.hpp"
+#include "../SFML/System/NonCopyable.hpp"
+#include "../SFML/System/String.hpp"
+#include "../SFML/System/Vector2.hpp"
 
 
 namespace sf
@@ -497,7 +497,7 @@ private:
 /// Usage example:
 /// \code
 /// // Declare and create a new window
-/// sf::WindowBase window(sf::VideoMode(800, 600), "SFML window");
+/// sf::WindowBase window(sf::VideoMode(800, 600), "../SFML window");
 ///
 /// // The main loop - ends as soon as the window is closed
 /// while (window.isOpen())

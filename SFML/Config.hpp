@@ -199,7 +199,7 @@
 
     // Other compilers are not supported, leave class or function as-is.
     // With a bit of luck, the #pragma directive works, otherwise users get a warning (no error!) for unrecognized #pragma.
-    #pragma message("SFML_DEPRECATED is not supported for your compiler, please contact the SFML team")
+    #pragma message("../SFML_DEPRECATED is not supported for your compiler, please contact the SFML team")
     #define SFML_DEPRECATED
 
 #endif

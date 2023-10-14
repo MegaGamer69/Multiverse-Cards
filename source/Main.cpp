@@ -3,9 +3,9 @@
 **/
 
 // include the SFML basics
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
+#include "../SFML/Window.hpp"
+#include "../SFML/System.hpp"
+#include "../SFML/Graphics.hpp"
 
 class Game {
 public:
@@ -13,5 +13,7 @@ public:
 }
 
 int main() {
+    
+    
     return 0;
 }

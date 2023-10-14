@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Window/ContextSettings.hpp>
-#include <SFML/Window/GlResource.hpp>
-#include <SFML/Window/WindowBase.hpp>
+#include "../SFML/Window/ContextSettings.hpp"
+#include "../SFML/Window/GlResource.hpp"
+#include "../SFML/Window/WindowBase.hpp"
 
 
 namespace sf
@@ -324,7 +324,7 @@ private:
 /// Usage example:
 /// \code
 /// // Declare and create a new window
-/// sf::Window window(sf::VideoMode(800, 600), "SFML window");
+/// sf::Window window(sf::VideoMode(800, 600), "../SFML window");
 ///
 /// // Limit the framerate to 60 frames per second (this step is optional)
 /// window.setFramerateLimit(60);

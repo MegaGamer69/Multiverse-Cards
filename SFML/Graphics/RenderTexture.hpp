@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Window/ContextSettings.hpp>
+#include "../SFML/Graphics/Export.hpp"
+#include "../SFML/Graphics/Texture.hpp"
+#include "../SFML/Graphics/RenderTarget.hpp"
+#include "../SFML/Window/ContextSettings.hpp"
 
 
 namespace sf
@@ -280,7 +280,7 @@ private:
 ///
 /// \code
 /// // Create a new render-window
-/// sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+/// sf::RenderWindow window(sf::VideoMode(800, 600), "../SFML window");
 ///
 /// // Create a new render-texture
 /// sf::RenderTexture texture;

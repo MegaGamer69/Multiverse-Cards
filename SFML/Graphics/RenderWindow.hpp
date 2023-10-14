@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/Image.hpp>
-#include <SFML/Window/Window.hpp>
+#include "../SFML/Graphics/Export.hpp"
+#include "../SFML/Graphics/RenderTarget.hpp"
+#include "../SFML/Graphics/Image.hpp"
+#include "../SFML/Window/Window.hpp"
 #include <string>
 
 
@@ -223,7 +223,7 @@ private:
 ///
 /// \code
 /// // Declare and create a new render-window
-/// sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+/// sf::RenderWindow window(sf::VideoMode(800, 600), "../SFML window");
 ///
 /// // Limit the framerate to 60 frames per second (this step is optional)
 /// window.setFramerateLimit(60);
@@ -259,7 +259,7 @@ private:
 ///
 /// \code
 /// // Create the render window
-/// sf::RenderWindow window(sf::VideoMode(800, 600), "SFML OpenGL");
+/// sf::RenderWindow window(sf::VideoMode(800, 600), "../SFML OpenGL");
 ///
 /// // Create a sprite and a text to display
 /// sf::Sprite sprite;

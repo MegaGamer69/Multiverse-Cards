@@ -28,7 +28,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Export.hpp>
+#include "../SFML/System/Export.hpp"
 #include <ostream>
 
 
@@ -65,7 +65,7 @@ SFML_SYSTEM_API std::ostream& err();
 /// Example:
 /// \code
 /// // Redirect to a file
-/// std::ofstream file("sfml-log.txt");
+/// std::ofstream file("../SFML-log.txt");
 /// std::streambuf* previous = sf::err().rdbuf(file.rdbuf());
 ///
 /// // Redirect to nothing
