@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../SFML/Audio/Export.hpp"
-#include "../SFML/System/NonCopyable.hpp"
+#include "../System/NonCopyable.hpp"
 #include <string>
 
 

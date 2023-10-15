@@ -34,10 +34,10 @@
 #include "../SFML/Window/Vulkan.hpp"
 #include "../SFML/Window/WindowHandle.hpp"
 #include "../SFML/Window/WindowStyle.hpp"
-#include "../SFML/System/Clock.hpp"
-#include "../SFML/System/NonCopyable.hpp"
-#include "../SFML/System/String.hpp"
-#include "../SFML/System/Vector2.hpp"
+#include "../System/Clock.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/String.hpp"
+#include "../System/Vector2.hpp"
 
 
 namespace sf

@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include "../SFML/System.hpp"
+#include "../System.hpp"
 #include "../SFML/Audio/InputSoundFile.hpp"
 #include "../SFML/Audio/Listener.hpp"
 #include "../SFML/Audio/Music.hpp"

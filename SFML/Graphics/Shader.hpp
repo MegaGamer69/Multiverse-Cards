@@ -31,9 +31,9 @@
 #include "../SFML/Graphics/Export.hpp"
 #include "../SFML/Graphics/Glsl.hpp"
 #include "../SFML/Window/GlResource.hpp"
-#include "../SFML/System/NonCopyable.hpp"
-#include "../SFML/System/Vector2.hpp"
-#include "../SFML/System/Vector3.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/Vector2.hpp"
+#include "../System/Vector3.hpp"
 #include <map>
 #include <string>
 

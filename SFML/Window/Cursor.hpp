@@ -29,8 +29,8 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../SFML/Window/Export.hpp"
-#include "../SFML/System/NonCopyable.hpp"
-#include "../SFML/System/Vector2.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/Vector2.hpp"
 
 namespace sf
 {

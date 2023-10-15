@@ -30,9 +30,9 @@
 ////////////////////////////////////////////////////////////
 #include "../SFML/Audio/Export.hpp"
 #include "../SFML/Audio/SoundSource.hpp"
-#include "../SFML/System/Thread.hpp"
-#include "../SFML/System/Time.hpp"
-#include "../SFML/System/Mutex.hpp"
+#include "../System/Thread.hpp"
+#include "../System/Time.hpp"
+#include "../System/Mutex.hpp"
 #include <cstdlib>
 
 

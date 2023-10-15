@@ -29,8 +29,8 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../SFML/Audio/Export.hpp"
-#include "../SFML/System/NonCopyable.hpp"
-#include "../SFML/System/Time.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/Time.hpp"
 #include <string>
 #include <cstddef>
 

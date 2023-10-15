@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "../SFML/Window/Export.hpp"
-#include "../SFML/Window/GlResource.hpp"
-#include "../SFML/Window/ContextSettings.hpp"
-#include "../SFML/System/NonCopyable.hpp"
+#include "Export.hpp"
+#include "GlResource.hpp"
+#include "ContextSettings.hpp"
+#include "NonCopyable.hpp"
 
 
 namespace sf

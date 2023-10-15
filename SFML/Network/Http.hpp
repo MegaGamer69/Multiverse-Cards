@@ -31,8 +31,8 @@
 #include "../SFML/Network/Export.hpp"
 #include "../SFML/Network/IpAddress.hpp"
 #include "../SFML/Network/TcpSocket.hpp"
-#include "../SFML/System/NonCopyable.hpp"
-#include "../SFML/System/Time.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/Time.hpp"
 #include <map>
 #include <string>
 

@@ -30,8 +30,8 @@
 ////////////////////////////////////////////////////////////
 #include "../SFML/Audio/Export.hpp"
 #include "../SFML/Audio/AlResource.hpp"
-#include "../SFML/System/Thread.hpp"
-#include "../SFML/System/Time.hpp"
+#include "../System/Thread.hpp"
+#include "../System/Time.hpp"
 #include <vector>
 #include <string>
 
