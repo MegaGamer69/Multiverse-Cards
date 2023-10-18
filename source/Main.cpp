@@ -63,8 +63,8 @@ public:
         // nothing to see here :(
     }
 private:
-    std::string& TrainerName;
-    std::string& TexturePath;
+    std::string TrainerName;
+    std::string TexturePath;
     int TrainerHealth;
     int TrainerDamage;
     float TrainerAtkSpeed;
