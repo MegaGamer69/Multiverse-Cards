@@ -1,0 +1,22 @@
+name: Build my shitty game
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Clang
+      run: |
+        sudo apt-get update
+        sudo apt-get install clang
+        clang --version
+      shell: bash
+
+    - name: Compile C++ code
+      run: clang++ -o multiverse_shit -I/SFML source/Main.cpp
