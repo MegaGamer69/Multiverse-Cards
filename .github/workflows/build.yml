@@ -18,5 +18,11 @@ jobs:
         clang --version
       shell: bash
 
-    - name: Compile C++ code
+    - name: Cum
       run: clang++ -o multiverse_shit -I/SFML source/Main.cpp
+    
+    - name: Cu
+      uses: actions/upload-artifact@v2
+      with:
+        name: shit
+        path: ./multiverse_shit

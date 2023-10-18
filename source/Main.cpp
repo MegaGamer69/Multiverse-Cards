@@ -14,18 +14,18 @@
 
 class Card {
 public:
-    Card(std::string& Name, std::string& Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, std::string& Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
+    Card(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
     CardName(Name), CardTexture(Texture), CardHealth(Health), CardDamage(Damage), CardAttackSpeed(AttackSpeed), CardMoveSpeed(MoveSpeed), CardType(Type), FlyingCard(Flying), CardAtkAirAlso(AtkInAirAlso), CardMass(Mass), CardCost(Cost), AtkOnlyBuildings(AtkOnlyBuild) {
         // meh :/
     }
 private:
-    std::string CardName;
-    std::string CardTexture;
+    const std::string CardName;
+    const std::string CardTexture;
     int CardHealth;
     int CardDamage;
     float CardAttackSpeed;
     float CardMoveSpeed;
-    std::string CardType;
+    const std::string CardType;
     bool FlyingCard;
     bool CardAtkAirAlso;
     int CardMass;
@@ -58,13 +58,13 @@ private:
 // trainers is the most important on game, if your trainer has been defeated, game over
 class Trainer {
 public:
-    Trainer(std::string& Name, std::string& Texture, int Health, int Damage, float AtkSpeed) :
+    Trainer(const std::string& Name, const std::string& Texture, int Health, int Damage, float AtkSpeed) :
     TrainerName(Name), TexturePath(Texture), TrainerHealth(Health), TrainerDamage(Damage), TrainerAtkSpeed(AtkSpeed) {
         // nothing to see here :(
     }
 private:
-    std::string TrainerName;
-    std::string TexturePath;
+    const std::string TrainerName;
+    const std::string TexturePath;
     int TrainerHealth;
     int TrainerDamage;
     float TrainerAtkSpeed;
