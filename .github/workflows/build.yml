@@ -18,10 +18,10 @@ jobs:
         clang --version
       shell: bash
 
-    - name: Cum
+    - name: Compile with CLang++
       run: clang++ -o multiverse_shit -I/SFML source/Main.cpp
     
-    - name: Cu
+    - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v2
       with:
         name: shit
