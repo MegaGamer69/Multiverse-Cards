@@ -9,7 +9,7 @@
 #include "../SFML/Graphics.hpp"
 
 // include the STD lib
-#include <String&>
+#include <string>
 #include <iostream>
 
 class Card {
