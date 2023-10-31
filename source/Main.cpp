@@ -13,8 +13,8 @@
 #include <iostream>
 
 class Card {
-public:
-    Card(const std::string& Name, const std::string& Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string& Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
+  public:
+    Card(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
     CardName(Name), CardTexture(Texture), CardHealth(Health), CardDamage(Damage), CardAttackSpeed(AttackSpeed), CardMoveSpeed(MoveSpeed), CardType(Type), FlyingCard(Flying), CardAtkAirAlso(AtkInAirAlso), CardMass(Mass), CardCost(Cost), AtkOnlyBuildings(AtkOnlyBuild) {
         if(!TextureLOL.loadFromFile(CardTexture)) {
             printf("godbye :(");
@@ -22,7 +22,7 @@ public:
             printf("SUGOMADIK HAHA");
         }
     }
-private:
+  private:
     const std::string CardName;
     const std::string CardTexture;
     int CardHealth;
@@ -42,12 +42,12 @@ private:
 
 // trainers is the most important on game, if your trainer has been defeated, game over
 class Trainer {
-public:
-    Trainer(const std::string& Name, const std::string& Texture, int Health, int Damage, float AtkSpeed) :
+  public:
+    Trainer(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed) :
     TrainerName(Name), TexturePath(Texture), TrainerHealth(Health), TrainerDamage(Damage), TrainerAtkSpeed(AtkSpeed) {
         // nothing to see here :(
     }
-private:
+  private:
     const std::string TrainerName;
     const std::string TexturePath;
     int TrainerHealth;
@@ -71,7 +71,7 @@ void CardsList() {
 }
 
 class Game {
-public:
+  public:
     Game() : Window(sf::VideoMode(720, 1280), "MultiverseCards") {
     	// nothing to see here :/
     }
@@ -88,7 +88,7 @@ public:
             Window.display();
         }
     }
-private:
+  private:
     sf::RenderWindow Window;
 };
 
