@@ -17,9 +17,9 @@ class Card {
     Card(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
     CardName(Name), CardTexture(Texture), CardHealth(Health), CardDamage(Damage), CardAttackSpeed(AttackSpeed), CardMoveSpeed(MoveSpeed), CardType(Type), FlyingCard(Flying), CardAtkAirAlso(AtkInAirAlso), CardMass(Mass), CardCost(Cost), AtkOnlyBuildings(AtkOnlyBuild) {
         if(!TextureLOL.loadFromFile(CardTexture)) {
-            printf("godbye :(");
+            std::cout << "A" << std::endl;
         } else {
-            printf("SUGOMADIK HAHA");
+            std::cout << "B" << std::endl;
         }
     }
   private:
