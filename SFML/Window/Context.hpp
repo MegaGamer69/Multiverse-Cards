@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
 #include "ContextSettings.hpp"
-#include "NonCopyable.hpp"
+#include "../System/NonCopyable.hpp"
 
 
 namespace sf
