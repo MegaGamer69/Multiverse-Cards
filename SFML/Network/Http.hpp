@@ -31,8 +31,8 @@
 #include "Network/Export.hpp"
 #include "Network/IpAddress.hpp"
 #include "Network/TcpSocket.hpp"
-#include "System/NonCopyable.hpp"
-#include "System/Time.hpp"
+#include "../NonCopyable.hpp"
+#include "../Time.hpp"
 #include <map>
 #include <string>
 

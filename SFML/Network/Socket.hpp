@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Network/Export.hpp"
 #include "Network/SocketHandle.hpp"
-#include "System/NonCopyable.hpp"
+#include "../NonCopyable.hpp"
 #include <vector>
 
 

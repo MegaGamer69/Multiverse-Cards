@@ -34,7 +34,7 @@
 #include "Graphics/Font.hpp"
 #include "Graphics/Rect.hpp"
 #include "Graphics/VertexArray.hpp"
-#include "System/String.hpp"
+#include "../String.hpp"
 #include <string>
 #include <vector>
 

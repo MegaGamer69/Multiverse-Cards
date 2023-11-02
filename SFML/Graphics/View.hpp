@@ -31,7 +31,7 @@
 #include "Graphics/Export.hpp"
 #include "Graphics/Rect.hpp"
 #include "Graphics/Transform.hpp"
-#include "System/Vector2.hpp"
+#include "../Vector2.hpp"
 
 
 namespace sf

@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Network/Export.hpp"
-#include "System/Time.hpp"
+#include "../Time.hpp"
 
 
 namespace sf

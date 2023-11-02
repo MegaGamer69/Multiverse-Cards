@@ -29,8 +29,8 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Window/Export.hpp"
-#include "System/Vector3.hpp"
-#include "System/Time.hpp"
+#include "../Vector3.hpp"
+#include "../Time.hpp"
 
 
 namespace sf

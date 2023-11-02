@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Config.hpp"
-#include "System/Export.hpp"
+#include "../System/Export.hpp"
 
 
 namespace sf

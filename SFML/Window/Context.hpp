@@ -31,7 +31,7 @@
 #include "Window/Export.hpp"
 #include "Window/GlResource.hpp"
 #include "Window/ContextSettings.hpp"
-#include "System/NonCopyable.hpp"
+#include "../NonCopyable.hpp"
 
 
 namespace sf

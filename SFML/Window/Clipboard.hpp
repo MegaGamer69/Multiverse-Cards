@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Window/Export.hpp"
-#include "System/String.hpp"
+#include "../String.hpp"
 
 
 namespace sf

@@ -32,7 +32,7 @@
 #include "Graphics/Drawable.hpp"
 #include "Graphics/Transformable.hpp"
 #include "Graphics/VertexArray.hpp"
-#include "System/Vector2.hpp"
+#include "../Vector2.hpp"
 
 
 namespace sf

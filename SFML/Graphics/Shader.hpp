@@ -31,9 +31,9 @@
 #include "Graphics/Export.hpp"
 #include "Graphics/Glsl.hpp"
 #include "Window/GlResource.hpp"
-#include "System/NonCopyable.hpp"
-#include "System/Vector2.hpp"
-#include "System/Vector3.hpp"
+#include "../NonCopyable.hpp"
+#include "../Vector2.hpp"
+#include "../Vector3.hpp"
 #include <map>
 #include <string>
 

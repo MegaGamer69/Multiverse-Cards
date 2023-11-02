@@ -249,7 +249,7 @@ bool operator ==(const Vector3<T>& left, const Vector3<T>& right);
 template <typename T>
 bool operator !=(const Vector3<T>& left, const Vector3<T>& right);
 
-#include "System/Vector3.inl>
+#include "../Vector3.inl>
 
 // Define the most common types
 typedef Vector3<int>   Vector3i;
