@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
 #include "ContextSettings.hpp"
+#include "GlResource.hpp"
 #include "../System/NonCopyable.hpp"
 
 
