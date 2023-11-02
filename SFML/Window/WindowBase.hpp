@@ -28,12 +28,12 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Window/Cursor.hpp"
+#include "Cursor.hpp"
 #include "Export.hpp"
-#include "Window/VideoMode.hpp"
-#include "Window/Vulkan.hpp"
-#include "Window/WindowHandle.hpp"
-#include "Window/WindowStyle.hpp"
+#include "VideoMode.hpp"
+#include "Vulkan.hpp"
+#include "WindowHandle.hpp"
+#include "WindowStyle.hpp"
 #include "../System/Clock.hpp"
 #include "../System/NonCopyable.hpp"
 #include "../System/String.hpp"

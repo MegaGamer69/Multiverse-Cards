@@ -31,7 +31,7 @@
 #include "Export.hpp"
 #include "PrimitiveType.hpp"
 #include "Drawable.hpp"
-#include "Window/GlResource.hpp"
+#include "../Window/GlResource.hpp"
 
 
 namespace sf

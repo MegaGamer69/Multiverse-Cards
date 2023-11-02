@@ -82,7 +82,7 @@ class Game {
         while(Window::isOpen()) {
             Event EventListener;
             while(Window::pollEvent(EventListener)) {
-                if(EventListener::type == Event::Closed) {
+                if(EventListener.type == Event::Closed) {
                     Window::close();
                 }
             }

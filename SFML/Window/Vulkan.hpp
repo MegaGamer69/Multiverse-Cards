@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
-#include "Window/WindowHandle.hpp"
+#include "WindowHandle.hpp"
 #include <vector>
 #include <cstddef>
 #include "stdint.h>

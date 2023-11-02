@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
 #include "Image.hpp"
-#include "Window/GlResource.hpp"
+#include "../Window/GlResource.hpp"
 
 
 namespace sf

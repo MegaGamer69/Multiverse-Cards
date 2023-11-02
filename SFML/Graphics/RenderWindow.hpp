@@ -31,7 +31,7 @@
 #include "Export.hpp"
 #include "RenderTarget.hpp"
 #include "Image.hpp"
-#include "Window/Window.hpp"
+#include "../Window/Window.hpp"
 #include <string>
 
 

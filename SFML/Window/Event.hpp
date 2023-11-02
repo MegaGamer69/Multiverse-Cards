@@ -29,10 +29,10 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../Config.hpp"
-#include "Window/Joystick.hpp"
-#include "Window/Keyboard.hpp"
-#include "Window/Mouse.hpp"
-#include "Window/Sensor.hpp"
+#include "Joystick.hpp"
+#include "Keyboard.hpp"
+#include "Mouse.hpp"
+#include "Sensor.hpp"
 
 
 namespace sf

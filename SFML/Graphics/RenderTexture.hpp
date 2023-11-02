@@ -31,7 +31,7 @@
 #include "Export.hpp"
 #include "Texture.hpp"
 #include "RenderTarget.hpp"
-#include "Window/ContextSettings.hpp"
+#include "../Window/ContextSettings.hpp"
 
 
 namespace sf
