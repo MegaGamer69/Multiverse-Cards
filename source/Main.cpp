@@ -9,8 +9,8 @@
 #include "../SFML/Graphics.hpp"
 
 // include the STD lib
-#include "string>
-#include "iostream>
+#include <string>
+#include <iostream>
 
 using namespace sf;
 
