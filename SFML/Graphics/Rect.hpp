@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../System/Vector2.hpp"
-#include "algorithm>
+#include <algorithm>
 
 
 namespace sf
@@ -210,7 +210,7 @@ bool operator ==(const Rect<T>& left, const Rect<T>& right);
 template <typename T>
 bool operator !=(const Rect<T>& left, const Rect<T>& right);
 
-#include "Rect.inl>
+#include "Rect.inl"
 
 // Create typedefs for the most common types
 typedef Rect<int>   IntRect;

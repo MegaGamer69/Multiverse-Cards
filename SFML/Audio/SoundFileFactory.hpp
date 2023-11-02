@@ -166,7 +166,7 @@ private:
 
 } // namespace sf
 
-#include "../Audio/SoundFileFactory.inl>
+#include "../Audio/SoundFileFactory.inl"
 
 #endif // SFML_SOUNDFILEFACTORY_HPP
 

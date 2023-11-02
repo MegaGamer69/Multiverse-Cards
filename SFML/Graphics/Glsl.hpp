@@ -45,7 +45,7 @@ namespace priv
     template <typename T>
     struct Vector4;
 
-#include <SFML/Graphics/Glsl.inl>
+#include <SFML/Graphics/Glsl.inl"
 
 } // namespace priv
 
