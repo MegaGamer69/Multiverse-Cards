@@ -40,7 +40,7 @@
 #include "Window/Mouse.hpp"
 #include "Window/Sensor.hpp"
 #include "Window/Touch.hpp"
-#include "Wibdow/VideoMode.hpp"
+#include "Window/VideoMode.hpp"
 #include "Window/Window.hpp"
 #include "Window/WindowHandle.hpp"
 #include "Window/WindowStyle.hpp"
