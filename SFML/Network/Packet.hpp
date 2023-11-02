@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <string>
-#include <vector>
+#include "Network/Export.hpp"
+#include "string>
+#include "vector>
 
 
 namespace sf

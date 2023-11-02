@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Window/ContextSettings.hpp>
+#include "Graphics/Export.hpp"
+#include "Graphics/Texture.hpp"
+#include "Graphics/RenderTarget.hpp"
+#include "Window/ContextSettings.hpp"
 
 
 namespace sf

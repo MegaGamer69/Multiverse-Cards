@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/SoundBuffer.hpp>
-#include <SFML/Audio/SoundRecorder.hpp>
-#include <vector>
+#include "Export.hpp"
+#include "SoundBuffer.hpp"
+#include "SoundRecorder.hpp"
+#include "vector>
 
 
 namespace sf

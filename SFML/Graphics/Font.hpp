@@ -28,13 +28,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Glyph.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <map>
-#include <string>
-#include <vector>
+#include "Graphics/Export.hpp"
+#include "Graphics/Glyph.hpp"
+#include "Graphics/Texture.hpp"
+#include "Graphics/Rect.hpp"
+#include "map>
+#include "string>
+#include "vector>
 
 
 namespace sf

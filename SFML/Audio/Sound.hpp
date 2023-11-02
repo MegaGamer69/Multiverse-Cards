@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Audio/Export.hpp>
-#include <SFML/Audio/SoundSource.hpp>
-#include <SFML/System/Time.hpp>
-#include <cstdlib>
+#include "Export.hpp"
+#include "SoundSource.hpp"
+#include "System/Time.hpp"
+#include "cstdlib>
 
 
 namespace sf

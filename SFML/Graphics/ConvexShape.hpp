@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Shape.hpp>
-#include <vector>
+#include "Graphics/Export.hpp"
+#include "Graphics/Shape.hpp"
+#include "vector>
 
 
 namespace sf

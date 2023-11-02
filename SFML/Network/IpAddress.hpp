@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Network/Export.hpp>
-#include <SFML/System/Time.hpp>
-#include <istream>
-#include <ostream>
-#include <string>
+#include "Network/Export.hpp"
+#include "System/Time.hpp"
+#include "istream>
+#include "ostream>
+#include "string>
 
 
 namespace sf

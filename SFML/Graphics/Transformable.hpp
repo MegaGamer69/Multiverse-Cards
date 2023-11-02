@@ -28,8 +28,8 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Transform.hpp>
+#include "Graphics/Export.hpp"
+#include "Graphics/Transform.hpp"
 
 
 namespace sf

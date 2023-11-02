@@ -29,7 +29,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Export.hpp>
+#include "System/Export.hpp"
 
 
 #if !defined(SFML_SYSTEM_ANDROID)
@@ -51,7 +51,7 @@ namespace sf
 ///
 /// \return Pointer to Android native activity structure
 ///
-/// \sfplatform{Android,SFML/System/NativeActivity.hpp}
+/// \sfplatform{Android,System/NativeActivity.hpp}
 ///
 ////////////////////////////////////////////////////////////
 SFML_SYSTEM_API ANativeActivity* getNativeActivity();

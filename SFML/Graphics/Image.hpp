@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics/Export.hpp>
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <string>
-#include <vector>
+#include "Graphics/Export.hpp"
+#include "Graphics/Color.hpp"
+#include "Graphics/Rect.hpp"
+#include "string>
+#include "vector>
 
 
 namespace sf
