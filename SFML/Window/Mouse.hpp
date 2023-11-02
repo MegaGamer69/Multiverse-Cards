@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
-#include "../Vector2.hpp"
+#include "../System/Vector2.hpp"
 
 
 namespace sf

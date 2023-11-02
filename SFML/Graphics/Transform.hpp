@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
 #include "Rect.hpp"
-#include "../Vector2.hpp"
+#include "../System/Vector2.hpp"
 
 
 namespace sf

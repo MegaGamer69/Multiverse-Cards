@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
-#include "../Vector3.hpp"
+#include "../System/Vector3.hpp"
 #include "../Time.hpp"
 
 

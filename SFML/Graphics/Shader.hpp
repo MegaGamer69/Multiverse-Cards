@@ -32,8 +32,8 @@
 #include "Glsl.hpp"
 #include "../Window/GlResource.hpp"
 #include "../NonCopyable.hpp"
-#include "../Vector2.hpp"
-#include "../Vector3.hpp"
+#include "../System/Vector2.hpp"
+#include "../System/Vector3.hpp"
 #include <map>
 #include <string>
 
