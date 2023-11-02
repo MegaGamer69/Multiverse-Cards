@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include "Graphics/Window.hpp"
+#include "Window.hpp"
 #include "Graphics/BlendMode.hpp"
 #include "Graphics/CircleShape.hpp"
 #include "Graphics/Color.hpp"
