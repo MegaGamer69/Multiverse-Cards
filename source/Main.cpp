@@ -4,13 +4,15 @@
 **/
 
 // include the SFML basics
-#include "../SFML/Window.hpp"
-#include "../SFML/System.hpp"
-#include "../SFML/Graphics.hpp"
+#include "../Window.hpp"
+#include "../System.hpp"
+#include "../Graphics.hpp"
 
 // include the STD lib
-#include <string>
-#include <iostream>
+#include "string>
+#include "iostream>
+
+using namespace sf;
 
 class Card {
   public:
@@ -37,7 +39,7 @@ class Card {
     bool AtkOnlyBuildings;
     
     // amogus HAHA
-    sf::Texture TextureLOL;
+    Texture TextureLOL;
 };
 
 // trainers is the most important on game, if your trainer has been defeated, game over
@@ -72,29 +74,29 @@ void CardsList() {
 
 class Game {
   public:
-    Game() : Window(sf::VideoMode(720, 1280), "MultiverseCards") {
+    Game() : Window(VideoMode(720, 1280), "MultiverseCards") {
     	// nothing to see here :/
     }
     
     void Run() {
-        while(Window.isOpen()) {
-            sf::Event EventListener;
-            while(Window.pollEvent(EventListener)) {
-                if(EventListener.type == sf::Event::Closed) {
-                    Window.close();
+        while(Window::isOpen()) {
+            Event EventListener;
+            while(Window::pollEvent(EventListener)) {
+                if(EventListener.type == Event::Closed) {
+                    Window::close();
                 }
             }
             
-            Window.display();
+            Window::display();
         }
     }
   private:
-    sf::RenderWindow Window;
+    RenderWindow Window;
 };
 
 int main() {
     Game MainGame;
-    MainGame.Run();
+    MainGame::Run();
     
     return 0;
 }
