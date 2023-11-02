@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../System/Export.hpp"
-#include "../NonCopyable.hpp"
+#include "NonCopyable.hpp"
 
 
 namespace sf
