@@ -28,13 +28,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Drawable.hpp"
-#include "Graphics/Transformable.hpp"
-#include "Graphics/Font.hpp"
-#include "Graphics/Rect.hpp"
-#include "Graphics/VertexArray.hpp"
-#include "../String.hpp"
+#include "Export.hpp"
+#include "Drawable.hpp"
+#include "Transformable.hpp"
+#include "Font.hpp"
+#include "Rect.hpp"
+#include "VertexArray.hpp"
+#include "../System/String.hpp"
 #include <string>
 #include <vector>
 

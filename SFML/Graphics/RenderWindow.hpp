@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/RenderTarget.hpp"
-#include "Graphics/Image.hpp"
+#include "Export.hpp"
+#include "RenderTarget.hpp"
+#include "Image.hpp"
 #include "Window/Window.hpp"
 #include <string>
 

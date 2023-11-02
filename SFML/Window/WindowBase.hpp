@@ -29,15 +29,15 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Window/Cursor.hpp"
-#include "Window/Export.hpp"
+#include "Export.hpp"
 #include "Window/VideoMode.hpp"
 #include "Window/Vulkan.hpp"
 #include "Window/WindowHandle.hpp"
 #include "Window/WindowStyle.hpp"
-#include "../Clock.hpp"
-#include "../NonCopyable.hpp"
-#include "../String.hpp"
-#include "../Vector2.hpp"
+#include "../System/Clock.hpp"
+#include "../System/NonCopyable.hpp"
+#include "../System/String.hpp"
+#include "../System/Vector2.hpp"
 
 
 namespace sf

@@ -28,15 +28,15 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Color.hpp"
-#include "Graphics/Rect.hpp"
-#include "Graphics/View.hpp"
-#include "Graphics/Transform.hpp"
-#include "Graphics/BlendMode.hpp"
-#include "Graphics/RenderStates.hpp"
-#include "Graphics/PrimitiveType.hpp"
-#include "Graphics/Vertex.hpp"
+#include "Export.hpp"
+#include "Color.hpp"
+#include "Rect.hpp"
+#include "View.hpp"
+#include "Transform.hpp"
+#include "BlendMode.hpp"
+#include "RenderStates.hpp"
+#include "PrimitiveType.hpp"
+#include "Vertex.hpp"
 #include "../NonCopyable.hpp"
 
 

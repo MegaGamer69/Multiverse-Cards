@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Color.hpp"
-#include "Graphics/Rect.hpp"
+#include "Export.hpp"
+#include "Color.hpp"
+#include "Rect.hpp"
 #include <string>
 #include <vector>
 

@@ -29,9 +29,9 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../Config.hpp"
-#include "../System/Export.hpp"
-#include "../System/InputStream.hpp"
-#include "../System/NonCopyable.hpp"
+#include "Export.hpp"
+#include "InputStream.hpp"
+#include "NonCopyable.hpp"
 #include <cstdio>
 #include <string>
 

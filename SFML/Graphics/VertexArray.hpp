@@ -28,11 +28,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Vertex.hpp"
-#include "Graphics/PrimitiveType.hpp"
-#include "Graphics/Rect.hpp"
-#include "Graphics/Drawable.hpp"
+#include "Export.hpp"
+#include "Vertex.hpp"
+#include "PrimitiveType.hpp"
+#include "Rect.hpp"
+#include "Drawable.hpp"
 #include <vector>
 
 

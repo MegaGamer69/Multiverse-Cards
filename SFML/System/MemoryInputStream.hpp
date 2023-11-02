@@ -29,8 +29,8 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "../Config.hpp"
-#include "../InputStream.hpp"
-#include "../System/Export.hpp"
+#include "InputStream.hpp"
+#include "Export.hpp"
 #include <cstdlib>
 
 

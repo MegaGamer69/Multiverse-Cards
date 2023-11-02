@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Rect.hpp"
-#include "Graphics/Transform.hpp"
+#include "Export.hpp"
+#include "Rect.hpp"
+#include "Transform.hpp"
 #include "../Vector2.hpp"
 
 

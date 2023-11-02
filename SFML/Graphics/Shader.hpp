@@ -28,8 +28,8 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Glsl.hpp"
+#include "Export.hpp"
+#include "Glsl.hpp"
 #include "Window/GlResource.hpp"
 #include "../NonCopyable.hpp"
 #include "../Vector2.hpp"

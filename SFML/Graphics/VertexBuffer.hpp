@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/PrimitiveType.hpp"
-#include "Graphics/Drawable.hpp"
+#include "Export.hpp"
+#include "PrimitiveType.hpp"
+#include "Drawable.hpp"
 #include "Window/GlResource.hpp"
 
 

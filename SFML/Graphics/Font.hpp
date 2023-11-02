@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Glyph.hpp"
-#include "Graphics/Texture.hpp"
-#include "Graphics/Rect.hpp"
+#include "Export.hpp"
+#include "Glyph.hpp"
+#include "Texture.hpp"
+#include "Rect.hpp"
 #include <map>
 #include <string>
 #include <vector>

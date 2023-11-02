@@ -28,10 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Window/Export.hpp"
-#include "Window/GlResource.hpp"
-#include "Window/ContextSettings.hpp"
-#include "../NonCopyable.hpp"
+#include "Export.hpp"
+#include "ContextSettings.hpp"
+#include "NonCopyable.hpp"
 
 
 namespace sf

@@ -28,9 +28,8 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Window/ContextSettings.hpp"
-#include "Window/GlResource.hpp"
-#include "Window/WindowBase.hpp"
+#include "ContextSettings.hpp"
+#include "WindowBase.hpp"
 
 
 namespace sf

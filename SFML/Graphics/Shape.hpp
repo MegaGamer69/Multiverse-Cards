@@ -28,10 +28,10 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/Drawable.hpp"
-#include "Graphics/Transformable.hpp"
-#include "Graphics/VertexArray.hpp"
+#include "Export.hpp"
+#include "Drawable.hpp"
+#include "Transformable.hpp"
+#include "VertexArray.hpp"
 #include "../Vector2.hpp"
 
 

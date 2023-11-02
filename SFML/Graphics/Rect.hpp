@@ -210,7 +210,7 @@ bool operator ==(const Rect<T>& left, const Rect<T>& right);
 template <typename T>
 bool operator !=(const Rect<T>& left, const Rect<T>& right);
 
-#include "Graphics/Rect.inl>
+#include "Rect.inl>
 
 // Create typedefs for the most common types
 typedef Rect<int>   IntRect;

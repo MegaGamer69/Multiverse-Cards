@@ -22,31 +22,57 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef SFML_SLEEP_HPP
-#define SFML_SLEEP_HPP
+#ifndef SFML_OPENGL_HPP
+#define SFML_OPENGL_HPP
+
 
 ////////////////////////////////////////////////////////////
-// Headers
+/// Headers
 ////////////////////////////////////////////////////////////
-#include "Export.hpp"
-#include "Time.hpp"
+#include "Config.hpp"
 
 
-namespace sf
-{
 ////////////////////////////////////////////////////////////
-/// \ingroup system
-/// \brief Make the current thread sleep for a given duration
-///
-/// sf::sleep is the best way to block a program or one of its
-/// threads, as it doesn't consume any CPU power.
-///
-/// \param duration Time to sleep
-///
+/// This file just includes the OpenGL headers,
+/// which have actually different paths on each system
 ////////////////////////////////////////////////////////////
-void SFML_SYSTEM_API sleep(Time duration);
+#if defined(SFML_SYSTEM_WINDOWS)
 
-} // namespace sf
+    // The Visual C++ version of gl.h uses WINGDIAPI and APIENTRY but doesn't define them
+    #ifdef _MSC_VER
+        #include <windows.h>
+    #endif
+
+    #include <GL/gl.h>
+
+#elif defined(SFML_SYSTEM_LINUX) || defined(SFML_SYSTEM_FREEBSD) || defined(SFML_SYSTEM_OPENBSD) || defined(SFML_SYSTEM_NETBSD)
+
+    #if defined(SFML_OPENGL_ES)
+        #include <GLES/gl.h>
+        #include <GLES/glext.h>
+    #else
+        #include <GL/gl.h>
+    #endif
+
+#elif defined(SFML_SYSTEM_MACOS)
+
+    #include <OpenGL/gl.h>
+
+#elif defined (SFML_SYSTEM_IOS)
+
+    #include <OpenGLES/ES1/gl.h>
+    #include <OpenGLES/ES1/glext.h>
+
+#elif defined (SFML_SYSTEM_ANDROID)
+
+    #include <GLES/gl.h>
+    #include <GLES/glext.h>
+    
+    // We're not using OpenGL ES 2+ yet, but we can use the sRGB extension
+    #include <GLES2/gl2platform.h>
+    #include <GLES2/gl2ext.h>
+
+#endif
 
 
-#endif // SFML_SLEEP_HPP
+#endif // SFML_OPENGL_HPP

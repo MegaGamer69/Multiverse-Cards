@@ -28,9 +28,9 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Graphics/Export.hpp"
-#include "Graphics/BlendMode.hpp"
-#include "Graphics/Transform.hpp"
+#include "Export.hpp"
+#include "BlendMode.hpp"
+#include "Transform.hpp"
 
 
 namespace sf
