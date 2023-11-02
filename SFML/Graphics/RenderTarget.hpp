@@ -37,7 +37,7 @@
 #include "RenderStates.hpp"
 #include "PrimitiveType.hpp"
 #include "Vertex.hpp"
-#include "../NonCopyable.hpp"
+#include "../System/NonCopyable.hpp"
 
 
 namespace sf
