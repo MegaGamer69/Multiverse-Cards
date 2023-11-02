@@ -79,15 +79,15 @@ class Game {
     }
     
     void Run() {
-        while(Window::isOpen()) {
+        while(Window.isOpen()) {
             Event EventListener;
-            while(Window::pollEvent(EventListener)) {
+            while(Window.pollEvent(EventListener)) {
                 if(EventListener.type == Event::Closed) {
-                    Window::close();
+                    Window.close();
                 }
             }
             
-            Window::display();
+            Window.display();
         }
     }
   private:
@@ -96,7 +96,7 @@ class Game {
 
 int main() {
     Game MainGame;
-    MainGame::Run();
+    MainGame.Run();
     
     return 0;
 }
