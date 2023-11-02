@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include "Window/System.hpp"
+#include "System.hpp"
 #include "Window/Clipboard.hpp"
 #include "Window/Context.hpp"
 #include "Window/ContextSettings.hpp"
