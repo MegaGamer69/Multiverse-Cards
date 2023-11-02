@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Network/Export.hpp"
 #include "Network/Socket.hpp"
-#include "../Time.hpp"
+#include "../System/Time.hpp"
 
 
 namespace sf

@@ -32,7 +32,7 @@
 #include "Network/IpAddress.hpp"
 #include "Network/TcpSocket.hpp"
 #include "../NonCopyable.hpp"
-#include "../Time.hpp"
+#include "../System/Time.hpp"
 #include <map>
 #include <string>
 

@@ -29,7 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Network/Export.hpp"
-#include "../Time.hpp"
+#include "../System/Time.hpp"
 #include "istream>
 #include "ostream>
 #include <string>

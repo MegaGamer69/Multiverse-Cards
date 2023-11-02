@@ -30,7 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include "Export.hpp"
 #include "../System/Vector3.hpp"
-#include "../Time.hpp"
+#include "../System/Time.hpp"
 
 
 namespace sf
