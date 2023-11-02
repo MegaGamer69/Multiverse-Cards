@@ -70,6 +70,7 @@ void CardsList() {
     Card C6("Eletric Tower", "../assets/images/cards/card6.png", 300, 70, 1.1f, 0, "Building", false, true, 600, 4, false);
     Card C7("Meteore", "../assets/images/cards/card7.png", 0, 300, 5, 0, "Spell", true, true, 0, 6, false);
     Card C8("Titan", "../assets/images/cards/card8.png", 1200, 90, 3, 1, "Troop", false, false, 1024, 8, true);
+    Card C9("Samurai", "../assets/images/cards/card9.png", 960, 111, 1.7f, 2, "Troop", false, false, 814, 7, false);
 }
 
 class Game {
@@ -82,7 +83,7 @@ class Game {
         while(Window::isOpen()) {
             Event EventListener;
             while(Window::pollEvent(EventListener)) {
-                if(EventListener::type == Event::Closed) {
+                if(Event::type == Event::Closed) {
                     Window::close();
                 }
             }
@@ -90,8 +91,6 @@ class Game {
             Window::display();
         }
     }
-  private:
-    RenderWindow Window;
 };
 
 int main() {
