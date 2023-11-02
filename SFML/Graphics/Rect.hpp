@@ -28,7 +28,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Vector2.hpp>
+#include <System/Vector2.hpp>
 #include <algorithm>
 
 
@@ -210,7 +210,7 @@ bool operator ==(const Rect<T>& left, const Rect<T>& right);
 template <typename T>
 bool operator !=(const Rect<T>& left, const Rect<T>& right);
 
-#include <SFML/Graphics/Rect.inl>
+#include <Graphics/Rect.inl>
 
 // Create typedefs for the most common types
 typedef Rect<int>   IntRect;

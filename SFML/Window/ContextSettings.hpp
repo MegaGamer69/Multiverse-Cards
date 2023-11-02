@@ -25,7 +25,7 @@
 #ifndef SFML_CONTEXTSETTINGS_HPP
 #define SFML_CONTEXTSETTINGS_HPP
 
-#include <SFML/Config.hpp>
+#include <Config.hpp>
 
 namespace sf
 {

@@ -28,8 +28,8 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Window/Export.hpp>
-#include <SFML/Window/WindowHandle.hpp>
+#include <Window/Export.hpp>
+#include <Window/WindowHandle.hpp>
 #include <vector>
 #include <cstddef>
 #include <stdint.h>
