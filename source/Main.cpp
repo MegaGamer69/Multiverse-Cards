@@ -4,13 +4,13 @@
 **/
 
 // include the SFML basics
-#include "../Window.hpp"
-#include "../System.hpp"
-#include "../Graphics.hpp"
+#include "../SFML/Window.hpp"
+#include "../SFML/System.hpp"
+#include "../SFML/Graphics.hpp"
 
 // include the STD lib
-#include "string>
-#include "iostream>
+#include <string>
+#include <iostream>
 
 using namespace sf;
 
