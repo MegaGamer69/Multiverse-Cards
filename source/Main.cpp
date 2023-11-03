@@ -11,6 +11,7 @@
 // include the STD lib
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace sf;
 
@@ -75,22 +76,35 @@ void CardsList() {
 
 class Game {
   public:
-    Game() : Window(VideoMode(720, 1280), "MultiverseCards") {
+    Game() : Display(VideoMode(720, 1280), "MultiverseCards") {
     	// nothing to see here :/
     }
     
     void Run() {
-        while(Window::isOpen()) {
+        while(Display.isOpen()) {
             Event EventListener;
-            while(Window::pollEvent(EventListener)) {
-                if(Event::type == Event::Closed) {
-                    Window::close();
+            
+            while(Display.pollEvent(EventListener)) {
+                if(EventListener.type == Event::Closed) {
+                    Display.close();
                 }
             }
             
-            Window::display();
+            Display.display();
         }
     }
+  private:
+    RenderWindow Display;
+    
+    std::vector<CardsList> List;
+    
+    List.insert(T1);
+    List.insert(C1);
+    List.insert(C2);
+    List.insert(C3);
+    List.insert(C4);
+    List.insert(C5);
+    List.insert(C6);
 };
 
 int main() {
