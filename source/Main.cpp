@@ -11,7 +11,7 @@
 // include the STD lib
 #include <string>
 #include <iostream>
-#include <vector>
+#include <list>
 
 using namespace sf;
 
@@ -96,7 +96,7 @@ class Game {
   private:
     RenderWindow Display;
     
-    std::vector<CardsList> List;
+    std::list<CardsList> List;
     
     List.insert(T1);
     List.insert(C1);
