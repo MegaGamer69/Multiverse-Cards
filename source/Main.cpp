@@ -111,15 +111,18 @@ int main() {
     
     // create a deck
     std::vector<Card> Deck;
+    std::vector<Trainer> PlayableTrainer;
     
     // add the cards in deck
-    Deck.push_back(T1);
     Deck.push_back(C1);
     Deck.push_back(C2);
     Deck.push_back(C3);
     Deck.push_back(C4);
     Deck.push_back(C5);
     Deck.push_back(C6);
+    
+    // add just one trainer
+    PlayableTrainer.push_back(T1);
     
     return 0;
 }
