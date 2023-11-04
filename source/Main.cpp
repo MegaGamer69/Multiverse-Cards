@@ -8,6 +8,9 @@
 #include "../SFML/System.hpp"
 #include "../SFML/Graphics.hpp"
 
+// include the CURL basics
+#include "../CURL/curl.h"
+
 // include the STD lib
 #include <string>
 #include <iostream>
