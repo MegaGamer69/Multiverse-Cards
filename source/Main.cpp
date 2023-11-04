@@ -13,8 +13,6 @@
 #include <iostream>
 #include <vector>
 
-using namespace sf;
-
 class Card {
   public:
     Card(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
@@ -40,7 +38,7 @@ class Card {
     bool AtkOnlyBuildings;
     
     // amogus HAHA
-    Texture TextureLOL;
+    sf::Texture TextureLOL;
 };
 
 // trainers is the most important on game, if your trainer has been defeated, game over
@@ -69,33 +67,7 @@ class Trainer {
     float TrainerAtkSpeed;
 };
 
-class Game {
-  public:
-    Game() : Display(VideoMode(720, 1280), "MultiverseCards") {
-    	// nothing to see here :/
-    }
-    
-    void Run() {
-        while(Display.isOpen()) {
-            Event EventListener;
-            
-            while(Display.pollEvent(EventListener)) {
-                if(EventListener.type == Event::Closed) {
-                    Display.close();
-                }
-            }
-            
-            Display.display();
-        }
-    }
-  private:
-    RenderWindow Display;
-};
-
 int main() {
-    Game MainGame;
-    MainGame.Run();
-    
     // all the cards and trainers in game
     Trainer T1("Pirate", "../assets/images/trainer/trainer1.png", 720, 111, 1.8f);
     Trainer T2("Thief", "../assets/images/trainer/trainer2.png", 700, 120, 1.5f);
@@ -108,6 +80,20 @@ int main() {
     Card C7("Meteore", "../assets/images/cards/card7.png", 0, 300, 5, 0, "Spell", true, true, 0, 6, false);
     Card C8("Titan", "../assets/images/cards/card8.png", 1200, 90, 3, 1, "Troop", false, false, 1024, 8, true);
     Card C9("Samurai", "../assets/images/cards/card9.png", 960, 111, 1.7f, 2, "Troop", false, false, 814, 7, false);
+    
+    sf::RenderWindow Display(sf::VideoMode(720, 1280), "Multiverse Cards");
+    
+    while(Display.isOpen()) {
+        sf::Event Listener;
+        
+        while(Display.pollEvent(Listener)) {
+            if(Listener.type == sf::Event::Close) {
+                Display.close();
+            }
+        }
+        
+        Display.display();
+    }
     
     // create a deck
     std::vector<Card> Deck;
