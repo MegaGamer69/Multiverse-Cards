@@ -87,7 +87,7 @@ int main() {
         sf::Event Listener;
         
         while(Display.pollEvent(Listener)) {
-            if(Listener.type == sf::Event::Close) {
+            if(Listener.type == sf::Event::Closed) {
                 Display.close();
             }
         }
