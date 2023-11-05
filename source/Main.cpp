@@ -33,7 +33,7 @@ class Energy {
     }
   private:
     float Timer;
-}
+};
 
 class Card {
   public:
