@@ -16,6 +16,25 @@
 #include <iostream>
 #include <vector>
 
+class Energy {
+  public:
+    int EnergyAmount;
+    
+    void UseEnergy(int Amount) {
+        if(EnergyAmount > 0) {
+            EnergyAmount -= Amount;
+        }
+    }
+    
+    void AddEnergy() {
+        if(EnergyAmount < 10) {
+            EnergyAmount++;
+        }
+    }
+  private:
+    float Timer;
+}
+
 class Card {
   public:
     Card(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkInAirAlso, int Mass, int Cost, bool AtkOnlyBuild) :
@@ -25,6 +44,10 @@ class Card {
         } else {
             std::cout << "B" << std::endl;
         }
+    }
+    
+    void Deploy() {
+        Energy::UseEnergy(CardCost);
     }
   private:
     const std::string CardName;
@@ -82,9 +105,10 @@ int main() {
     Card C6("Eletric Tower", "../assets/images/cards/card6.png", 300, 70, 1.1f, 0, "Building", false, true, 600, 4, false);
     Card C7("Meteore", "../assets/images/cards/card7.png", 0, 300, 5, 0, "Spell", true, true, 0, 6, false);
     Card C8("Titan", "../assets/images/cards/card8.png", 1200, 90, 3, 1, "Troop", false, false, 1024, 8, true);
-    Card C9("Samurai", "../assets/images/cards/card9.png", 960, 111, 1.7f, 2, "Troop", false, false, 814, 7, false);
+    Card C9("Samurai", "../assets/images/cards/card9.png", 960, 111, 1.7f, 2, "Troop", false, false, 128, 7, false);
+    Card C10("Bomb Man", "../assets/images/cards/card10.png", 222, 97, 1, 4, "Troop", false, false, 60, 3, true);
     
-    sf::RenderWindow Display(sf::VideoMode(720, 1280), "Multiverse Cards");
+    sf::Window Display(sf::VideoMode(720, 1280), "Multiverse Cards");
     
     while(Display.isOpen()) {
         sf::Event Listener;
