@@ -46,7 +46,7 @@ class Card {
         } else {
             std::cout << "B" << std::endl;
         }
-    }
+    };
     
     void Deploy() {
         EnergyInstancie.UseEnergy(CardCost);
@@ -79,7 +79,7 @@ class Trainer {
     Trainer(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) :
     TrainerName(Name), TexturePath(Texture), TrainerHealth(Health), TrainerDamage(Damage), TrainerAtkSpeed(AtkSpeed), TrainerAtkRange(AtkRange) {
         
-    }
+    };
     
     void ReceiveDamage(int Damage) {
         TrainerHealth -= Damage;
