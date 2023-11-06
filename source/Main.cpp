@@ -18,7 +18,9 @@
 
 class Energy {
   public:
-    static int EnergyAmount;
+    Energy();
+    
+    int EnergyAmount;
     
     static void UseEnergy(int Amount) {
         if(EnergyAmount > 0) {
@@ -26,7 +28,7 @@ class Energy {
         }
     }
     
-    static void AddEnergy() {
+    void AddEnergy() {
         if(EnergyAmount < 10) {
             EnergyAmount++;
         }
@@ -47,7 +49,7 @@ class Card {
     }
     
     void Deploy() {
-        Energy::UseEnergy(CardCost);
+        EnergyInstancie.UseEnergy(CardCost);
     }
   private:
     const std::string CardName;
@@ -64,6 +66,8 @@ class Card {
     bool AtkOnlyBuildings;
     float CardAtkRange;
     int CardHealEffect;
+    
+    Energy EnergyInstancie;
     
     // amogus HAHA
     sf::Texture TextureLOL;
