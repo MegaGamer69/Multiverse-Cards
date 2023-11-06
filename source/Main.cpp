@@ -22,7 +22,7 @@ class Energy {
     
     int EnergyAmount;
     
-    static void UseEnergy(int Amount) {
+    void UseEnergy(int Amount) {
         if(EnergyAmount > 0) {
             EnergyAmount -= Amount;
         }
