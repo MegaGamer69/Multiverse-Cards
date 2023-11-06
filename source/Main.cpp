@@ -118,7 +118,7 @@ int main() {
     Card C11("Terrorist", "../assets/images/cards/card11.png", 660, 74, 1.1f, 2, "Troop", false, true, 70, 4, false, 1, 0);
     Card C12("Heal", "../assets/images/cards/card12.png", 0, 0, 1, 0, "Spell", false, false, 0, 3, false, 4, 50);
     
-    sf::Window Display(sf::VideoMode(720, 1280, 32), "Multiverse Cards");
+    sf::RenderWindow Display(sf::VideoMode(720, 1280, 32), "Multiverse Cards");
     
     while(Display.isOpen()) {
         sf::Event Listener;
