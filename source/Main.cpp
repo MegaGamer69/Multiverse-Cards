@@ -41,7 +41,7 @@ class Card {
   public:
     Card();
     
-    void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
+    void setStatus(std::string Name, std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
         CardName = Name;
         CardTexture = Texture;
         CardHealth = Health;
@@ -62,13 +62,13 @@ class Card {
         EnergyInstancie.UseEnergy(CardCost);
     }
   private:
-    const std::string CardName;
-    const std::string CardTexture;
+    std::string CardName;
+    std::string CardTexture;
     int CardHealth;
     int CardDamage;
     float CardAttackSpeed;
     float CardMoveSpeed;
-    const std::string CardType;
+    std::string CardType;
     bool FlyingCard;
     bool CardAtkAirAlso;
     int CardMass;
@@ -88,7 +88,7 @@ class Trainer {
   public:
     Trainer();
     
-    void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
+    void setStatus(std::string Name, std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
         TrainerName = Name;
         TexturePath = Texture;
         TrainerHealth = Health;
@@ -103,13 +103,13 @@ class Trainer {
     
     void CheckHP() {
         if(TrainerHealth <= 0) {
-            std::cout << "Trainer has been defeated" << std::endl;
+           std::cout << "Trainer has been defeated" <<std::endl;
         }
     }
     
   private:
-    const std::string TrainerName;
-    const std::string TexturePath;
+    std::string TrainerName;
+    std::string TexturePath;
     int TrainerHealth;
     int TrainerDamage;
     float TrainerAtkSpeed;
