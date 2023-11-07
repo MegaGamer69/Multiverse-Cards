@@ -50,7 +50,7 @@ class Card {
         CardMoveSpeed = MoveSpeed;
         CardType = Type;
         FlyingCard = Flying;
-        CarxAtkAirAlso = AtkAirAlso;
+        CardAtkAirAlso = AtkAirAlso;
         CardMass = Mass;
         CardCost = Cost;
         AtkOnlyBuildings = AtkOnlyBuild;
