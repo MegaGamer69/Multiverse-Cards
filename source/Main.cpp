@@ -39,36 +39,37 @@ class Energy {
 
 class Card {
   public:
+    // constructor
     Card();
     
-    void setStatus(std::string Name, std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
-        CardName = Name;
-        CardTexture = Texture;
-        CardHealth = Health;
-        CardDamage = Damage;
-        CardAttackSpeed = AttackSpeed;
-        CardMoveSpeed = MoveSpeed;
-        CardType = Type;
-        FlyingCard = Flying;
-        CardAtkAirAlso = AtkAirAlso;
-        CardMass = Mass;
-        CardCost = Cost;
-        AtkOnlyBuildings = AtkOnlyBuild;
-        CardAtkRange = AtkRange;
-        CardHealEffect = HealEffect;
+    void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
+        CardName = this.Name;
+        CardTexture = this.Texture;
+        CardHealth = this.Health;
+        CardDamage = this.Damage;
+        CardAttackSpeed = this.AttackSpeed;
+        CardMoveSpeed = this.MoveSpeed;
+        CardType = this.Type;
+        FlyingCard = this.Flying;
+        CardAtkAirAlso = this.AtkAirAlso;
+        CardMass = this.Mass;
+        CardCost = this.Cost;
+        AtkOnlyBuildings = this.AtkOnlyBuild;
+        CardAtkRange = this.AtkRange;
+        CardHealEffect = this.HealEffect;
     }
     
     void Deploy() {
         EnergyInstancie.UseEnergy(CardCost);
     }
   private:
-    std::string CardName;
-    std::string CardTexture;
+    const std::string CardName;
+    const std::string CardTexture;
     int CardHealth;
     int CardDamage;
     float CardAttackSpeed;
     float CardMoveSpeed;
-    std::string CardType;
+    const std::string CardType;
     bool FlyingCard;
     bool CardAtkAirAlso;
     int CardMass;
@@ -88,7 +89,7 @@ class Trainer {
   public:
     Trainer();
     
-    void setStatus(std::string Name, std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
+    void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
         TrainerName = Name;
         TexturePath = Texture;
         TrainerHealth = Health;
@@ -108,8 +109,8 @@ class Trainer {
     }
     
   private:
-    std::string TrainerName;
-    std::string TexturePath;
+    const std::string TrainerName;
+    const std::string TexturePath;
     int TrainerHealth;
     int TrainerDamage;
     float TrainerAtkSpeed;
@@ -119,13 +120,13 @@ class Trainer {
 int main() {
     // all the cards and trainers in game
     Trainer T1;
-    T1.setStatus("Pirate", "../assets/images/trainer/trainer1.png", 720, 111, 1.8f, 1.5f);
+    T1.setStatus("Pirate", "../assets/images/trainers/trainer1.png", 720, 111, 1.8f, 1.5f);
     Trainer T2;
-    T2.setStatus("Thief", "../assets/images/trainer/trainer2.png", 700, 120, 1.5f, 6.5f);
+    T2.setStatus("Thief", "../assets/images/trainers/trainer2.png", 700, 120, 1.5f, 6.5f);
     Trainer T3;
-    T3.setStatus("Master", "../assets/images/trainer/trainer3.png", 880, 80, 1.7f, 4);
+    T3.setStatus("Master", "../assets/images/trainers/trainer3.png", 880, 80, 1.7f, 4);
     Card C1;
-    C1.setStatus("Reaper", "../assets/images/card/card1.png", 444, 96, 1.2f, 2, "Troop", false, false, 70, 4, false, 1.25f, 0);
+    C1.setStatus("Reaper", "../assets/images/cards/card1.png", 444, 96, 1.2f, 2, "Troop", false, false, 70, 4, false, 1.25f, 0);
     Card C2;
     C2.setStatus("Indians", "../assets/images/cards/card2.png", 120, 50, 1, 2.1f, "Troop", false, true, 68, 2, false, 4.5f, 0);
     Card C3;
@@ -165,16 +166,16 @@ int main() {
     }
     
     // create a deck
-    std::vector<Card> Deck;
+    std::vector<Card> PlayableDeck;
     std::vector<Trainer> PlayableTrainer;
     
     // add the cards in deck
-    Deck.push_back(C1);
-    Deck.push_back(C2);
-    Deck.push_back(C3);
-    Deck.push_back(C4);
-    Deck.push_back(C5);
-    Deck.push_back(C6);
+    PlayableDeck.push_back(C1);
+    PlayableDeck.push_back(C2);
+    PlayableDeck.push_back(C3);
+    PlayableDeck.push_back(C4);
+    PlayableDeck.push_back(C5);
+    PlayableDeck.push_back(C6);
     
     // add just one trainer
     PlayableTrainer.push_back(T1);
