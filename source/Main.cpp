@@ -23,14 +23,14 @@ class Energy {
     int EnergyAmount;
     
     void UseEnergy(int Amount) {
-        if(EnergyAmount > 0) {
-            EnergyAmount -= Amount;
+        if(this->EnergyAmount > 0) {
+            this->EnergyAmount -= Amount;
         }
     }
     
     void AddEnergy() {
-        if(EnergyAmount < 10) {
-            EnergyAmount++;
+        if(this->EnergyAmount < 10) {
+            this->EnergyAmount++;
         }
     }
   private:
@@ -43,20 +43,20 @@ class Card {
     Card();
     
     void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
-        CardName = this->Name;
-        CardTexture = this->Texture;
-        CardHealth = this->Health;
-        CardDamage = this->Damage;
-        CardAttackSpeed = this->AttackSpeed;
-        CardMoveSpeed = this->MoveSpeed;
-        CardType = this->Type;
-        FlyingCard = this->Flying;
-        CardAtkAirAlso = this->AtkAirAlso;
-        CardMass = this->Mass;
-        CardCost = this->Cost;
-        AtkOnlyBuildings = this->AtkOnlyBuild;
-        CardAtkRange = this->AtkRange;
-        CardHealEffect = this->HealEffect;
+        this->CardName = Name;
+        this->CardTexture = Texture;
+        this->CardHealth = Health;
+        this->CardDamage = Damage;
+        this->CardAttackSpeed = AttackSpeed;
+        this->CardMoveSpeed = MoveSpeed;
+        this->CardType = Type;
+        this->FlyingCard = Flying;
+        this->CardAtkAirAlso = AtkAirAlso;
+        this->CardMass = Mass;
+        this->CardCost = Cost;
+        this->AtkOnlyBuildings = AtkOnlyBuild;
+        this->CardAtkRange = AtkRange;
+        this->CardHealEffect = HealEffect;
     }
     
     void Deploy() {
@@ -90,20 +90,20 @@ class Trainer {
     Trainer();
     
     void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
-        TrainerName = this->Name;
-        TexturePath = this->Texture;
-        TrainerHealth = this->Health;
-        TrainerDamage = this->Damage;
-        TrainerAtkSpeed = this->AtkSpeed;
-        TrainerAtkRange = this->AtkRange;
+        this->TrainerName = Name;
+        this->TexturePath = Texture;
+        this->TrainerHealth = Health;
+        this->TrainerDamage = Damage;
+        this->TrainerAtkSpeed = AtkSpeed;
+        this->TrainerAtkRange = AtkRange;
     }
     
     void ReceiveDamage(int Damage) {
-        TrainerHealth -= Damage;
+        this->TrainerHealth -= Damage;
     }
     
     void CheckHP() {
-        if(TrainerHealth <= 0) {
+        if(this->TrainerHealth <= 0) {
            std::cout << "Trainer has been defeated" <<std::endl;
         }
     }
