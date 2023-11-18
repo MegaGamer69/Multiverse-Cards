@@ -43,20 +43,20 @@ class Card {
     Card();
     
     void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AttackSpeed, float MoveSpeed, const std::string Type, bool Flying, bool AtkAirAlso, int Mass, int Cost, bool AtkOnlyBuild, float AtkRange, int HealEffect) {
-        CardName = this.Name;
-        CardTexture = this.Texture;
-        CardHealth = this.Health;
-        CardDamage = this.Damage;
-        CardAttackSpeed = this.AttackSpeed;
-        CardMoveSpeed = this.MoveSpeed;
-        CardType = this.Type;
-        FlyingCard = this.Flying;
-        CardAtkAirAlso = this.AtkAirAlso;
-        CardMass = this.Mass;
-        CardCost = this.Cost;
-        AtkOnlyBuildings = this.AtkOnlyBuild;
-        CardAtkRange = this.AtkRange;
-        CardHealEffect = this.HealEffect;
+        CardName = this->Name;
+        CardTexture = this->Texture;
+        CardHealth = this->Health;
+        CardDamage = this->Damage;
+        CardAttackSpeed = this->AttackSpeed;
+        CardMoveSpeed = this->MoveSpeed;
+        CardType = this->Type;
+        FlyingCard = this->Flying;
+        CardAtkAirAlso = this->AtkAirAlso;
+        CardMass = this->Mass;
+        CardCost = this->Cost;
+        AtkOnlyBuildings = this->AtkOnlyBuild;
+        CardAtkRange = this->AtkRange;
+        CardHealEffect = this->HealEffect;
     }
     
     void Deploy() {
@@ -90,12 +90,12 @@ class Trainer {
     Trainer();
     
     void setStatus(const std::string Name, const std::string Texture, int Health, int Damage, float AtkSpeed, float AtkRange) {
-        TrainerName = Name;
-        TexturePath = Texture;
-        TrainerHealth = Health;
-        TrainerDamage = Damage;
-        TrainerAtkSpeed = AtkSpeed;
-        TrainerAtkRange = AtkRange;
+        TrainerName = this->Name;
+        TexturePath = this->Texture;
+        TrainerHealth = this->Health;
+        TrainerDamage = this->Damage;
+        TrainerAtkSpeed = this->AtkSpeed;
+        TrainerAtkRange = this->AtkRange;
     }
     
     void ReceiveDamage(int Damage) {
