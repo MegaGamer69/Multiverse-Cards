@@ -11,15 +11,18 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Clang
+    - name: Set up G++
       run: |
         sudo apt-get update
-        sudo apt-get install clang
-        clang --version
+        sudo apt-get install gcc
       shell: bash
+    
+    - name: Install MAKE
+      run: |
+       sudo apt-get install make
 
-    - name: Compile with CLang++
-      run: clang++ -o multiverse_shit -I/SFML source/Main.cpp
+    - name: Compile with MAKE
+      run: make
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v2
