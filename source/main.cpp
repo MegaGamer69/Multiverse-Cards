@@ -13,7 +13,37 @@
 #include <vector>
 #include <iostream>
 
+/* include the CURL library */
+#include "../CURL/curl.h"
+
 #endif
+
+size_t WriteCallback(void* Contents, size_t Size, size_t NMemb, std::string* Output) {
+    size_t TotalSize = Size * NMemb;
+    Output->append(static_cast<char*>(Contents), TotalSize);
+}
+
+std::string GetLatestReleaseVersion() {
+    CURL* LinkedCURL;
+    CURLCode Res;
+    std::string ReadBuffer;
+    
+    curl_global_init(CURL_GLOBAL_DEFAULT);
+    LinkedCURL = curl_easy_init();
+    
+    if(LinkedCURL) {
+        curl_easy_setopt(CURLOPT_URL, "https://github.com/repos/MegaGamer69/MultiverseCards/releases/latest");
+        curl_easy_setopt(LinkedCURL, CURLOPT_FOLLOWLOCATION, 1L);
+        curl_easy_setopt(LinkedCURL, CURLOPT_WRITEFUNCTION, WriteCallback);
+        curl_easy_setopt(LinkedCURL, CURLOPT_WRITEDATA, &read_buffer);
+        
+        Res = curl_easy_perform(LinkedCURL);
+        
+        curl_easy_cleanup(LinkedCURL);
+    }
+    
+    curl_global_cleanup();
+}
 
 /* the most important in-game character, if your trainer has been defeated, you lose */
 class Trainer {
