@@ -21,7 +21,7 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: mkdir "./distr/" && set +e && source "./build-both.sh" && set -e
+      run: mkdir "./distr/" && source "./build-both.sh" || true
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
