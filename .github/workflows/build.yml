@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up GCC and CSFML dependencies
       run: |
@@ -21,10 +21,10 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: ./build-both.sh
+      run: mkdir "./distr/" && source "./build-both.sh"
     
     - name: OOOOOOOMAGA
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: shit
         path: ./distr/mcards
