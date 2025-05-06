@@ -1,6 +1,7 @@
 name: Build my shitty game
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,18 +12,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up G++
+    - name: Set up GCC and CSFML dependencies
       run: |
         sudo apt-get update
         sudo apt-get install gcc
+        sudo apt-get install libcsfml-dev
+        sudo apt-get install libsfml-dev
       shell: bash
-    
-    - name: Install MAKE
-      run: |
-       sudo apt-get install make
-
-    - name: Compile with MAKE
-      run: make
+      
+    - name: Compile for Linux and Windows
+      run: ./build-both.sh
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v2
