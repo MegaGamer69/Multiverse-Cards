@@ -21,7 +21,7 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: ./build-both.sh || true && zip distr.zip distr/
+      run: ./build-both.sh || true && sudo zip distr.zip distr/
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
