@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  linux:
+    name: Linux
     runs-on: ubuntu-latest
 
     steps:
@@ -21,16 +21,35 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: mkdir "./distr/" && source "./build-both.sh" || true
+      run: mkdir "./distr/" && source "./build-linux.sh" || true
     
-    - name: OOOOOOOMAGA 1
+    - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
         name: shit
         path: ./distr/mcards
+  windows:
+    name: Windows
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up GCC and CSFML dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install gcc
+        sudo apt-get install libcsfml-dev
+        sudo apt-get install libsfml-dev
+      shell: bash
+      
+    - name: Compile for Linux and Windows
+      run: mkdir "./distr/" && source "./build-windows.sh" || true
     
-    - name: OOOOOOOMAGA 2
+    - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
         name: shit
         path: ./distr/mcards.exe
+
