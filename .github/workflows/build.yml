@@ -21,11 +21,11 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: ./build-both.sh || true
+      run: ./build-both.sh || true && zip distr.zip distr/
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
         name: binaries-shit
-        path: ./distr
+        path: distr.zip
 
