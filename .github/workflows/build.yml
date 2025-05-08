@@ -23,6 +23,8 @@ jobs:
     - name: Compile for Linux and Windows
       run: |
        chmod 777 ./build-both.sh
+       chmod 777 ./build-linux.sh
+       chmod 777 ./build-windows.sh
        ./build-both.sh || true
        sudo zip distr.zip ./distr/mcards ./distr/mcards.exe
     
