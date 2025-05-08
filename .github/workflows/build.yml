@@ -26,8 +26,9 @@ jobs:
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
-        name: shit
+        name: shit-1
         path: ./distr/mcards
+  
   windows:
     name: Windows
     runs-on: ubuntu-latest
@@ -50,6 +51,6 @@ jobs:
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
-        name: shit
+        name: shit-2
         path: ./distr/mcards.exe
 
