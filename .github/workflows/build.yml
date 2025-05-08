@@ -26,6 +26,6 @@ jobs:
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
       with:
-        name: shit-1
-        path: ./distr
+        name: shit
+        path: ./distr/*
 
