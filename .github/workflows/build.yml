@@ -21,7 +21,10 @@ jobs:
       shell: bash
       
     - name: Compile for Linux and Windows
-      run: ./build-both.sh || true && sudo zip distr.zip distr/
+      run: |
+       chmod 777 ./build-both.sh
+       ./build-both.sh || true
+       sudo zip distr.zip ./distr/mcards ./distr/mcards.exe
     
     - name: OOOOOOOMAGA
       uses: actions/upload-artifact@v4
