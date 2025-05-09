@@ -6,4 +6,4 @@ fi
 
 echo "Buildando para Windows"
 
-gcc ./source/c/mcards.c -o distr/mcards.exe -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -O2
+gcc ./source/c/main.c -o distr/mcards.exe -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -O2
