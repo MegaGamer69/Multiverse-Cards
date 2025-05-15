@@ -1,9 +1,9 @@
-if [ -e "./distr/mcards.exe" ]; then
+if [ -e "./distr/bin/mcards.exe" ]; then
 	echo "Limpando o diretório de buildagem"
 	
-	rm -rf "./distr/mcards.exe"
+	rm -rf "./distr/bin/mcards.exe"
 fi
 
 echo "Buildando para Windows"
 
-gcc ./source/c/main.c -o distr/mcards.exe -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -O2
+gcc ./source/c/main.c -o "./distr/bin/mcards.exe" -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -O2

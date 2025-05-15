@@ -6,6 +6,10 @@
 #include <SFML/Graphics.h>
 #include <MCards/mcards.h>
 
+#include <MCards/cards/gravedigger.h>
+#include <MCards/cards/indians.h>
+#include <MCards/cards/pelican.h>
+
 #define MAX_CARD_TEXTURES 26
 
 sfTexture* g_CardTextures[MAX_CARD_TEXTURES];
@@ -30,7 +34,8 @@ sfTexture* mc_LoadTexture(const char* path) {
 	sfTexture* newTexture = sfTexture_createFromFile(path, NULL);
 	
 	if(newTexture && g_CardTextureCount < MAX_CARD_TEXTURES) {
-		strncpy(g_TexturePaths[g_CardTextureCount], path, sizeof(g_TexturePaths[0]));
+		strncpy(g_TexturePaths[g_CardTextureCount], path, sizeof(g_TexturePaths[0]) - 1);
+		g_TexturePaths[g_CardTextureCount][sizeof(g_TexturePaths[0]) - 1] = '\0';
 		
 		g_CardTextures[g_CardTextureCount] = newTexture;
 		g_CardTextureCount++;
@@ -74,7 +79,7 @@ void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f pos) {
 
 void mc_DrawClientDeck(sfRenderWindow* window, mc_PlayerDeck* deck) {
 	for(size_t i = 0; i < 4; i++) {
-		sfVector2f pos = {50 + (i * 180), 640};
+		sfVector2f pos = {75 + (i * 140), 400};
 		
 		mc_DrawCard(window, &deck->d_DeckCards[i], pos);
 	}

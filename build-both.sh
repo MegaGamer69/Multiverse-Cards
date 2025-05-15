@@ -2,6 +2,7 @@
 
 if [[ ! -e "./distr" ]]; then
 	mkdir "./distr"
+	mkdir "./distr/bin"
 fi
 
 ./build-linux.sh

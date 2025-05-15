@@ -1,6 +1,8 @@
 #ifndef MCARDS_INIT_HEADER
 #define MCARDS_INIT_HEADER
 
+#include <stdlib.h>
+
 // Tipos de ataques
 
 typedef enum {
@@ -223,6 +225,8 @@ mc_Spell mc_CreateSpell(const char*   name,
 	return instance;
 }
 
+// As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
+
 void mc_UpgradeCard(const char*    name,
                     unsigned int*  level,
                     int*           baseHealth,
@@ -283,6 +287,20 @@ mc_PlayerDeck mc_CreatePlayerDeck(mc_Hero hero,
 	deck.d_SelectedHero = hero;
 	
 	return deck;
+}
+
+/**
+ * Embaralhe o deck para dar imprevibilidades no mesmo
+ */
+void mc_ShufflePlayerDeck(mc_PlayerDeck* deck) {
+	for(size_t i = deck->d_CardCount - 1; i > 0; i--) {
+		size_t j = rand() % (i + 1);
+		
+		mc_Card temp = deck->d_DeckCards[i];
+		
+		deck->d_DeckCards[i] = deck->d_DeckCards[j];
+		deck->d_DeckCards[j] = temp;
+	}
 }
 
 #endif
