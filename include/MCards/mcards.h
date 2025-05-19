@@ -29,16 +29,15 @@ typedef enum {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[128];
-	char          i_ClassID[128];
-	unsigned int  i_Level;
-	int           i_BaseHealth;
-	int           i_BaseDamage;
-	int           i_Health;
-	int           i_Damage;
-	float         i_ARange;
-	float         i_ATimer;
-	mc_LoreArch   i_LArch;
+	char         i_Name[128];
+	char         i_ClassID[128];
+	unsigned int i_Level;
+	unsigned int i_BaseHealth;
+	unsigned int i_BaseDamage;
+	unsigned int i_Health;
+	unsigned int i_Damage;
+	float        i_ARange;
+	float        i_ATimer;
 } mc_Hero;
 
 // Tropa
@@ -48,17 +47,14 @@ typedef struct {
 	
 	char          i_Name[128];
 	char          i_ClassID[128];
-	unsigned int  i_Level;
-	int           i_CDCost;
-	int           i_BaseHealth;
-	int           i_BaseDamage;
-	int           i_Health;
-	int           i_Damage;
+	unsigned int  i_BaseHealth;
+	unsigned int  i_BaseDamage;
+	unsigned int  i_Health;
+	unsigned int  i_Damage;
 	mc_AttackType i_AtType;
 	float         i_ARange;
 	float         i_ATimer;
 	float         i_MSpeed;
-	mc_LoreArch   i_LArch;
 } mc_Troop;
 
 // Construção
@@ -69,15 +65,14 @@ typedef struct {
 	char          i_Name[128];
 	char          i_ClassID[128];
 	unsigned int  i_Level;
-	int           i_CDCost;
-	int           i_BaseHealth;
-	int           i_BaseDamage;
-	int           i_Health;
-	int           i_Damage;
+	unsigned int  i_CDCost;
+	unsigned int  i_BaseHealth;
+	unsigned int  i_BaseDamage;
+	unsigned int  i_Health;
+	unsigned int  i_Damage;
 	mc_AttackType i_AtType;
 	float         i_ARange;
 	float         i_ATimer;
-	mc_LoreArch   i_LArch;
 } mc_Build;
 
 // Feitiço
@@ -87,15 +82,12 @@ typedef struct {
 	
 	char          i_Name[128];
 	char          i_ClassID[128];
-	unsigned int  i_Level;
-	int           i_CDCost;
-	int           i_BaseDamage;
-	int           i_Damage;
+	unsigned int  i_BaseDamage;
+	unsigned int  i_Damage;
 	mc_AttackType i_AtType;
 	float         i_ARange;
 	float         i_ATimer;
 	float         i_Duration;
-	mc_LoreArch   i_LArch;
 } mc_Spell;
 
 typedef enum {
@@ -105,23 +97,53 @@ typedef enum {
 } mc_CardType;
 
 typedef struct {
-	mc_CardType i_Type;
+	char         i_ClassID[128];
+	mc_CardType  i_Type;
+	unsigned int i_Level;
+	unsigned int i_CDCost;
 	
 	union {
 		mc_Troop i_Troop;
 		mc_Spell i_Spell;
 		mc_Build i_Build;
 	};
+	
+	mc_LoreArch  i_LArch;
 } mc_Card;
 
-// Heróis servem para o jogador defender (nem sempre precisa priorizar e defender)
+mc_Card mc_CreateCard(const char*  name,
+                      const char*  classID,
+                      unsigned int level,
+                      mc_LoreArch  loreArch,
+                      unsigned int cost,
+                      mc_Troop     troop,
+                      mc_Build     build,
+                      mc_Spell     spell) {
+	mc_Card instance;
+	
+	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
+	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
+	
+	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
+	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
+	instance.i_Level = level;
+	instance.i_LArch = loreArch;
+	instance.i_CDCost = cost;
+	instance.i_Troop = troop;
+	instance.i_Build = build;
+	instance.i_Spell = spell;
+	
+	return instance;
+}
 
-mc_Hero mc_CreateHero(const    char* name,
-                      const    char* classID,
-                      unsigned int   health,
-                      unsigned int   damage,
-                      float          range,
-                      float          attackTime) {
+// Heróis servem para o jogador defender (evite desperdicios)
+
+mc_Hero mc_CreateHero(const char*  name,
+                      const char*  classID,
+                      unsigned int health,
+  					  unsigned int damage,
+                      float        range,
+                      float        attackTime) {
 	mc_Hero instance;
 	
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
@@ -140,24 +162,14 @@ mc_Hero mc_CreateHero(const    char* name,
 	return instance;
 }
 
-mc_Troop mc_CreateTroop(const    char* name, 
-                        const    char* classID,
-					    unsigned int   cost,
-					    unsigned int   health,
-					    unsigned int   damage,
-					    mc_AttackType  atType,
-					    float          range,
-					    float          attackTime,
-					    float          movSpeed) {
+mc_Troop mc_CreateTroop(unsigned int  health,
+  					    unsigned int  damage,
+					    mc_AttackType atType,
+					    float         range,
+					    float         attackTime,
+					    float         movSpeed) {
 	mc_Troop instance;
 	
-	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
-	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
-	
-	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
-	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
-	instance.i_Level = 1;
-	instance.i_CDCost = cost;
 	instance.i_BaseHealth = health;
 	instance.i_BaseDamage = damage;
 	instance.i_Health = health;
@@ -170,23 +182,13 @@ mc_Troop mc_CreateTroop(const    char* name,
 	return instance;
 }
 
-mc_Build mc_CreateBuild(const    char* name,
-                        const    char* classID,
-					    unsigned int   cost,
-					    unsigned int   health,
-  					    unsigned int   damage,
-  					    mc_AttackType  atType,
-  					    float          range,
-            			float          attackTime) {
+mc_Build mc_CreateBuild(unsigned int  health,
+  					    unsigned int  damage,
+  					    mc_AttackType atType,
+  					    float         range,
+            			float         attackTime) {
 	mc_Build instance;
 	
-	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
-	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
-	
-	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
-	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
-	instance.i_Level = 1;
-	instance.i_CDCost = cost;
 	instance.i_BaseHealth = health;
 	instance.i_BaseDamage = damage;
 	instance.i_Health = health;
@@ -198,10 +200,7 @@ mc_Build mc_CreateBuild(const    char* name,
 	return instance;
 }
 
-mc_Spell mc_CreateSpell(const char*   name,
-                        const char*   classID,
-					    unsigned int  cost,
-  					    unsigned int  damage,
+mc_Spell mc_CreateSpell(unsigned int  damage,
   					    mc_AttackType atType,
   					    float         range,
             			float         attackTime,
@@ -209,12 +208,8 @@ mc_Spell mc_CreateSpell(const char*   name,
 	mc_Spell instance;
 	
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
-	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
 	
 	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
-	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
-	instance.i_Level = 1;
-	instance.i_CDCost = cost;
 	instance.i_BaseDamage = damage;
 	instance.i_Damage = damage;
 	instance.i_AtType = atType;
@@ -227,12 +222,12 @@ mc_Spell mc_CreateSpell(const char*   name,
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
 
-void mc_UpgradeCard(const char*    name,
-                    unsigned int*  level,
-                    int*           baseHealth,
-                    int*           baseDamage,
-                    int*           health,
-                    int*           damage) {
+void mc_UpgradeCard(const char*   name,
+                    unsigned int* level,
+                    unsigned int* baseHealth,
+                    unsigned int* baseDamage,
+                    unsigned int* health,
+                    unsigned int* damage) {
 	if(*level >= CARD_MAX_LEVEL) {
 		return;
 	}
@@ -245,10 +240,10 @@ void mc_UpgradeCard(const char*    name,
 
 void mc_UpgradeHero(const char*   name,
                     unsigned int* level,
-                    int*          baseHealth,
-                    int*          baseDamage,
-                    int*          health,
-                    int*          damage) {
+                    unsigned int* baseHealth,
+                    unsigned int* baseDamage,
+                    unsigned int* health,
+                    unsigned int* damage) {
 	if(*level >= HERO_MAX_LEVEL) {
 		return;
 	}

@@ -5,10 +5,7 @@
 #include <string.h>
 #include <SFML/Graphics.h>
 #include <MCards/mcards.h>
-
-#include <MCards/cards/gravedigger.h>
-#include <MCards/cards/indians.h>
-#include <MCards/cards/pelican.h>
+#include <zip.h>
 
 #define MAX_CARD_TEXTURES 26
 
@@ -16,50 +13,82 @@ sfTexture* g_CardTextures[MAX_CARD_TEXTURES];
 char g_TexturePaths[MAX_CARD_TEXTURES][256];
 size_t g_CardTextureCount = 0;
 
-const char* mc_GetTextureFromClassID(const char* classID) {
-	static char buffer[256];
+zip_t* g_GlobalZIPFile = NULL;
+
+void mc_OpenZIPFile(const char* zipPath) {
+	int error = 0;
+	
+	g_GlobalZIPFile = zip_open(zipPath, ZIP_RDONLY, &error);
+	
+	if(!g_GlobalZIPFile) {
+		fprintf(stderr, "ALERTA: a porra do arquivo zip solicitado TALVEZ não seja válida, recomendo confirmar e beba água. (código de erro: %d\n)", error);
+	}
+}
+
+void mc_CloseZIPFile() {
+	if(g_GlobalZIPFile) zip_close(g_GlobalZIPFile);
+	
+	g_GlobalZIPFile = NULL;
+}
+
+const char* mc_GetZIPCardPath(const char* classID) {
+	static char buffer[512];
 	
 	snprintf(buffer, sizeof(buffer), "assets/cards/%s.png", classID);
 	
 	return buffer;
 }
 
-sfTexture* mc_LoadTexture(const char* path) {
-	for(size_t i = 0; i < g_CardTextureCount; ++i) {
-		if(strcmp(g_TexturePaths[i], path) == 0) {
-			return g_CardTextures[i];
-		}
-	}
+sfTexture* mc_GetTextureFromZIPFile(const char* fileName) {
+	zip_int64_t index = zip_name_locate(g_GlobalZIPFile, fileName, 0);
 	
-	sfTexture* newTexture = sfTexture_createFromFile(path, NULL);
-	
-	if(newTexture && g_CardTextureCount < MAX_CARD_TEXTURES) {
-		strncpy(g_TexturePaths[g_CardTextureCount], path, sizeof(g_TexturePaths[0]) - 1);
-		g_TexturePaths[g_CardTextureCount][sizeof(g_TexturePaths[0]) - 1] = '\0';
+	if(index < 0) {
+		fprintf(stderr, "ALERTA: não há evidência do arquivo %s, desculpe pelo imprevisto (o índice é menor que zero).\n", fileName);
 		
-		g_CardTextures[g_CardTextureCount] = newTexture;
-		g_CardTextureCount++;
+		return NULL;
 	}
 	
-	return newTexture;
+	zip_file_t* file = zip_fopen_index(g_GlobalZIPFile, index, 0);
+	
+	if(!file) {
+		fprintf(stderr, "ALERTA: não há evidência do arquivo %s, desculpe pelo imprevisto (não pôde ler esta merda, sentimos muito).\n", fileName);
+		
+		return NULL;
+	}
+	
+	struct zip_stat stat;
+	
+	zip_stat_init(&stat);
+	zip_stat_index(g_GlobalZIPFile, index, 0, &stat);
+	
+	void* buffer = malloc(stat.size);
+	
+	if(!buffer) {
+		fprintf(stderr, "ALERTA VERMELHO: falha ao alocar a desgraça da RAM...\n");
+		zip_fclose(file);
+		
+		return NULL;
+	}
+	
+	zip_fread(file, buffer, stat.size);
+	
+	sfTexture* texture = sfTexture_createFromMemory(buffer, stat.size, NULL);
+	
+	free(buffer);
+	zip_fclose(file);
+	
+	return texture;
 }
 
 void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f pos) {
 	sfTexture* texture = NULL;
 	
-	switch(card->i_Type) {
-		case CARD_TROOP:
-			texture = mc_LoadTexture(mc_GetTextureFromClassID(card->i_Troop.i_ClassID));
-			
-			break;
-		case CARD_BUILD:
-			texture = mc_LoadTexture(mc_GetTextureFromClassID(card->i_Build.i_ClassID));
-			
-			break;
-		case CARD_SPELL:
-			texture = mc_LoadTexture(mc_GetTextureFromClassID(card->i_Spell.i_ClassID));
-			
-			break;
+	const char* classID = NULL;
+	
+	classID = card->i_ClassID;
+	
+	if(classID) {
+		texture = mc_GetTextureFromZIPFile(mc_GetZIPCardPath(classID));
 	}
 	
 	sfRectangleShape* cardShape = sfRectangleShape_create();

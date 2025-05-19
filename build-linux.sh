@@ -6,4 +6,4 @@ fi
 
 echo "Buildando para Linux"
 
-gcc ./source/c/main.c -o "./distr/bin/mcards" -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -O2
+gcc ./source/c/main.c -o "./distr/bin/mcards" -I./include -lcsfml-graphics -lcsfml-window -lcsfml-system -lzip -O2
