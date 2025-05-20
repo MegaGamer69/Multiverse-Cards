@@ -3,6 +3,14 @@
 
 #include <stdlib.h>
 
+#define CARD_MAX_LEVEL       9 // Tropas, construções e feitiços são cartas! os heróis... bem, eles não...
+#define HERO_MAX_LEVEL      12 // HERÓIS NÃO SÃO CARTAS! LEMBRE-SE DISSO
+
+#define MAX_CARDS_PER_DECK   8 // Basicamente um Clash Royale haha!
+#define MAX_HEROES_PER_DECK  1 // Balanceamento, já que teria que defender dois heróis ao mesmo tempo
+#define CARDS_TO_RENDER      4 // Número de cartas para a mão principal
+#define MAX_CHAR_PER_FIELD 256 // Número máximo de caracteres por cada array como nome, ID de classe... SEU CPF-
+
 // Tipos de ataques
 
 typedef enum {
@@ -29,8 +37,8 @@ typedef enum {
 typedef struct {
 	// Dados de atributos
 	
-	char         i_Name[128];
-	char         i_ClassID[128];
+	char         i_Name[MAX_CHAR_PER_FIELD];
+	char         i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int i_Level;
 	unsigned int i_BaseHealth;
 	unsigned int i_BaseDamage;
@@ -45,8 +53,8 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[128];
-	char          i_ClassID[128];
+	char          i_Name[MAX_CHAR_PER_FIELD];
+	char          i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int  i_BaseHealth;
 	unsigned int  i_BaseDamage;
 	unsigned int  i_Health;
@@ -62,8 +70,8 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[128];
-	char          i_ClassID[128];
+	char          i_Name[MAX_CHAR_PER_FIELD];
+	char          i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int  i_Level;
 	unsigned int  i_CDCost;
 	unsigned int  i_BaseHealth;
@@ -80,8 +88,8 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[128];
-	char          i_ClassID[128];
+	char          i_Name[MAX_CHAR_PER_FIELD];
+	char          i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int  i_BaseDamage;
 	unsigned int  i_Damage;
 	mc_AttackType i_AtType;
@@ -97,7 +105,8 @@ typedef enum {
 } mc_CardType;
 
 typedef struct {
-	char         i_ClassID[128];
+	char         i_Name[MAX_CHAR_PER_FIELD];
+	char         i_ClassID[MAX_CHAR_PER_FIELD];
 	mc_CardType  i_Type;
 	unsigned int i_Level;
 	unsigned int i_CDCost;
@@ -111,14 +120,12 @@ typedef struct {
 	mc_LoreArch  i_LArch;
 } mc_Card;
 
-mc_Card mc_CreateCard(const char*  name,
-                      const char*  classID,
-                      unsigned int level,
-                      mc_LoreArch  loreArch,
-                      unsigned int cost,
-                      mc_Troop     troop,
-                      mc_Build     build,
-                      mc_Spell     spell) {
+static inline mc_Card mc_CreateCardTroop(const char*  name,
+                                         const char*  classID,
+                                         unsigned int level,
+                                         mc_LoreArch  loreArch,
+                                         unsigned int cost,
+                                         mc_Troop     troop) {
 	mc_Card instance;
 	
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
@@ -129,8 +136,51 @@ mc_Card mc_CreateCard(const char*  name,
 	instance.i_Level = level;
 	instance.i_LArch = loreArch;
 	instance.i_CDCost = cost;
+	instance.i_Type = CARD_TROOP;
 	instance.i_Troop = troop;
+	
+	return instance;
+}
+
+static inline mc_Card mc_CreateCardBuild(const char*  name,
+                                         const char*  classID,
+                                         unsigned int level,
+                                         mc_LoreArch  loreArch,
+                                         unsigned int cost,
+                                         mc_Build     build) {
+	mc_Card instance;
+	
+	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
+	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
+	
+	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
+	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
+	instance.i_Level = level;
+	instance.i_LArch = loreArch;
+	instance.i_CDCost = cost;
+	instance.i_Type = CARD_BUILD;
 	instance.i_Build = build;
+	
+	return instance;
+}
+
+static inline mc_Card mc_CreateCardSpell(const char*  name,
+                                         const char*  classID,
+                                         unsigned int level,
+                                         mc_LoreArch  loreArch,
+                                         unsigned int cost,
+                                         mc_Spell     spell) {
+	mc_Card instance;
+	
+	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
+	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
+	
+	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
+	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
+	instance.i_Level = level;
+	instance.i_LArch = loreArch;
+	instance.i_CDCost = cost;
+	instance.i_Type = CARD_SPELL;
 	instance.i_Spell = spell;
 	
 	return instance;
@@ -138,7 +188,7 @@ mc_Card mc_CreateCard(const char*  name,
 
 // Heróis servem para o jogador defender (evite desperdicios)
 
-mc_Hero mc_CreateHero(const char*  name,
+static inline mc_Hero mc_CreateHero(const char*  name,
                       const char*  classID,
                       unsigned int health,
   					  unsigned int damage,
@@ -162,7 +212,7 @@ mc_Hero mc_CreateHero(const char*  name,
 	return instance;
 }
 
-mc_Troop mc_CreateTroop(unsigned int  health,
+static inline mc_Troop mc_CreateTroop(unsigned int  health,
   					    unsigned int  damage,
 					    mc_AttackType atType,
 					    float         range,
@@ -182,7 +232,7 @@ mc_Troop mc_CreateTroop(unsigned int  health,
 	return instance;
 }
 
-mc_Build mc_CreateBuild(unsigned int  health,
+static inline mc_Build mc_CreateBuild(unsigned int  health,
   					    unsigned int  damage,
   					    mc_AttackType atType,
   					    float         range,
@@ -200,16 +250,13 @@ mc_Build mc_CreateBuild(unsigned int  health,
 	return instance;
 }
 
-mc_Spell mc_CreateSpell(unsigned int  damage,
+static inline mc_Spell mc_CreateSpell(unsigned int  damage,
   					    mc_AttackType atType,
   					    float         range,
             			float         attackTime,
             			float         duration) {
 	mc_Spell instance;
 	
-	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
-	
-	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
 	instance.i_BaseDamage = damage;
 	instance.i_Damage = damage;
 	instance.i_AtType = atType;
@@ -222,7 +269,7 @@ mc_Spell mc_CreateSpell(unsigned int  damage,
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
 
-void mc_UpgradeCard(const char*   name,
+static inline void mc_UpgradeCard(const char*   name,
                     unsigned int* level,
                     unsigned int* baseHealth,
                     unsigned int* baseDamage,
@@ -238,7 +285,7 @@ void mc_UpgradeCard(const char*   name,
 	*damage = (int)((*baseDamage) * (1.0f + 0.25f * (*level - 1)));
 }
 
-void mc_UpgradeHero(const char*   name,
+static inline void mc_UpgradeHero(const char*   name,
                     unsigned int* level,
                     unsigned int* baseHealth,
                     unsigned int* baseDamage,
@@ -256,8 +303,8 @@ void mc_UpgradeHero(const char*   name,
 
 // Campos globais
 
-sfRenderWindow* mc_GameWindow;
-sfFont* mc_GameTextualFont;
+static sfRenderWindow* mc_GameWindow;
+static sfFont* mc_GameTextualFont;
 
 // Baralho do jogador
 
@@ -270,7 +317,7 @@ typedef struct {
 /**
  * Cria um deck para o jogador com um herói e oito cartas exatamente
  */
-mc_PlayerDeck mc_CreatePlayerDeck(mc_Hero hero,
+static inline mc_PlayerDeck mc_CreatePlayerDeck(mc_Hero hero,
                                   mc_Card cards[],
                                   size_t  cardCount) {
 	mc_PlayerDeck deck;
@@ -287,7 +334,7 @@ mc_PlayerDeck mc_CreatePlayerDeck(mc_Hero hero,
 /**
  * Embaralhe o deck para dar imprevibilidades no mesmo
  */
-void mc_ShufflePlayerDeck(mc_PlayerDeck* deck) {
+static inline void mc_ShufflePlayerDeck(mc_PlayerDeck* deck) {
 	for(size_t i = deck->d_CardCount - 1; i > 0; i--) {
 		size_t j = rand() % (i + 1);
 		

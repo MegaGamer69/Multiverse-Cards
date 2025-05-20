@@ -7,15 +7,20 @@
 #include <MCards/mcards.h>
 #include <zip.h>
 
-#define MAX_CARD_TEXTURES 26
+#define MAX_CARD_TEXTURES  26
 
-sfTexture* g_CardTextures[MAX_CARD_TEXTURES];
-char g_TexturePaths[MAX_CARD_TEXTURES][256];
-size_t g_CardTextureCount = 0;
+#define CARD_WIDTH        120 // Tamanho de largura da carta
+#define CARD_HEIGHT       171 // Tamango de altura da carta
+#define DECK_POS_Y        400 // Posição de início do alinhamento vertical... OH YEAH
+#define PLAY_AREA_MAX_Y   300 // O máximo que você pode posicionar sua carta!
 
-zip_t* g_GlobalZIPFile = NULL;
+static sfTexture* g_CardTextures[MAX_CARD_TEXTURES];
+static char g_TexturePaths[MAX_CARD_TEXTURES][256];
+static size_t g_CardTextureCount = 0;
 
-void mc_OpenZIPFile(const char* zipPath) {
+static zip_t* g_GlobalZIPFile = NULL;
+
+static inline void mc_OpenZIPFile(const char* zipPath) {
 	int error = 0;
 	
 	g_GlobalZIPFile = zip_open(zipPath, ZIP_RDONLY, &error);
@@ -25,13 +30,13 @@ void mc_OpenZIPFile(const char* zipPath) {
 	}
 }
 
-void mc_CloseZIPFile() {
+static inline void mc_CloseZIPFile() {
 	if(g_GlobalZIPFile) zip_close(g_GlobalZIPFile);
 	
 	g_GlobalZIPFile = NULL;
 }
 
-const char* mc_GetZIPCardPath(const char* classID) {
+static inline const char* mc_GetZIPCardPath(const char* classID) {
 	static char buffer[512];
 	
 	snprintf(buffer, sizeof(buffer), "assets/cards/%s.png", classID);
@@ -39,7 +44,7 @@ const char* mc_GetZIPCardPath(const char* classID) {
 	return buffer;
 }
 
-sfTexture* mc_GetTextureFromZIPFile(const char* fileName) {
+static inline sfTexture* mc_GetTextureFromZIPFile(const char* fileName) {
 	zip_int64_t index = zip_name_locate(g_GlobalZIPFile, fileName, 0);
 	
 	if(index < 0) {
@@ -80,7 +85,7 @@ sfTexture* mc_GetTextureFromZIPFile(const char* fileName) {
 	return texture;
 }
 
-void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f pos) {
+static inline void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f pos) {
 	sfTexture* texture = NULL;
 	
 	const char* classID = NULL;
@@ -106,7 +111,7 @@ void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f pos) {
     sfRectangleShape_destroy(cardShape);
 }
 
-void mc_DrawClientDeck(sfRenderWindow* window, mc_PlayerDeck* deck) {
+static inline void mc_DrawClientDeck(sfRenderWindow* window, mc_PlayerDeck* deck) {
 	for(size_t i = 0; i < 4; i++) {
 		sfVector2f pos = {75 + (i * 140), 400};
 		
