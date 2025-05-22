@@ -132,20 +132,21 @@ int main() {
 	
 	mc_Troop mc_TroopList[] = {
 		mc_CreateTroop(400,  66,  ONLY_GROUND,           1.0f,  1.2f, 2.0f),
-		mc_CreateTroop(160,  40,  GROUND_AND_AIR,        4.0f,  1.0f, 2.0f),
-		mc_CreateTroop(777,  78,  ONLY_HERO_OR_BUILDING, 0.1f,  2.4f, 1.2f),
-		mc_CreateTroop(282,  60,  GROUND_AND_AIR,        5.5f,  1.1f, 2.0f),
+		mc_CreateTroop(100,  30,  GROUND_AND_AIR,        4.0f,  1.0f, 2.0f),
+		mc_CreateTroop(640,  73,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
+		mc_CreateTroop(293,  65,  GROUND_AND_AIR,        5.5f,  1.1f, 2.0f),
 		mc_CreateTroop(444,  98,  ONLY_GROUND,           0.5f,  1.6f, 2.5f),
 		mc_CreateTroop(360,  45,  ONLY_HERO_OR_BUILDING, 0.5f,  0.9f, 3.0f),
 		mc_CreateTroop(192,  55,  GROUND_AND_AIR,        1.2f,  1.1f, 1.5f),
+		mc_CreateTroop(44,   22,  GROUND_AND_AIR,        1.0f,  1.4f, 2.2f),
 		
-		mc_CreateTroop(893,  122, ONLY_GROUND,           1.0f,  1.9f, 1.0f),
+		mc_CreateTroop(712,  98,  ONLY_GROUND,           1.0f,  1.9f, 1.0f),
 		mc_CreateTroop(390,  77,  ONLY_GROUND,           1.0f,  1.4f, 2.0f),
 		
 		mc_CreateTroop(400,  53,  ONLY_GROUND,           1.0f,  1.1f, 2.5f),
 		mc_CreateTroop(290,  59,  GROUND_AND_AIR,        4.0f,  1.3f, 2.0f),
-		mc_CreateTroop(16,   12,  GROUND_AND_AIR,        0.5f,  1.5f, 1.5f),
-		mc_CreateTroop(860,  84,  ONLY_GROUND,           1.5f,  1.5f, 2.0f),
+		mc_CreateTroop(15,   12,  GROUND_AND_AIR,        0.5f,  1.5f, 1.5f),
+		mc_CreateTroop(930,  84,  ONLY_GROUND,           1.5f,  1.5f, 2.0f),
 		
 		mc_CreateTroop(397,  70,  GROUND_AND_AIR,        1.5f,  1.3f, 1.5f),
 		mc_CreateTroop(950,  98,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
@@ -158,7 +159,7 @@ int main() {
 	};
 	
 	mc_Build mc_BuildList[] = {
-		mc_CreateBuild(80,  166, GROUND_AND_AIR, 1.0f, 1.0f),
+		mc_CreateBuild(90,  100, GROUND_AND_AIR, 1.0f, 1.0f),
 		
 		mc_CreateBuild(520, 80,  ONLY_GROUND,    5.0f, 1.0f),
 		mc_CreateBuild(420, 20,  GROUND_AND_AIR, 9.0f, 0.4f),
@@ -166,8 +167,8 @@ int main() {
 	};
 	
 	mc_Spell mc_SpellList[] = {
-		mc_CreateSpell(200, GROUND_AND_AIR, 3.0f, 1.0f, 3.0f),
-		mc_CreateSpell(100, ONLY_GROUND,    1.5f, 0.1f, 5.0f),
+		mc_CreateSpell(70,  GROUND_AND_AIR, 3.0f, 1.0f, 3.0f),
+		mc_CreateSpell(90,  ONLY_GROUND,    1.5f, 0.1f, 5.0f),
 		
 		mc_CreateSpell(53,  GROUND_AND_AIR, 4.0f, 0.1f, 8.0f),
 		mc_CreateSpell(106, ONLY_GROUND,    3.0f, 1.0f, 3.0f),
@@ -178,54 +179,53 @@ int main() {
 	};
 	
 	mc_Card mc_CardList[] = {
-	    mc_CreateCardTroop("Gravedigger",      "gravedigger", 1, PIRATE_EPOCH,       3, mc_TroopList[0] ),
-	    mc_CreateCardTroop("Indians",          "indians",     1, PIRATE_EPOCH,       2, mc_TroopList[1] ),
-	    mc_CreateCardTroop("Pelican",          "pelican",     1, PIRATE_EPOCH,       5, mc_TroopList[2] ),
-	    mc_CreateCardBuild("Bomb",             "bomb",        1, PIRATE_EPOCH,       2, mc_BuildList[0] ),
-	    mc_CreateCardTroop("Bandit",           "bandit",      1, PIRATE_EPOCH,       4, mc_TroopList[3] ),
-	    mc_CreateCardTroop("L-Robot",          "lrobot",      1, PIRATE_EPOCH,       5, mc_TroopList[4] ),
-	    mc_CreateCardSpell("Storms",           "storms",      1, PIRATE_EPOCH,       4, mc_SpellList[0] ),
-	    mc_CreateCardSpell("Tsunami",          "tsunami",     1, PIRATE_EPOCH,       6, mc_SpellList[1] ),
-	    mc_CreateCardTroop("Capybaras",        "capy",        1, PIRATE_EPOCH,       5, mc_TroopList[5] ),
-	    mc_CreateCardTroop("Rope-Bombers",     "bombers",     1, PIRATE_EPOCH,       3, mc_TroopList[6] ),
+	    mc_CreateCardTroop("Gravedigger",      "gravedigger", 1, PIRATE_EPOCH,       3, mc_TroopList[0],  1),
+	    mc_CreateCardTroop("Indians",          "indians",     1, PIRATE_EPOCH,       2, mc_TroopList[1],  2),
+	    mc_CreateCardTroop("Pelican",          "pelican",     1, PIRATE_EPOCH,       5, mc_TroopList[2],  1),
+	    mc_CreateCardBuild("Bomb",             "bomb",        1, PIRATE_EPOCH,       3, mc_BuildList[0]    ),
+	    mc_CreateCardTroop("Bandit",           "bandit",      1, PIRATE_EPOCH,       4, mc_TroopList[3],  1),
+	    mc_CreateCardTroop("L-Robot",          "lrobot",      1, PIRATE_EPOCH,       5, mc_TroopList[4],  1),
+	    mc_CreateCardSpell("Storms",           "storm",       1, PIRATE_EPOCH,       3, mc_SpellList[0]    ),
+	    mc_CreateCardSpell("Tsunami",          "tsunami",     1, PIRATE_EPOCH,       5, mc_SpellList[1]    ),
+	    mc_CreateCardTroop("Capybaras",        "capy",        1, PIRATE_EPOCH,       4, mc_TroopList[5],  4),
+	    mc_CreateCardTroop("Rope-Bombers",     "bombers",     1, PIRATE_EPOCH,       3, mc_TroopList[6],  2),
+	    mc_CreateCardTroop("Bloody Seaguls",   "seaguls",     1, PIRATE_EPOCH,       2, mc_TroopList[7],  2),
 	    
-	    mc_CreateCardTroop("Crusher",          "crusher",     1, FEUDAL_JAPAN,       7, mc_TroopList[7] ),
-	    mc_CreateCardTroop("Samurai Hunter",   "shunter",     1, FEUDAL_JAPAN,       4, mc_TroopList[8] ),
+	    mc_CreateCardTroop("Crusher",          "crusher",     1, FEUDAL_JAPAN,       7, mc_TroopList[8],  1),
+	    mc_CreateCardTroop("Samurai Hunter",   "shunter",     1, FEUDAL_JAPAN,       4, mc_TroopList[9],  1),
 	    
-	    mc_CreateCardTroop("Plague Assasin",   "plaguek",     1, DARK_PLAGUE_ERA,    4, mc_TroopList[9] ),
-	    mc_CreateCardTroop("Ghost Musketeer",  "ghost",       1, DARK_PLAGUE_ERA,    3, mc_TroopList[10]),
-	    mc_CreateCardTroop("Mosquitoes",       "bugs",        1, DARK_PLAGUE_ERA,    2, mc_TroopList[11]),
-	    mc_CreateCardSpell("Scary Fog",        "fog",         1, DARK_PLAGUE_ERA,    4, mc_SpellList[2] ),
-	    mc_CreateCardTroop("Reaper",           "reaper",      1, DARK_PLAGUE_ERA,    6, mc_TroopList[12]),
-	    mc_CreateCardSpell("Sledgehammer",     "sledge",      1, DARK_PLAGUE_ERA,    5, mc_SpellList[3] ),
+	    mc_CreateCardTroop("Plague Assasin",   "plaguek",     1, DARK_PLAGUE_ERA,    4, mc_TroopList[10], 1),
+	    mc_CreateCardTroop("Ghost Musketeer",  "ghost",       1, DARK_PLAGUE_ERA,    3, mc_TroopList[11], 1),
+	    mc_CreateCardTroop("Mosquitoes",       "bugs",        1, DARK_PLAGUE_ERA,    2, mc_TroopList[12], 4),
+	    mc_CreateCardSpell("Scary Fog",        "fog",         1, DARK_PLAGUE_ERA,    4, mc_SpellList[2]    ),
+	    mc_CreateCardTroop("Reaper",           "reaper",      1, DARK_PLAGUE_ERA,    6, mc_TroopList[13], 1),
+	    mc_CreateCardSpell("Sledgehammer",     "sledge",      1, DARK_PLAGUE_ERA,    5, mc_SpellList[3]    ),
 	    
-	    mc_CreateCardBuild("Cannon",           "cannon",      1, TROUBLES_IN_FRANCE, 3, mc_BuildList[1] ),
+	    mc_CreateCardBuild("Cannon",           "cannon",      1, TROUBLES_IN_FRANCE, 3, mc_BuildList[1]    ),
 	    
-	    mc_CreateCardTroop("Nun",              "nun",         1, POST_TYRANNY_WORLD, 4, mc_TroopList[13]),
-	    mc_CreateCardTroop("H-Robot",          "hrobot",      1, POST_TYRANNY_WORLD, 8, mc_TroopList[14]),
-	    mc_CreateCardBuild("Turret",           "turret",      1, POST_TYRANNY_WORLD, 4, mc_BuildList[2] ),
-	    mc_CreateCardBuild("German Bunker",    "german",      1, POST_TYRANNY_WORLD, 6, mc_BuildList[3] ),
-	    mc_CreateCardTroop("Sniper",           "sniper",      1, POST_TYRANNY_WORLD, 4, mc_TroopList[15]),
+	    mc_CreateCardTroop("Nun",              "nun",         1, POST_TYRANNY_WORLD, 4, mc_TroopList[14], 1),
+	    mc_CreateCardTroop("H-Robot",          "hrobot",      1, POST_TYRANNY_WORLD, 8, mc_TroopList[15], 1),
+	    mc_CreateCardBuild("Turret",           "turret",      1, POST_TYRANNY_WORLD, 4, mc_BuildList[2]    ),
+	    mc_CreateCardBuild("German Bunker",    "german",      1, POST_TYRANNY_WORLD, 6, mc_BuildList[3]    ),
+	    mc_CreateCardTroop("Sniper",           "sniper",      1, POST_TYRANNY_WORLD, 4, mc_TroopList[16], 1),
 	    
-	    mc_CreateCardTroop("Gaucho",           "gauch",       1, GAUCHO_HISTORY,     5, mc_TroopList[16]),
-	    mc_CreateCardTroop("Warrior",          "warrior",     1, GAUCHO_HISTORY,     4, mc_TroopList[17]),
+	    mc_CreateCardTroop("Gaucho",           "gauch",       1, GAUCHO_HISTORY,     5, mc_TroopList[17], 1),
+	    mc_CreateCardTroop("Warrior",          "warrior",     1, GAUCHO_HISTORY,     4, mc_TroopList[18], 1),
 	    
-	    mc_CreateCardTroop("Giant Theropod",   "theropod",    1, DINOSAURS_EPOCH,    8, mc_TroopList[18]),
-	    mc_CreateCardSpell("Vulcano Eruption", "eruption",    1, DINOSAURS_EPOCH,    5, mc_SpellList[4] ),
+	    mc_CreateCardTroop("Giant Theropod",   "theropod",    1, DINOSAURS_EPOCH,    8, mc_TroopList[19], 1),
+	    mc_CreateCardSpell("Vulcano Eruption", "eruption",    1, DINOSAURS_EPOCH,    5, mc_SpellList[4]    ),
 	};
 	
-	mc_Card mc_InitialCards[8] = {
+	mc_Card mc_InitialCards[] = {
 		mc_CardList[0],
 		mc_CardList[1],
 		mc_CardList[2],
 		mc_CardList[3],
-		mc_CardList[4],
 		mc_CardList[5],
 		mc_CardList[6],
-		mc_CardList[7],
 	};
 	
-	mc_ClientDeck = mc_CreatePlayerDeck(mc_HeroList[0], mc_InitialCards, 8);
+	mc_ClientDeck = mc_CreatePlayerDeck(mc_HeroList[0], mc_InitialCards, 6);
 	
 	mc_ShufflePlayerDeck(&mc_ClientDeck);
 	

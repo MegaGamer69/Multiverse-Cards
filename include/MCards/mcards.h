@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 
-#define CARD_MAX_LEVEL       9 // Tropas, construções e feitiços são cartas! os heróis... bem, eles não...
-#define HERO_MAX_LEVEL      12 // HERÓIS NÃO SÃO CARTAS! LEMBRE-SE DISSO
+#define CARD_MAX_LEVEL       8 // Tropas, construções e feitiços são cartas! os heróis... bem, eles não...
+#define HERO_MAX_LEVEL       9 // HERÓIS NÃO SÃO CARTAS! LEMBRE-SE DISSO
 
 #define MAX_CARDS_PER_DECK   8 // Basicamente um Clash Royale haha!
 #define MAX_HEROES_PER_DECK  1 // Balanceamento, já que teria que defender dois heróis ao mesmo tempo
@@ -53,8 +53,6 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[MAX_CHAR_PER_FIELD];
-	char          i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int  i_BaseHealth;
 	unsigned int  i_BaseDamage;
 	unsigned int  i_Health;
@@ -70,10 +68,6 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[MAX_CHAR_PER_FIELD];
-	char          i_ClassID[MAX_CHAR_PER_FIELD];
-	unsigned int  i_Level;
-	unsigned int  i_CDCost;
 	unsigned int  i_BaseHealth;
 	unsigned int  i_BaseDamage;
 	unsigned int  i_Health;
@@ -88,8 +82,6 @@ typedef struct {
 typedef struct {
 	// Dados de atributos
 	
-	char          i_Name[MAX_CHAR_PER_FIELD];
-	char          i_ClassID[MAX_CHAR_PER_FIELD];
 	unsigned int  i_BaseDamage;
 	unsigned int  i_Damage;
 	mc_AttackType i_AtType;
@@ -125,7 +117,8 @@ static inline mc_Card mc_CreateCardTroop(const char*  name,
                                          unsigned int level,
                                          mc_LoreArch  loreArch,
                                          unsigned int cost,
-                                         mc_Troop     troop) {
+                                         mc_Troop     troop,
+                                         unsigned int amount) {
 	mc_Card instance;
 	
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
@@ -189,11 +182,11 @@ static inline mc_Card mc_CreateCardSpell(const char*  name,
 // Heróis servem para o jogador defender (evite desperdicios)
 
 static inline mc_Hero mc_CreateHero(const char*  name,
-                      const char*  classID,
-                      unsigned int health,
-  					  unsigned int damage,
-                      float        range,
-                      float        attackTime) {
+                                    const char*  classID,
+                                    unsigned int health,
+  					                unsigned int damage,
+                                    float        range,
+                                    float        attackTime) {
 	mc_Hero instance;
 	
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
@@ -213,11 +206,11 @@ static inline mc_Hero mc_CreateHero(const char*  name,
 }
 
 static inline mc_Troop mc_CreateTroop(unsigned int  health,
-  					    unsigned int  damage,
-					    mc_AttackType atType,
-					    float         range,
-					    float         attackTime,
-					    float         movSpeed) {
+  					                  unsigned int  damage,
+					                  mc_AttackType atType,
+					                  float         range,
+					                  float         attackTime,
+					                  float         movSpeed) {
 	mc_Troop instance;
 	
 	instance.i_BaseHealth = health;
@@ -233,10 +226,10 @@ static inline mc_Troop mc_CreateTroop(unsigned int  health,
 }
 
 static inline mc_Build mc_CreateBuild(unsigned int  health,
-  					    unsigned int  damage,
-  					    mc_AttackType atType,
-  					    float         range,
-            			float         attackTime) {
+  					                  unsigned int  damage,
+  					                  mc_AttackType atType,
+  					                  float         range,
+            			              float         attackTime) {
 	mc_Build instance;
 	
 	instance.i_BaseHealth = health;
@@ -269,36 +262,45 @@ static inline mc_Spell mc_CreateSpell(unsigned int  damage,
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
 
-static inline void mc_UpgradeCard(const char*   name,
-                    unsigned int* level,
-                    unsigned int* baseHealth,
-                    unsigned int* baseDamage,
-                    unsigned int* health,
-                    unsigned int* damage) {
-	if(*level >= CARD_MAX_LEVEL) {
+static inline void mc_UpgradeCard(mc_Card* card) {
+	if(card->i_Level >= CARD_MAX_LEVEL) {
 		return;
 	}
 	
-	(*level)++;
+	(card->i_Level)++;
 	
-	*health = (int)((*baseHealth) * (1.0f + 0.35f * (*level - 1)));
-	*damage = (int)((*baseDamage) * (1.0f + 0.25f * (*level - 1)));
+	if(card->i_Type == CARD_TROOP) {
+		card->i_Troop.i_Health = (int)((card->i_Troop.i_BaseHealth) * (1.0f + 0.18f * (card->i_Level - 1)));
+		card->i_Troop.i_Damage = (int)((card->i_Troop.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
+		
+		printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Troop.i_Health, card->i_Troop.i_Damage);
+	}
+	
+	if(card->i_Type == CARD_BUILD) {
+		card->i_Build.i_Health = (int)((card->i_Build.i_BaseHealth) * (1.0f + 0.18f * (card->i_Level - 1)));
+		card->i_Build.i_Damage = (int)((card->i_Build.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
+		
+		printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Build.i_Health, card->i_Build.i_Damage);
+	}
+	
+	if(card->i_Type == CARD_SPELL) {
+		card->i_Spell.i_Damage = (int)((card->i_Spell.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
+		
+		printf("%s acaba de subir para nível %u! (%u de dm)\n", card->i_Name, card->i_Level, card->i_Spell.i_Damage);
+	}
 }
 
-static inline void mc_UpgradeHero(const char*   name,
-                    unsigned int* level,
-                    unsigned int* baseHealth,
-                    unsigned int* baseDamage,
-                    unsigned int* health,
-                    unsigned int* damage) {
-	if(*level >= HERO_MAX_LEVEL) {
+static inline void mc_UpgradeHero(mc_Hero* hero) {
+	if(hero->i_Level >= CARD_MAX_LEVEL) {
 		return;
 	}
 	
-	(*level)++;
+	(hero->i_Level)++;
 	
-	*health = (int)((*baseHealth) * (1.0f + 0.3f  * (*level - 1)));
-	*damage = (int)((*baseDamage) * (1.0f + 0.35f * (*level - 1)));
+	hero->i_Health = (int)((hero->i_BaseHealth) * (1.0f + 0.18f * (hero->i_Level - 1)));
+	hero->i_Damage = (int)((hero->i_BaseDamage) * (1.0f + 0.18f * (hero->i_Level - 1)));
+	
+	printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", hero->i_Name, hero->i_Level, hero->i_Health, hero->i_Damage);
 }
 
 // Campos globais
