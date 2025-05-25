@@ -52,7 +52,7 @@ void mc_HandleInput(sfEvent windowEvent) {
 				
 				for(int i = 0; i < CARDS_TO_RENDER; i++) {
 					sfFloatRect cardBounds = {
-						75.0f + (i * 140),
+						65.0f + (i * CARD_WIDTH),
 						DECK_POS_Y,
 						CARD_WIDTH,
 						CARD_HEIGHT
@@ -68,8 +68,6 @@ void mc_HandleInput(sfEvent windowEvent) {
 							mc_MousePosition.x - cardBounds.left,
 							mc_MousePosition.y - cardBounds.top
 						};
-						
-						break;
 					}
 				}
 				
@@ -89,8 +87,6 @@ void mc_HandleInput(sfEvent windowEvent) {
 				if(delta.x > 5 || delta.y > 5) {
 					mc_CardDragState = DRAG_STATE_DRAGGING;
 				}
-				
-				break;
 			}
 			
 			break;
@@ -119,63 +115,61 @@ int main() {
 	srand((unsigned int)(time(NULL)));
 	
 	mc_Hero mc_HeroList[] = {
-		mc_CreateHero("Pirate",        "pirate",      1900, 32, 5.5f, 1.4f),
-		mc_CreateHero("Mighty Indian", "mighty",      1960, 20, 3.5f, 0.7f),
+		mc_CreateHero("Pirate",        "pirate",   2400, 32, 5.5f, 1.4f),
+		mc_CreateHero("Mighty Indian", "mighty",   2650, 20, 3.5f, 0.7f),
 		
-		mc_CreateHero("Elite Shugun",  "shugun",      2000, 30, 4.0f, 1.8f),
+		mc_CreateHero("Elite Shogun",  "shogun",   2770, 30, 4.0f, 1.8f),
 		
-		mc_CreateHero("Chemist",       "chemical",    1890, 26, 7.0f, 1.0f),
+		mc_CreateHero("Chemist",       "chemical", 2220, 26, 7.0f, 1.0f),
 		
-		mc_CreateHero("Livestocker",   "livestocker", 1780, 28, 5.5f, 1.1f),
-		mc_CreateHero("Hunter",        "hunter",      1920, 23, 6.5f, 1.6f),
+		mc_CreateHero("Rancher",       "rancher",  2280, 28, 5.5f, 1.1f),
+		mc_CreateHero("Hunter",        "hunter",   2340, 23, 6.5f, 1.6f),
 	};
 	
 	mc_Troop mc_TroopList[] = {
-		mc_CreateTroop(400,  66,  ONLY_GROUND,           1.0f,  1.2f, 2.0f),
-		mc_CreateTroop(100,  30,  GROUND_AND_AIR,        4.0f,  1.0f, 2.0f),
-		mc_CreateTroop(640,  73,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
-		mc_CreateTroop(293,  65,  GROUND_AND_AIR,        5.5f,  1.1f, 2.0f),
-		mc_CreateTroop(444,  98,  ONLY_GROUND,           0.5f,  1.6f, 2.5f),
-		mc_CreateTroop(360,  45,  ONLY_HERO_OR_BUILDING, 0.5f,  0.9f, 3.0f),
-		mc_CreateTroop(192,  55,  GROUND_AND_AIR,        1.2f,  1.1f, 1.5f),
-		mc_CreateTroop(44,   22,  GROUND_AND_AIR,        1.0f,  1.4f, 2.2f),
+		mc_CreateTroop(655,  77,   ONLY_GROUND,           1.0f,  1.2f, 2.0f),
+		mc_CreateTroop(230,  44,   GROUND_AND_AIR,        4.0f,  1.0f, 2.0f),
+		mc_CreateTroop(872,  100,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
+		mc_CreateTroop(444,  60,   GROUND_AND_AIR,        5.5f,  1.1f, 2.0f),
+		mc_CreateTroop(720,  120,  ONLY_GROUND,           0.5f,  1.6f, 2.5f),
+		mc_CreateTroop(480,  48,   ONLY_HERO_OR_BUILDING, 0.5f,  0.9f, 3.0f),
+		mc_CreateTroop(222,  87,   GROUND_AND_AIR,        1.2f,  1.1f, 1.5f),
+		mc_CreateTroop(44,   44,   GROUND_AND_AIR,        1.0f,  1.4f, 2.2f),
 		
-		mc_CreateTroop(712,  98,  ONLY_GROUND,           1.0f,  1.9f, 1.0f),
-		mc_CreateTroop(390,  77,  ONLY_GROUND,           1.0f,  1.4f, 2.0f),
+		mc_CreateTroop(1230, 200,  ONLY_GROUND,           1.0f,  1.9f, 1.0f),
+		mc_CreateTroop(777,  66,   ONLY_GROUND,           1.0f,  1.4f, 2.0f),
 		
-		mc_CreateTroop(400,  53,  ONLY_GROUND,           1.0f,  1.1f, 2.5f),
-		mc_CreateTroop(290,  59,  GROUND_AND_AIR,        4.0f,  1.3f, 2.0f),
-		mc_CreateTroop(15,   12,  GROUND_AND_AIR,        0.5f,  1.5f, 1.5f),
-		mc_CreateTroop(930,  84,  ONLY_GROUND,           1.5f,  1.5f, 2.0f),
+		mc_CreateTroop(600,  63,   ONLY_GROUND,           1.0f,  1.1f, 2.5f),
+		mc_CreateTroop(411,  59,   GROUND_AND_AIR,        4.0f,  1.3f, 2.0f),
+		mc_CreateTroop(44,   44,   GROUND_AND_AIR,        0.5f,  1.5f, 1.5f),
+		mc_CreateTroop(870,  77,   ONLY_GROUND,           1.5f,  1.5f, 2.0f),
 		
-		mc_CreateTroop(397,  70,  GROUND_AND_AIR,        1.5f,  1.3f, 1.5f),
-		mc_CreateTroop(950,  98,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
-		mc_CreateTroop(300,  72,  GROUND_AND_AIR,        10.0f, 1.5f, 2.0f),
+		mc_CreateTroop(560,  70,   GROUND_AND_AIR,        1.5f,  1.3f, 1.5f),
+		mc_CreateTroop(1440, 332,  ONLY_HERO_OR_BUILDING, 0.5f,  2.0f, 1.2f),
+		mc_CreateTroop(400,  92,   GROUND_AND_AIR,        10.0f, 1.5f, 2.0f),
 		
-		mc_CreateTroop(566,  77,  GROUND_AND_AIR,        1.5f,  1.5f, 2.0f),
-		mc_CreateTroop(487,  67,  ONLY_GROUND,           1.5f,  1.3f, 2.0f),
+		mc_CreateTroop(623,  57,   GROUND_AND_AIR,        1.5f,  1.5f, 2.0f),
+		mc_CreateTroop(870,  77,   ONLY_GROUND,           1.5f,  1.3f, 2.0f),
 		
-		mc_CreateTroop(1100, 87,  ONLY_GROUND,           1.0f,  1.8f, 1.0f),
+		mc_CreateTroop(1870, 97,   ONLY_GROUND,           1.0f,  1.8f, 1.0f),
 	};
 	
 	mc_Build mc_BuildList[] = {
-		mc_CreateBuild(90,  100, GROUND_AND_AIR, 1.0f, 1.0f),
+		mc_CreateBuild(140, 127, GROUND_AND_AIR, 1.0f, 1.0f),
 		
-		mc_CreateBuild(520, 80,  ONLY_GROUND,    5.0f, 1.0f),
-		mc_CreateBuild(420, 20,  GROUND_AND_AIR, 9.0f, 0.4f),
-		mc_CreateBuild(598, 0,   ONLY_GROUND,    0.0f, 0.0f),
+		mc_CreateBuild(888, 88,  ONLY_GROUND,    5.0f, 1.0f),
+		mc_CreateBuild(792, 24,  GROUND_AND_AIR, 9.0f, 0.4f),
+		mc_CreateBuild(930, 0,   ONLY_GROUND,    0.0f, 0.0f),
 	};
 	
 	mc_Spell mc_SpellList[] = {
-		mc_CreateSpell(70,  GROUND_AND_AIR, 3.0f, 1.0f, 3.0f),
-		mc_CreateSpell(90,  ONLY_GROUND,    1.5f, 0.1f, 5.0f),
+		mc_CreateSpell(80,  GROUND_AND_AIR, 3.0f, 1.0f, 3.0f),
+		mc_CreateSpell(200, ONLY_GROUND,    1.5f, 0.1f, 5.0f),
 		
-		mc_CreateSpell(53,  GROUND_AND_AIR, 4.0f, 0.1f, 8.0f),
-		mc_CreateSpell(106, ONLY_GROUND,    3.0f, 1.0f, 3.0f),
+		mc_CreateSpell(63,  GROUND_AND_AIR, 4.0f, 0.1f, 8.0f),
+		mc_CreateSpell(110, ONLY_GROUND,    3.0f, 1.0f, 3.0f),
 		
-		mc_CreateSpell(100, GROUND_AND_AIR, 2.5f, 1.0f, 1.0f),
-		
-		mc_CreateSpell(120, GROUND_AND_AIR, 2.0f, 0.5f, 2.0f),
+		mc_CreateSpell(230, GROUND_AND_AIR, 2.0f, 0.5f, 2.0f),
 	};
 	
 	mc_Card mc_CardList[] = {
@@ -189,14 +183,14 @@ int main() {
 	    mc_CreateCardSpell("Tsunami",          "tsunami",     1, PIRATE_EPOCH,       5, mc_SpellList[1]    ),
 	    mc_CreateCardTroop("Capybaras",        "capy",        1, PIRATE_EPOCH,       4, mc_TroopList[5],  4),
 	    mc_CreateCardTroop("Rope-Bombers",     "bombers",     1, PIRATE_EPOCH,       3, mc_TroopList[6],  2),
-	    mc_CreateCardTroop("Bloody Seaguls",   "seaguls",     1, PIRATE_EPOCH,       2, mc_TroopList[7],  2),
+	    mc_CreateCardTroop("Bloody Seaguls",   "seaguls",     1, PIRATE_EPOCH,       2, mc_TroopList[7],  3),
 	    
 	    mc_CreateCardTroop("Crusher",          "crusher",     1, FEUDAL_JAPAN,       7, mc_TroopList[8],  1),
 	    mc_CreateCardTroop("Samurai Hunter",   "shunter",     1, FEUDAL_JAPAN,       4, mc_TroopList[9],  1),
 	    
-	    mc_CreateCardTroop("Plague Assasin",   "plaguek",     1, DARK_PLAGUE_ERA,    4, mc_TroopList[10], 1),
+	    mc_CreateCardTroop("Plague Assasin",   "plaguek",     1, DARK_PLAGUE_ERA,    3, mc_TroopList[10], 1),
 	    mc_CreateCardTroop("Ghost Musketeer",  "ghost",       1, DARK_PLAGUE_ERA,    3, mc_TroopList[11], 1),
-	    mc_CreateCardTroop("Mosquitoes",       "bugs",        1, DARK_PLAGUE_ERA,    2, mc_TroopList[12], 4),
+	    mc_CreateCardTroop("Mosquitoes",       "bugs",        1, DARK_PLAGUE_ERA,    4, mc_TroopList[12], 5),
 	    mc_CreateCardSpell("Scary Fog",        "fog",         1, DARK_PLAGUE_ERA,    4, mc_SpellList[2]    ),
 	    mc_CreateCardTroop("Reaper",           "reaper",      1, DARK_PLAGUE_ERA,    6, mc_TroopList[13], 1),
 	    mc_CreateCardSpell("Sledgehammer",     "sledge",      1, DARK_PLAGUE_ERA,    5, mc_SpellList[3]    ),
@@ -229,7 +223,7 @@ int main() {
 	
 	mc_ShufflePlayerDeck(&mc_ClientDeck);
 	
-	sfVideoMode videoMode = {720, 1280, 32};
+	sfVideoMode videoMode = {520, 720, 64};
 	
 	mc_GameWindow = sfRenderWindow_create(videoMode, "Multiverse Cards", sfResize | sfClose, NULL);
 	
@@ -246,7 +240,7 @@ int main() {
 			mc_HandleInput(event);
 		}
 		
-		sfRenderWindow_clear(mc_GameWindow, sfWhite);
+		sfRenderWindow_clear(mc_GameWindow, sfBlack);
 		
 		// Aqui vai atualizar a porra toda! EBA!!!!
 		

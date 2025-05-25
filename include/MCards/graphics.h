@@ -9,10 +9,10 @@
 
 #define MAX_CARD_TEXTURES  26
 
-#define CARD_WIDTH        120 // Tamanho de largura da carta
-#define CARD_HEIGHT       171 // Tamango de altura da carta
-#define DECK_POS_Y        400 // Posição de início do alinhamento vertical... OH YEAH
-#define PLAY_AREA_MAX_Y   300 // O máximo que você pode posicionar sua carta!
+#define CARD_WIDTH         90 // Tamanho de largura da carta
+#define CARD_HEIGHT       121 // Tamango de altura da carta
+#define DECK_POS_Y        500 // Posição de início do alinhamento vertical... OH YEAH
+#define PLAY_AREA_MAX_Y   640 // O máximo que você pode posicionar sua carta!
 
 static sfTexture* g_CardTextures[MAX_CARD_TEXTURES];
 static char g_TexturePaths[MAX_CARD_TEXTURES][256];
@@ -98,7 +98,7 @@ static inline void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f
 	
 	sfRectangleShape* cardShape = sfRectangleShape_create();
 	
-	sfRectangleShape_setSize(cardShape, (sfVector2f){120, 171});
+	sfRectangleShape_setSize(cardShape, (sfVector2f){CARD_WIDTH, CARD_HEIGHT});
 	sfRectangleShape_setPosition(cardShape, pos);
 	
 	if(texture) {
@@ -113,7 +113,7 @@ static inline void mc_DrawCard(sfRenderWindow* window, mc_Card* card, sfVector2f
 
 static inline void mc_DrawClientDeck(sfRenderWindow* window, mc_PlayerDeck* deck) {
 	for(size_t i = 0; i < 4; i++) {
-		sfVector2f pos = {75 + (i * 140), 400};
+		sfVector2f pos = {65 + (i * 100), DECK_POS_Y};
 		
 		mc_DrawCard(window, &deck->d_DeckCards[i], pos);
 	}

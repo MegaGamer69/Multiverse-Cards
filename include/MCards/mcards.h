@@ -168,13 +168,13 @@ static inline mc_Card mc_CreateCardSpell(const char*  name,
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
 	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
 	
-	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
+	instance.i_Name[sizeof(instance.i_Name) - 1]       = '\0';
 	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
-	instance.i_Level = level;
-	instance.i_LArch = loreArch;
+	instance.i_Level  = level;
+	instance.i_LArch  = loreArch;
 	instance.i_CDCost = cost;
-	instance.i_Type = CARD_SPELL;
-	instance.i_Spell = spell;
+	instance.i_Type   = CARD_SPELL;
+	instance.i_Spell  = spell;
 	
 	return instance;
 }
@@ -192,15 +192,15 @@ static inline mc_Hero mc_CreateHero(const char*  name,
 	strncpy(instance.i_Name, name, sizeof(instance.i_Name));
 	strncpy(instance.i_ClassID, classID, sizeof(instance.i_ClassID));
 	
-	instance.i_Name[sizeof(instance.i_Name) - 1] = '\0';
+	instance.i_Name[sizeof(instance.i_Name) - 1]       = '\0';
 	instance.i_ClassID[sizeof(instance.i_ClassID) - 1] = '\0';
-	instance.i_Level = 1;
+	instance.i_Level      = 1;
 	instance.i_BaseHealth = health;
 	instance.i_BaseDamage = damage;
-	instance.i_Health = health;
-	instance.i_Damage = damage;
-	instance.i_ARange = range;
-	instance.i_ATimer = attackTime;
+	instance.i_Health     = health;
+	instance.i_Damage     = damage;
+	instance.i_ARange     = range;
+	instance.i_ATimer     = attackTime;
 	
 	return instance;
 }
@@ -234,11 +234,11 @@ static inline mc_Build mc_CreateBuild(unsigned int  health,
 	
 	instance.i_BaseHealth = health;
 	instance.i_BaseDamage = damage;
-	instance.i_Health = health;
-	instance.i_Damage = damage;
-	instance.i_AtType = atType;
-	instance.i_ARange = range;
-	instance.i_ATimer = attackTime;
+	instance.i_Health     = health;
+	instance.i_Damage     = damage;
+	instance.i_AtType     = atType;
+	instance.i_ARange     = range;
+	instance.i_ATimer     = attackTime;
 	
 	return instance;
 }
@@ -251,13 +251,17 @@ static inline mc_Spell mc_CreateSpell(unsigned int  damage,
 	mc_Spell instance;
 	
 	instance.i_BaseDamage = damage;
-	instance.i_Damage = damage;
-	instance.i_AtType = atType;
-	instance.i_ARange = range;
-	instance.i_ATimer = attackTime;
-	instance.i_Duration = duration;
+	instance.i_Damage     = damage;
+	instance.i_AtType     = atType;
+	instance.i_ARange     = range;
+	instance.i_ATimer     = attackTime;
+	instance.i_Duration   = duration;
 	
 	return instance;
+}
+
+static inline unsigned int mc_UpgradeStat(unsigned int base, unsigned int level) {
+	return (unsigned int)(base * (1.0f + 0.18f * (level - 1)));
 }
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
@@ -269,36 +273,39 @@ static inline void mc_UpgradeCard(mc_Card* card) {
 	
 	(card->i_Level)++;
 	
-	if(card->i_Type == CARD_TROOP) {
-		card->i_Troop.i_Health = (int)((card->i_Troop.i_BaseHealth) * (1.0f + 0.18f * (card->i_Level - 1)));
-		card->i_Troop.i_Damage = (int)((card->i_Troop.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
-		
-		printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Troop.i_Health, card->i_Troop.i_Damage);
-	}
-	
-	if(card->i_Type == CARD_BUILD) {
-		card->i_Build.i_Health = (int)((card->i_Build.i_BaseHealth) * (1.0f + 0.18f * (card->i_Level - 1)));
-		card->i_Build.i_Damage = (int)((card->i_Build.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
-		
-		printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Build.i_Health, card->i_Build.i_Damage);
-	}
-	
-	if(card->i_Type == CARD_SPELL) {
-		card->i_Spell.i_Damage = (int)((card->i_Spell.i_BaseDamage) * (1.0f + 0.18f * (card->i_Level - 1)));
-		
-		printf("%s acaba de subir para nível %u! (%u de dm)\n", card->i_Name, card->i_Level, card->i_Spell.i_Damage);
+	switch(card->i_Type) {
+		case CARD_TROOP:
+			card->i_Troop.i_Health = mc_UpgradeStat(card->i_Troop.i_BaseHealth, card->i_Level);
+			card->i_Troop.i_Damage = mc_UpgradeStat(card->i_Troop.i_BaseDamage, card->i_Level);
+			
+			printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Troop.i_Health, card->i_Troop.i_Damage);		
+			
+			break;
+		case CARD_BUILD:
+			card->i_Troop.i_Health = mc_UpgradeStat(card->i_Build.i_BaseHealth, card->i_Level);
+			card->i_Troop.i_Damage = mc_UpgradeStat(card->i_Build.i_BaseDamage, card->i_Level);
+			
+			printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Build.i_Health, card->i_Build.i_Damage);
+			
+			break;
+		case CARD_SPELL:
+			card->i_Troop.i_Damage = mc_UpgradeStat(card->i_Spell.i_BaseDamage, card->i_Level);
+			
+			printf("%s acaba de subir para nível %u! (%u de dm)\n", card->i_Name, card->i_Level, card->i_Spell.i_Damage);
+			
+			break;
 	}
 }
 
 static inline void mc_UpgradeHero(mc_Hero* hero) {
-	if(hero->i_Level >= CARD_MAX_LEVEL) {
+	if(hero->i_Level >= HERO_MAX_LEVEL) {
 		return;
 	}
 	
 	(hero->i_Level)++;
 	
-	hero->i_Health = (int)((hero->i_BaseHealth) * (1.0f + 0.18f * (hero->i_Level - 1)));
-	hero->i_Damage = (int)((hero->i_BaseDamage) * (1.0f + 0.18f * (hero->i_Level - 1)));
+	hero->i_Health = mc_UpgradeStat(hero->i_BaseHealth, hero->i_Level);
+	hero->i_Damage = mc_UpgradeStat(hero->i_BaseDamage, hero->i_Level);
 	
 	printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", hero->i_Name, hero->i_Level, hero->i_Health, hero->i_Damage);
 }
@@ -311,20 +318,20 @@ static sfFont* mc_GameTextualFont;
 // Baralho do jogador
 
 typedef struct {
-	mc_Hero  d_SelectedHero;
-	mc_Card  d_DeckCards[MAX_CARDS_PER_DECK];
-	size_t   d_CardCount;
+	mc_Hero d_SelectedHero;
+	mc_Card d_DeckCards[MAX_CARDS_PER_DECK];
+	size_t  d_CardCount;
 } mc_PlayerDeck;
 
 /**
  * Cria um deck para o jogador com um herói e oito cartas exatamente
  */
 static inline mc_PlayerDeck mc_CreatePlayerDeck(mc_Hero hero,
-                                  mc_Card cards[],
-                                  size_t  cardCount) {
+                                                mc_Card cards[],
+                                                size_t  cardCount) {
 	mc_PlayerDeck deck;
 	
-	assert(cardCount <= MAX_CARDS_PER_DECK);
+	memset(deck.d_DeckCards, 0, sizeof(deck.d_DeckCards));
 	memcpy(deck.d_DeckCards, cards, sizeof(mc_Card) * cardCount);
 	
 	deck.d_CardCount = cardCount;
