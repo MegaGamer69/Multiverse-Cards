@@ -30,6 +30,7 @@ typedef enum {
 	POST_TYRANNY_WORLD,
 	GAUCHO_HISTORY,
 	DINOSAURS_EPOCH,
+	ENTRY_ON_HOUSE,
 } mc_LoreArch;
 
 // Herói
@@ -261,7 +262,7 @@ static inline mc_Spell mc_CreateSpell(unsigned int  damage,
 }
 
 static inline unsigned int mc_UpgradeStat(unsigned int base, unsigned int level) {
-	return (unsigned int)(base * (1.0f + 0.18f * (level - 1)));
+	return (unsigned int)(base * (1.0f + 0.2f * (level - 1)));
 }
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)
@@ -282,14 +283,14 @@ static inline void mc_UpgradeCard(mc_Card* card) {
 			
 			break;
 		case CARD_BUILD:
-			card->i_Troop.i_Health = mc_UpgradeStat(card->i_Build.i_BaseHealth, card->i_Level);
-			card->i_Troop.i_Damage = mc_UpgradeStat(card->i_Build.i_BaseDamage, card->i_Level);
+			card->i_Build.i_Health = mc_UpgradeStat(card->i_Build.i_BaseHealth, card->i_Level);
+			card->i_Build.i_Damage = mc_UpgradeStat(card->i_Build.i_BaseDamage, card->i_Level);
 			
 			printf("%s acaba de subir para nível %u! (%u de hp, %u de dm)\n", card->i_Name, card->i_Level, card->i_Build.i_Health, card->i_Build.i_Damage);
 			
 			break;
 		case CARD_SPELL:
-			card->i_Troop.i_Damage = mc_UpgradeStat(card->i_Spell.i_BaseDamage, card->i_Level);
+			card->i_Spell.i_Damage = mc_UpgradeStat(card->i_Spell.i_BaseDamage, card->i_Level);
 			
 			printf("%s acaba de subir para nível %u! (%u de dm)\n", card->i_Name, card->i_Level, card->i_Spell.i_Damage);
 			
