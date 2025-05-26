@@ -238,7 +238,7 @@ int main() {
 	    mc_CreateCardTroop("Giant Theropod",   "theropod",    1, DINOSAURS_EPOCH,      8, mc_TroopList[19], 1),
 	    mc_CreateCardSpell("Vulcano Eruption", "eruption",    1, DINOSAURS_EPOCH,      5, mc_SpellList[4]    ),
 	    
-	    mc_CreateCardTroop("Hallucination",    "dababy",      1, ENTRY_ON_HOUSE,       5, mc_TroopList[19]   ),
+	    mc_CreateCardTroop("Hallucination",    "dababy",      1, ENTRY_ON_HOUSE,       5, mc_TroopList[19], 1),
 	};
 	
 	mc_Card mc_InitialCards[] = {
