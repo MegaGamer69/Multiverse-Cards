@@ -245,10 +245,10 @@ static inline mc_Build mc_CreateBuild(unsigned int  health,
 }
 
 static inline mc_Spell mc_CreateSpell(unsigned int  damage,
-  					    mc_AttackType atType,
-  					    float         range,
-            			float         attackTime,
-            			float         duration) {
+									  mc_AttackType atType,
+									  float         range,
+            					      float         attackTime,
+            					  	  float         duration) {
 	mc_Spell instance;
 	
 	instance.i_BaseDamage = damage;
