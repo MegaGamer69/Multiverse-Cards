@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 
-#define CARD_MAX_LEVEL       8 // Tropas, construções e feitiços são cartas! os heróis... bem, eles não...
-#define HERO_MAX_LEVEL       9 // HERÓIS NÃO SÃO CARTAS! LEMBRE-SE DISSO
+#define CARD_MAX_LEVEL      13 // Tropas, construções e feitiços são cartas! os heróis... bem, eles não...
+#define HERO_MAX_LEVEL      13 // HERÓIS NÃO SÃO CARTAS! LEMBRE-SE DISSO
 
 #define MAX_CARDS_PER_DECK   8 // Basicamente um Clash Royale haha!
 #define MAX_HEROES_PER_DECK  1 // Balanceamento, já que teria que defender dois heróis ao mesmo tempo
@@ -76,6 +76,7 @@ typedef struct {
 	mc_AttackType i_AtType;
 	float         i_ARange;
 	float         i_ATimer;
+	float         i_LTimer;
 } mc_Build;
 
 // Feitiço
@@ -230,7 +231,8 @@ static inline mc_Build mc_CreateBuild(unsigned int  health,
   					                  unsigned int  damage,
   					                  mc_AttackType atType,
   					                  float         range,
-            			              float         attackTime) {
+            			              float         attackTime,
+            			              float         lifeTime) {
 	mc_Build instance;
 	
 	instance.i_BaseHealth = health;
@@ -240,6 +242,7 @@ static inline mc_Build mc_CreateBuild(unsigned int  health,
 	instance.i_AtType     = atType;
 	instance.i_ARange     = range;
 	instance.i_ATimer     = attackTime;
+	instance.i_LTimer     = lifeTime;
 	
 	return instance;
 }
@@ -262,7 +265,7 @@ static inline mc_Spell mc_CreateSpell(unsigned int  damage,
 }
 
 static inline unsigned int mc_UpgradeStat(unsigned int base, unsigned int level) {
-	return (unsigned int)(base * (1.0f + 0.2f * (level - 1)));
+	return (unsigned int)(base * (1.0f + 0.07f * (level - 1)));
 }
 
 // As cartas podem ser melhoradas a partir de recursos como diamantes (que se consegue em partidas on-line, TEM QUE SER ON-LINE)

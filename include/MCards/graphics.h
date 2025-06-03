@@ -7,7 +7,7 @@
 #include <MCards/mcards.h>
 #include <zip.h>
 
-#define MAX_CARD_TEXTURES  26
+#define MAX_CARD_TEXTURES  32
 
 #define CARD_WIDTH         90 // Tamanho de largura da carta
 #define CARD_HEIGHT       121 // Tamango de altura da carta
