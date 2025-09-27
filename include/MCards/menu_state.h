@@ -1,4 +1,0 @@
-#ifndef MCARDS_MENU_STATE_HEADER
-#define MCARDS_MENU_STATE_HEADER
-
-#endif
