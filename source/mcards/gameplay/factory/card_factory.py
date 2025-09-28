@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Module path: mcards.gameplay.factory.card_factory
 
 from mcards.engine import engine
