@@ -2,7 +2,13 @@
 
 import pygame
 
-from .gameplay.core.units import Card, Hero, Troop, Spell, Building
+from .gameplay.core.units import Hero, Troop, Spell, Building
+from .gameplay.core.cards import Card
+
+from .gvars import *
+
+from .gameplay.game_state import GameManager
+from .gameplay.player import Player
 
 class Engine:
 	"""
@@ -41,7 +47,7 @@ class Engine:
 		Register the spell to the dictionary.
 		"""
 		
-		self.__heroes.update({name: heroes})
+		self.__heroes.update({name: hero})
 	
 	def register_troop(self, name: str, troop: Troop):
 		"""
@@ -63,3 +69,42 @@ class Engine:
 		"""
 		
 		self.__buildings.update({name: building})
+	
+	def initialize(self, mobile):
+		"""
+		Initializes the engine functions.
+		"""
+		
+		pygame.init()
+		
+		player = Player()
+		game_manager = GameManager(player)
+		running = True
+		clock = pygame.time.Clock()
+		
+		if mobile:
+			# Fixed size if the OS is a Android or iOS system.
+			
+			WINDOW_SIZE = (720, 1280)
+		
+		window = pygame.display.set_mode(WINDOW_SIZE)
+		
+		while running:
+			# Difines the delta time.
+			
+			delta_time = clock.tick(60)
+			
+			for e in pygame.event.get():
+				# When the QUIT event is called:
+				
+				if e.type == pygame.QUIT:
+					running = False
+			
+			window.fill(pygame.Color(255, 255, 255))
+			game_manager.draw(window)
+			
+			pygame.display.flip()
+		
+		pygame.quit()
+
+engine = Engine()
