@@ -8,13 +8,12 @@ class Unit(pygame.sprite.Sprite):
 
 	Fields:
 	------------------------------------------------------------------------------------------
-	1. __key_id (str) - the card ID to the registry.
 	2. __offset (pygame.math.Vector2) - the relative deploy offset (after summoning the unit).
 	3. __deploy_time (int) - the deploy time (in ticks).
 	------------------------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, key_id: str, offset: pygame.math.Vector2, deploy_time: int):
+	def __init__(self, offset: pygame.math.Vector2, deploy_time: int):
 		"""
 		Initialize the troop system.
 		"""
@@ -48,8 +47,9 @@ class Hero(Unit):
 	----------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, key_id: str, hitpoints: int, damage: int, first_attack_delay: int,
-				attack_delay: int, attack_range: int):
+	def __init__(self, hitpoints: int, damage: int, first_attack_delay: int,
+				attack_delay: int, attack_range: int, movement_speed: int,
+				movement_type: str, target_type: str):
 		"""
 		Initialize the troop system.
 		"""
@@ -78,7 +78,7 @@ class Troop(Unit):
 	----------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, key_id, offset: pygame.math.Vector2, deploy_time: int,
+	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
 				hitpoints: int, damage: int, first_attack_delay: int,
 				attack_delay: int, attack_range: int, move_speed: int, movement_type: str, targets: str):
 		"""
@@ -109,7 +109,7 @@ class Spell(Unit):
 	----------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, key_id, offset: pygame.math.Vector2, deploy_time: int,
+	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
 				damage: int, first_attack_delay: int, attack_delay: int, effect_area: int, ticks_to_end: int):
 		"""
 		Initialize the spell system.
@@ -138,7 +138,7 @@ class Building(Unit):
 	----------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, key_id, offset: pygame.math.Vector2, deploy_time: int,
+	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
 				hitpoints: int, damage: int, first_attack_delay: int, attack_delay: int, ticks_to_end: int, targets: str):
 		"""
 		Initialize the building system.

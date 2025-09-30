@@ -1,0 +1,42 @@
+from mcards.engine import engine
+from mcards.gameplay.core.units import Hero, Troop, Spell, Building
+
+class TroopGravedigger(Troop):
+	"""
+	The first initial card, a near-combat girl. No any extras in her base class.
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initialize the Gravedigger status.
+		"""
+		
+		super().__init__(self, pygame.math.Vector2(0, 0), 1000, 730, 67, 900, 1100, 1500, 2000, MovementType.GROUND, TargetType.ONLY_GBH)
+
+class TroopIndian(Troop):
+	"""
+	The second initial card, two ranged boys. No any extras in his base classes.
+	"""
+	
+	def __init__(self, level, blue_team, index):
+		"""
+		Initialize the Indians status.
+		"""
+		
+		super().__init__(self, pygame.math.Vector2(1 if index == 0 else -1, 0), 1000, 178, 47, 800, 900, 5000, 2500, MovementType.GROUND, TargetType.ANY)
+
+class TroopPelican(Troop):
+	"""
+	The third initial card, a win-condition bird. No any extras in his base class.
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initialize the Pelican status.
+		"""
+		
+		super().__init__(self, pygame.math.Vector2(0, 0), 1200, 985, 110, 500, 2000, 100, 1000, MovementType.GROUND, TargetType.ONLY_BH)
+
+def initialize_units():
+	engine.register_troop("troop_gravedigger", TroopGravedigger)
+	engine.register_troop("troop_indian", TroopIndian)

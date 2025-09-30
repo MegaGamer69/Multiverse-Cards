@@ -7,6 +7,18 @@ class CardNameVariations(Enum):
 		"es_sp": "Sepulturero",
 		"de_de": "Totengräber",
 	}
+	INDIANS = {
+		"en_us": "Indians",
+		"pt_br": "Indígenas",
+		"es_sp": "Indios",
+		"de_de": "Indianer",
+	}
+	PELICAN = {
+		"en_us": "Pelican",
+		"pt_br": "Pelicano",
+		"es_sp": "Pelícano",
+		"de_de": "Pelikan",
+	}
 
 class CardType(Enum):
 	TROOP = "Troop"
@@ -23,7 +35,7 @@ class MovementType(Enum):
 	AIR = "Air"
 
 class TargetType(Enum):
-	ONLY_GROUND_BUILDING_AND_HEROES = "Only ground, building and heroes"
-	ONLY_AIR_BUILDING_AND_HEROES = "Only air, building and heroes"
+	ONLY_GBH = "Only ground, building and heroes"
+	ONLY_ABH = "Only air, building and heroes"
 	ANY = "Any"
-	ONLY_BUILDING_AND_HEROES = "Only building and heroes"
+	ONLY_BH = "Only building and heroes"

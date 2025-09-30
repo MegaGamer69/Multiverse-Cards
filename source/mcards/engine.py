@@ -29,41 +29,41 @@ class Engine:
 		Initialize the Engine module.
 		"""
 		
-		self.__cards = {}
-		self.__heroes = {}
-		self.__troops = {}
-		self.__spells = {}
-		self.__buildings = {}
+		self.__cards: dict[str, Type[Card]] = {}
+		self.__heroes: dict[str, Type[Hero]] = {}
+		self.__troops: dict[str, Type[Troop]] = {}
+		self.__spells: dict[str, Type[Spell]] = {}
+		self.__buildings: dict[str, Type[Building]] = {}
 		
-	def register_card(self, name: str, card: Card):
+	def register_card(self, name: str, card: Type[Card]):
 		"""
 		Register the card to the dictionary.
 		"""
 		
 		self.__cards.update({name: card})
 		
-	def register_hero(self, name: str, hero: Hero):
+	def register_hero(self, name: str, hero: Type[Hero]):
 		"""
 		Register the spell to the dictionary.
 		"""
 		
 		self.__heroes.update({name: hero})
 	
-	def register_troop(self, name: str, troop: Troop):
+	def register_troop(self, name: str, troop: Type[Troop]):
 		"""
 		Register the troop to the dictionary.
 		"""
 		
 		self.__troops.update({name: troop})
 	
-	def register_spell(self, name: str, spell: Spell):
+	def register_spell(self, name: str, spell: Type[Spell]):
 		"""
 		Register the spell to the dictionary.
 		"""
 		
 		self.__spells.update({name: spell})
 	
-	def register_building(self, name: str, building: Building):
+	def register_building(self, name: str, building: Type[Building]):
 		"""
 		Register the building to the dictionary.
 		"""
