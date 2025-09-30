@@ -139,7 +139,8 @@ class Building(Unit):
 	"""
 	
 	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
-				hitpoints: int, damage: int, first_attack_delay: int, attack_delay: int, ticks_to_end: int, targets: str):
+				hitpoints: int, damage: int, first_attack_delay: int, attack_delay: int,
+				ticks_to_end: int, targets: str):
 		"""
 		Initialize the building system.
 		"""

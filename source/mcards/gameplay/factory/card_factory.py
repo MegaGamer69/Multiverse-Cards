@@ -23,7 +23,7 @@ class Gravedigger(Card):
 		Initialize the card creation.
 		"""
 		
-		super().__init__(self, CardNameVariations.GRAVEDIGGER, level, CardRarities.COMMON, 3, {"troop_gravedigger": 1}, blue_team)
+		super().__init__(CardNameVariations.GRAVEDIGGER, level, CardRarities.COMMON, 3, {"troop_gravedigger": 1}, blue_team)
 
 class Indians(Card):
 	"""
@@ -42,7 +42,7 @@ class Indians(Card):
 		Initialize the card creation.
 		"""
 		
-		super().__init__(self, CardNameVariations.INDIANS, level, CardRarities.COMMON, 2, {"troop_indian": 2}, blue_team)
+		super().__init__(CardNameVariations.INDIANS, level, CardRarities.COMMON, 2, {"troop_indian": 2}, blue_team)
 
 class Pelican(Card):
 	"""
@@ -61,9 +61,27 @@ class Pelican(Card):
 		Initialize the card creation.
 		"""
 		
-		super().__init__(self, CardNameVariations.INDIANS, level, CardRarities.COMMON, 5, {"troop_pelican": 1}, blue_team)
+		super().__init__(CardNameVariations.INDIANS, level, CardRarities.COMMON, 5, {"troop_pelican": 1}, blue_team)
+
+class Bomb(Card):
+	"""
+	Card name: Bomb;
+	Card rarity: Common;
+	Card type: Building;
+	
+	Card description (EN-US): 'Look the Bomb! Holy s... When destroyed, the Bomb deals explosion damage.'
+	Card description (PT-BR): 'Olha a Bomba! Caral... Quando destruída, a Bomba inflinge dano de explosão.'
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initializes the Bomb status.
+		"""
+		
+		super().__init__(CardNameVariations.BOMB, level, CardRarities.COMMON, 3, {"building_bomb": 1}, blue_team)
 
 def initialize_cards():
 	register_card("card_gravedigger", Gravedigger)
 	register_card("card_indians", Indians)
 	register_card("card_pelican", Pelican)
+	register_card("card_bomb", Bomb)

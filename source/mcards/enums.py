@@ -21,6 +21,12 @@ class CardNameVariations(Enum):
 		"es_sp": "Pelícano",
 		"de_de": "Pelikan",
 	}
+	BOMB = {
+		"en_us": "Bomb",
+		"pt_br": "Bomba",
+		"es_sp": "Bomba",
+		"de_de": "Bombe",
+	}
 
 class CardType(Enum):
 	TROOP = "Troop"
