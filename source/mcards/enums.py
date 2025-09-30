@@ -1,3 +1,5 @@
+# Module path: mcards.enums
+
 from enum import Enum
 
 class CardNameVariations(Enum):

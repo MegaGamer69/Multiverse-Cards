@@ -1,7 +1,8 @@
 # Module path: mcards.gameplay.factory.card_factory
 
-from mcards.engine import engine
 from mcards.enums import *
+from mcards.gdefs import *
+from mcards.gvars import *
 
 from mcards.gameplay.core.cards import Card
 
@@ -62,6 +63,7 @@ class Pelican(Card):
 		
 		super().__init__(self, CardNameVariations.INDIANS, level, CardRarities.COMMON, 5, {"troop_pelican": 1}, blue_team)
 
-engine.register_card("gravedigger", Gravedigger)
-engine.register_card("indians", Indians)
-engine.register_card("pelican", Pelican)
+def initialize_cards():
+	register_card("card_gravedigger", Gravedigger)
+	register_card("card_indians", Indians)
+	register_card("card_pelican", Pelican)

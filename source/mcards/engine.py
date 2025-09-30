@@ -2,13 +2,16 @@
 
 import pygame
 
-from .gameplay.core.units import Hero, Troop, Spell, Building
-from .gameplay.core.cards import Card
-
 from .gvars import *
 
 from .gameplay.game_state import GameManager
 from .gameplay.player import Player
+
+from .gameplay.core.cards import *
+from .gameplay.core.units import *
+
+from .gameplay.factory.unit_factory import initialize_units
+from .gameplay.factory.card_factory import initialize_cards
 
 class Engine:
 	"""
@@ -29,44 +32,54 @@ class Engine:
 		Initialize the Engine module.
 		"""
 		
-		self.__cards: dict[str, Type[Card]] = {}
-		self.__heroes: dict[str, Type[Hero]] = {}
-		self.__troops: dict[str, Type[Troop]] = {}
-		self.__spells: dict[str, Type[Spell]] = {}
-		self.__buildings: dict[str, Type[Building]] = {}
+		self.__cards: dict[str, type[Card]] = {}
+		self.__heroes: dict[str, type[Hero]] = {}
+		self.__troops: dict[str, type[Troop]] = {}
+		self.__spells: dict[str, type[Spell]] = {}
+		self.__buildings: dict[str, type[Building]] = {}
 		
-	def register_card(self, name: str, card: Type[Card]):
+	def register_card(self, name: str, card: type[Card]):
 		"""
 		Register the card to the dictionary.
 		"""
 		
+		print(f"Card {name} registered!")
+		
 		self.__cards.update({name: card})
 		
-	def register_hero(self, name: str, hero: Type[Hero]):
+	def register_hero(self, name: str, hero: type[Hero]):
 		"""
 		Register the spell to the dictionary.
 		"""
 		
+		print(f"Hero {name} registered!")
+		
 		self.__heroes.update({name: hero})
 	
-	def register_troop(self, name: str, troop: Type[Troop]):
+	def register_troop(self, name: str, troop: type[Troop]):
 		"""
 		Register the troop to the dictionary.
 		"""
 		
+		print(f"Troop {name} registered!")
+		
 		self.__troops.update({name: troop})
 	
-	def register_spell(self, name: str, spell: Type[Spell]):
+	def register_spell(self, name: str, spell: type[Spell]):
 		"""
 		Register the spell to the dictionary.
 		"""
 		
+		print(f"Spell {name} registered!")
+		
 		self.__spells.update({name: spell})
 	
-	def register_building(self, name: str, building: Type[Building]):
+	def register_building(self, name: str, building: type[Building]):
 		"""
 		Register the building to the dictionary.
 		"""
+		
+		print(f"Building {name} registered!")
 		
 		self.__buildings.update({name: building})
 	
@@ -75,7 +88,12 @@ class Engine:
 		Initializes the engine functions.
 		"""
 		
+		ENGINE = Engine()
+		
 		pygame.init()
+		
+		initialize_units()
+		initialize_cards()
 		
 		player = Player()
 		game_manager = GameManager(player)
@@ -107,4 +125,3 @@ class Engine:
 		
 		pygame.quit()
 
-engine = Engine()

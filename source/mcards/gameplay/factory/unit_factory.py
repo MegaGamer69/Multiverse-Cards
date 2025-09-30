@@ -1,4 +1,9 @@
-from mcards.engine import engine
+# Module path: mcards.gameplay.factory.unit_factory
+
+from mcards.enums import *
+from mcards.gdefs import *
+from mcards.gvars import *
+
 from mcards.gameplay.core.units import Hero, Troop, Spell, Building
 
 class TroopGravedigger(Troop):
@@ -38,5 +43,6 @@ class TroopPelican(Troop):
 		super().__init__(self, pygame.math.Vector2(0, 0), 1200, 985, 110, 500, 2000, 100, 1000, MovementType.GROUND, TargetType.ONLY_BH)
 
 def initialize_units():
-	engine.register_troop("troop_gravedigger", TroopGravedigger)
-	engine.register_troop("troop_indian", TroopIndian)
+	register_troop("troop_gravedigger", TroopGravedigger)
+	register_troop("troop_indian", TroopIndian)
+	register_troop("troop_pelican", TroopPelican)

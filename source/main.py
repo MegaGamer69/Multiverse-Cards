@@ -1,4 +1,8 @@
-from mcards.engine import Engine, engine
+from mcards.engine import Engine
+
+import mcards.gvars
 
 if __name__ == "__main__":
-	engine.initialize(True)
+	mcards.gvars.ENGINE = Engine()
+	
+	mcards.gvars.ENGINE.initialize(True)

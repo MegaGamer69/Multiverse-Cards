@@ -9,3 +9,8 @@ global IS_32_BITS
 The window size (for non-mobile systems).
 """
 global WINDOW_SIZE
+
+"""
+The main engine instance
+"""
+global ENGINE
