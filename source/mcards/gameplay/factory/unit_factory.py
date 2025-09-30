@@ -16,19 +16,40 @@ class TroopGravedigger(Troop):
 		Initialize the Gravedigger status.
 		"""
 		
-		super().__init__(pygame.math.Vector2(0, 0), 1000, 730, 67, 900, 1100, 1500, 2000, MovementType.GROUND, TargetType.ONLY_GBH)
+		super().__init__(
+			pygame.math.Vector2(0, 0),
+			1000,
+			730,
+			67,
+			900,
+			1100,
+			1500,
+			2000,
+			MovementType.GROUND,
+			TargetType.ONLY_GBH)
 
 class TroopIndian(Troop):
 	"""
 	The second initial card, two ranged boys. No any extras in his base classes.
 	"""
 	
-	def __init__(self, blue_team, index):
+	def __init__(self, blue_team):
 		"""
 		Initialize the Indians status.
 		"""
 		
-		super().__init__(pygame.math.Vector2(1 if index == 0 else -1, 0), 1000, 178, 47, 800, 900, 5000, 2500, MovementType.GROUND, TargetType.ANY)
+		super().__init__(
+			pygame.math.Vector2(0, 0),
+			1000,
+			178,
+			47,
+			800,
+			900,
+			4500,
+			2500,
+			MovementType.GROUND,
+			TargetType.ANY
+		)
 
 class TroopPelican(Troop):
 	"""
@@ -40,7 +61,18 @@ class TroopPelican(Troop):
 		Initialize the Pelican status.
 		"""
 		
-		super().__init__(pygame.math.Vector2(0, 0), 1200, 985, 110, 500, 2000, 100, 1000, MovementType.GROUND, TargetType.ONLY_BH)
+		super().__init__(
+			pygame.math.Vector2(0, 0),
+			1200,
+			985,
+			110,
+			500,
+			2000,
+			100,
+			1000,
+			MovementType.GROUND,
+			TargetType.ONLY_BH
+		)
 		
 		self.__explosion_damages = {
 			"hero": 128,
@@ -50,7 +82,7 @@ class TroopPelican(Troop):
 
 class BuildingBomb(Building):
 	"""
-	The fourth initial card, a defensive bomb. No extras in his base class.
+	The fourth initial card, a defensive bomb. Extra attributes in his base class.
 	"""
 	
 	def __init__(self, blue_team):
@@ -58,10 +90,70 @@ class BuildingBomb(Building):
 		Initialize the Bomb status.
 		"""
 		
-		super().__init__(pygame.math.Vector2(0,0), 1000, 444, 0, 9999, 9999, 10000, TargetType.ANY)
+		super().__init__(
+			pygame.math.Vector2(0,0),
+			1000,
+			444,
+			0,
+			9999,
+			9999,
+			10000,
+			TargetType.ANY
+		)
+		
+		self.__explosion_damage = 256
+		self.__explosion_radius = 2.5
+
+class SpellWave(Building):
+	"""
+	The fifth initial card, a defensive giant wave. Extra attributes in his base class.
+	"""
+	
+	def __init__(self, blue_team):
+		"""
+		Initialize the Wave status.
+		"""
+		
+		super().__init__(
+			pygame.math.Vector2(0, 0),
+			1000,
+			233,
+			50,
+			1000,
+			10,
+			3500,
+			TargetType.ANY
+		)
+		
+		self.__wave_distance = 500
+
+class TroopBandit(Troop):
+	"""
+	The sixty initial card, a support bandit. No extras in his base class.
+	"""
+	
+	def __init__(self, blue_team):
+		"""
+		Initialize the Bandit status.
+		"""
+		
+		super().__init__(
+			pygame.math.Vector2(0, 0),
+			1000,
+			474,
+			68,
+			900,
+			1100,
+			6000,
+			2500,
+			MovementType.GROUND,
+			TargetType.ANY
+		)
 
 def initialize_units():
 	register_troop("troop_gravedigger", TroopGravedigger)
 	register_troop("troop_indian", TroopIndian)
 	register_troop("troop_pelican", TroopPelican)
 	register_building("building_bomb", BuildingBomb)
+	register_spell("spell_wave", SpellWave)
+	register_troop("troop_bandit", TroopBandit)

@@ -27,6 +27,18 @@ class CardNameVariations(Enum):
 		"es_sp": "Bomba",
 		"de_de": "Bombe",
 	}
+	WAVE = {
+		"en_us": "Wave",
+		"pt_br": "Onda",
+		"es_sp": "Ola",
+		"de_de": "Welle",
+	}
+	BANDIT = {
+		"en_us": "Bandit",
+		"pt_br": "Bandido",
+		"es_sp": "Bandido",
+		"de_de": "Bandit",
+	}
 
 class CardType(Enum):
 	TROOP = "Troop"

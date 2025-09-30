@@ -80,8 +80,46 @@ class Bomb(Card):
 		
 		super().__init__(CardNameVariations.BOMB, level, CardRarities.COMMON, 3, {"building_bomb": 1}, blue_team)
 
+class Wave(Card):
+	"""
+	Card name: Wave;
+	Card rarity: Rare;
+	Card type: Spell;
+	
+	Card description (EN-US): \"Oh... literally a giant wave! The Wave deals single-attack damage per hitted unit.\"
+	Card description (PT-BR): \"Oh literalmente uma onda gigante! A Onda inflinge dano de ataque único por cada inimigo.\"
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initializes the Bomb status.
+		"""
+		
+		super().__init__(CardNameVariations.WAVE, level, CardRarities.RARE, 4, {"spell_waves": 1}, blue_team)
+
+class Bandit(Card):
+	"""
+	Card name: Bandit;
+	Card rarity: Common;
+	Card type: Troop;
+	
+	Card description (EN-US): \"A normal bandit with a normal lever-action rifle... WAIT, WHAT!?\"
+	Card description (PT-BR): \"Um bandido normal com um rifle-ação-de-alavanca normal... ESPERA, O QUÊ!?\"
+	Card description (ES-SP): \"...\"
+	Card description (DE-DE): \"...\"
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initialize the card creation.
+		"""
+		
+		super().__init__(CardNameVariations.BANDIT, level, CardRarities.COMMON, 4, {"troop_bandit": 1}, blue_team)
+
 def initialize_cards():
 	register_card("card_gravedigger", Gravedigger)
 	register_card("card_indians", Indians)
 	register_card("card_pelican", Pelican)
 	register_card("card_bomb", Bomb)
+	register_card("card_wave", Wave)
+	register_card("card_bandit", Bandit)

@@ -130,8 +130,8 @@ class Engine:
 	
 	def get_registered_spell(self, name: str) -> type[Spell]:
 		"""
-		Get the troop on register.
-		If the troop does not exists, raises a error.
+		Get the spell on register.
+		If the spell does not exists, raises a error.
 		"""
 		
 		if not name in self.__spells:
@@ -179,6 +179,8 @@ class Engine:
 		
 		window = pygame.display.set_mode(gvars.WINDOW_SIZE)
 		
+		player.setup_player_deck([0, 1, 2, 3, 4, 5])
+		
 		while running:
 			# Difines the delta time.
 			
@@ -194,7 +196,7 @@ class Engine:
 			game_manager.draw(window)
 			
 			for card in self.get_player(True).get_card_deck():
-				card.draw(screen)
+				card.draw(window)
 			
 			pygame.display.flip()
 		

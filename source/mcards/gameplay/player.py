@@ -17,6 +17,8 @@ class Player:
 			gvars.ENGINE.get_registered_card("card_indians"),
 			gvars.ENGINE.get_registered_card("card_pelican"),
 			gvars.ENGINE.get_registered_card("card_bomb"),
+			gvars.ENGINE.get_registered_card("card_wave"),
+			gvars.ENGINE.get_registered_card("card_bandit"),
 		]
 		self.__card_deck = []
 		self.__card_hand = []
@@ -41,7 +43,7 @@ class Player:
 		return self.__elixir
 	
 	def setup_player_deck(self, indexes):
-		self.__card_deck = [self.__collected_cards[i](self.__blue_side) for i in indexes]
+		self.__card_deck = [self.__collected_cards[i](1, self.__blue_side) for i in indexes]
 		
 		self.__shuffle_player_deck()
 	

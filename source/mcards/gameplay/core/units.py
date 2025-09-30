@@ -8,8 +8,8 @@ class Unit(pygame.sprite.Sprite):
 
 	Fields:
 	------------------------------------------------------------------------------------------
-	2. __offset (pygame.math.Vector2) - the relative deploy offset (after summoning the unit).
-	3. __deploy_time (int) - the deploy time (in ticks).
+	1. __offset (pygame.math.Vector2) - the relative deploy offset (after summoning the unit).
+	2. __deploy_time (int) - the deploy time (in ticks).
 	------------------------------------------------------------------------------------------
 	"""
 	
@@ -136,7 +136,7 @@ class Building(Unit):
 	
 	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
 				hitpoints: int, damage: int, first_attack_delay: int, attack_delay: int,
-				ticks_to_end: int, targets: str):
+				attack_range: int, ticks_to_end: int, targets: str):
 		"""
 		Initialize the building system.
 		"""
@@ -150,5 +150,4 @@ class Building(Unit):
 		self.__ticks_to_end = ticks_to_end
 		self.__targets = targets
 		self.__attack_range = attack_range
-		self.__movement_type = movement_type
 		self.__targets = targets

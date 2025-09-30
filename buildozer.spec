@@ -9,8 +9,11 @@ source.dir = ./source
 source.exclude_dirs = tests, bin, venv
 source.exclude_patterns = README
 
-version.regex = "1.0.0"
+version = "1.0.0"
 
-requirements = python3, pygame-ce, cython
+requirements = python3, pygame-ce, pyjnius
 
 orientation = portrait
+
+android.api = 30
+android.minapi = 21
