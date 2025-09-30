@@ -3,14 +3,14 @@
 """
 Determines if the OS is 32 Bits (4 GB R.A.M. optimizations).
 """
-global IS_32_BITS
+IS_32_BITS = False
 
 """
 The window size (for non-mobile systems).
 """
-global WINDOW_SIZE
+WINDOW_SIZE = (720, 1280)
 
 """
 The main engine instance
 """
-global ENGINE
+ENGINE = None

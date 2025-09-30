@@ -32,6 +32,9 @@ class Card(pygame.sprite.Sprite):
 		self.__selected = False
 		
 		self.__position = pygame.math.Vector2(0, 0)
+		self.__surface = pygame.Surface((120, 160))
+		
+		self.__surface.fill(pygame.Color(100, 100, 100))
 	
 	def update(self, user: 'Player'):
 		"""
@@ -39,3 +42,10 @@ class Card(pygame.sprite.Sprite):
 		"""
 		
 		self.__ready = (user.get_elixir() >= self.__cost)
+	
+	def draw(self, surface):
+		"""
+		Draws the card surface to other surface.
+		"""
+		
+		surface.blit(self.__surface, self.__position)

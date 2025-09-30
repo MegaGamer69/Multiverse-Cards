@@ -19,13 +19,9 @@ class Unit(pygame.sprite.Sprite):
 		"""
 		
 		super().__init__()
-	
-		self.__key_id = key_id
+		
 		self.__offset = offset
 		self.__deploy_time = deploy_time
-	
-	def get_key_id(self):
-		return self.__key_id
 	
 	def get_offset(self):
 		return self.__offset
@@ -48,13 +44,12 @@ class Hero(Unit):
 	"""
 	
 	def __init__(self, hitpoints: int, damage: int, first_attack_delay: int,
-				attack_delay: int, attack_range: int, movement_speed: int,
-				movement_type: str, target_type: str):
+				attack_delay: int, attack_range: int):
 		"""
 		Initialize the troop system.
 		"""
 		
-		super().__init__(key_id, pygame.math.Vector2(0, 0), 0)
+		super().__init__(pygame.math.Vector2(0, 0), 0)
 		
 		self.__hitpoints = hitpoints
 		self.__damage = damage
@@ -85,13 +80,14 @@ class Troop(Unit):
 		Initialize the troop system.
 		"""
 		
-		super().__init__(key_id, offset, deploy_time)
+		super().__init__(offset, deploy_time)
 		
 		self.__hitpoints = hitpoints
 		self.__damage = damage
 		self.__first_attack_delay = first_attack_delay
 		self.__attack_delay = attack_delay
 		self.__move_speed = move_speed
+		self.__attack_range = attack_range
 		self.__movement_type = movement_type
 		self.__targets = targets
 
@@ -115,7 +111,7 @@ class Spell(Unit):
 		Initialize the spell system.
 		"""
 		
-		super().__init__(key_id, offset, deploy_time)
+		super().__init__(offset, deploy_time)
 		
 		self.__damage = damage
 		self.__first_attack_delay = first_attack_delay
@@ -145,11 +141,14 @@ class Building(Unit):
 		Initialize the building system.
 		"""
 		
-		super().__init__(key_id, offset, deploy_time)
+		super().__init__(offset, deploy_time)
 		
 		self.__hitpoints = hitpoints
 		self.__damage = damage
 		self.__first_attack_delay = first_attack_delay
 		self.__attack_delay = attack_delay
 		self.__ticks_to_end = ticks_to_end
+		self.__targets = targets
+		self.__attack_range = attack_range
+		self.__movement_type = movement_type
 		self.__targets = targets

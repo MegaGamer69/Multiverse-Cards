@@ -59,7 +59,6 @@ class BuildingBomb(Building):
 		"""
 		
 		super().__init__(pygame.math.Vector2(0,0), 1000, 444, 0, 9999, 9999, 10000, TargetType.ANY)
-		)
 
 def initialize_units():
 	register_troop("troop_gravedigger", TroopGravedigger)
