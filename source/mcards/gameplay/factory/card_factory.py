@@ -88,6 +88,8 @@ class Wave(Card):
 	
 	Card description (EN-US): \"Oh... literally a giant wave! The Wave deals single-attack damage per hitted unit.\"
 	Card description (PT-BR): \"Oh literalmente uma onda gigante! A Onda inflinge dano de ataque único por cada inimigo.\"
+	Card description (ES-SP): \"...\"
+	Card description (DE-DE): \"...\"
 	"""
 	
 	def __init__(self, level, blue_team):
@@ -116,6 +118,44 @@ class Bandit(Card):
 		
 		super().__init__(CardNameVariations.BANDIT, level, CardRarities.COMMON, 4, {"troop_bandit": 1}, blue_team)
 
+class LRobot(Card):
+	"""
+	Card name: L-Robot;
+	Card rarity: Rare;
+	Card type: Troop;
+	
+	Card description (EN-US): \"A anti-nazist combat robot abandoned since 1945 (after his mission).\"
+	Card description (PT-BR): \"Um robô de combate anti-nazista abandonado desde 1945 (depois de cumprir a missão).\"
+	Card description (ES-SP): \"...\"
+	Card description (DE-DE): \"...\"
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initialize the card creation.
+		"""
+		
+		super().__init__(CardNameVariations.L_ROBOT, level, CardRarities.RARE, 4, {"troop_l_robot": 1}, blue_team)
+
+class Bombers(Card):
+	"""
+	Card name: Bombers;
+	Card rarity: RARE;
+	Card type: Troop;
+	
+	Card description (EN-US): \"Two kamikazes with no intelect. Run for your life!\"
+	Card description (PT-BR): \"Dois kamikazes sem intelecto. Corra pela sua vida!\"
+	Card description (ES-SP): \"...\"
+	Card description (DE-DE): \"...\"
+	"""
+	
+	def __init__(self, level, blue_team):
+		"""
+		Initialize the card creation.
+		"""
+		
+		super().__init__(CardNameVariations.BOMBERS, level, CardRarities.RARE, 2, {"troop_bomber": 2}, blue_team)
+
 def initialize_cards():
 	register_card("card_gravedigger", Gravedigger)
 	register_card("card_indians", Indians)
@@ -123,3 +163,5 @@ def initialize_cards():
 	register_card("card_bomb", Bomb)
 	register_card("card_wave", Wave)
 	register_card("card_bandit", Bandit)
+	register_card("card_l_robot", LRobot)
+	register_card("card_bombers", Bombers)

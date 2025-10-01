@@ -39,6 +39,18 @@ class CardNameVariations(Enum):
 		"es_sp": "Bandido",
 		"de_de": "Bandit",
 	}
+	L_ROBOT = {
+		"en_us": "L-Robot",
+		"pt_br": "L-Robot",
+		"es_sp": "L-Robot",
+		"de_de": "L-Robot",
+	}
+	BOMBERS = {
+		"en_us": "Bombers",
+		"pt_br": "Bombas humana",
+		"es_sp": "Bombarderos",
+		"de_de": "Bombenschützen",
+	}
 
 class CardType(Enum):
 	TROOP = "Troop"

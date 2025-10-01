@@ -17,16 +17,18 @@ class TroopGravedigger(Troop):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0, 0),
-			1000,
-			730,
-			67,
-			900,
-			1100,
-			1500,
-			2000,
-			MovementType.GROUND,
-			TargetType.ONLY_GBH)
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			680, # Hitpoints.
+			67, # Damage.
+			900, # First attack delay in ms.
+			1100, # Attack delay in ms.
+			1500, # Attack range.
+			2000, # Move Speed.
+			MovementType.GROUND, # Movement type.
+			TargetType.ONLY_GBH # Target types.
+		)
 
 class TroopIndian(Troop):
 	"""
@@ -39,16 +41,17 @@ class TroopIndian(Troop):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0, 0),
-			1000,
-			178,
-			47,
-			800,
-			900,
-			4500,
-			2500,
-			MovementType.GROUND,
-			TargetType.ANY
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			175, # Hitpoints.
+			45, # Damage.
+			600, # First attack delay in ms.
+			900, # Attack delay in ms.
+			4500, # Attack range.
+			2500, # Move Speed.
+			MovementType.GROUND, # Movement type.
+			TargetType.ANY # Target types.
 		)
 
 class TroopPelican(Troop):
@@ -62,16 +65,17 @@ class TroopPelican(Troop):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0, 0),
-			1200,
-			985,
-			110,
-			500,
-			2000,
-			100,
-			1000,
-			MovementType.GROUND,
-			TargetType.ONLY_BH
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			915, # Hitpoints.
+			101, # Damage.
+			500, # First attack delay in ms.
+			2000, # Attack delay in ms.
+			500, # Attack range.
+			1000, # Move Speed.
+			MovementType.AIR, # Movement type.
+			TargetType.ONLY_BH # Target types.
 		)
 		
 		self.__explosion_damages = {
@@ -91,14 +95,15 @@ class BuildingBomb(Building):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0,0),
-			1000,
-			444,
-			0,
-			9999,
-			9999,
-			10000,
-			TargetType.ANY
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			444, # Hitpoints.
+			0, # Damage.
+			1000, # First attack delay in ms.
+			9999, # Attack delay in ms.
+			2500, # Attack range.
+			TargetType.ANY # Target types.
 		)
 		
 		self.__explosion_damage = 256
@@ -115,21 +120,21 @@ class SpellWave(Building):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0, 0),
-			1000,
-			233,
-			50,
-			1000,
-			10,
-			3500,
-			TargetType.ANY
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			500, # Deploy time.
+			88, # Damage.
+			1000, # First attack delay in ms.
+			900, # Attack delay in ms.
+			50, # Effect area in tile.
+			3000 # Time to destroy in ms.
 		)
 		
 		self.__wave_distance = 500
 
 class TroopBandit(Troop):
 	"""
-	The sixty initial card, a support bandit. No extras in his base class.
+	The sixth initial card, a support bandit. No extras in his base class.
 	"""
 	
 	def __init__(self, blue_team):
@@ -138,17 +143,67 @@ class TroopBandit(Troop):
 		"""
 		
 		super().__init__(
-			pygame.math.Vector2(0, 0),
-			1000,
-			474,
-			68,
-			900,
-			1100,
-			6000,
-			2500,
-			MovementType.GROUND,
-			TargetType.ANY
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			474, # Hitpoints.
+			83, # Damage.
+			900, # First attack delay in ms.
+			1000, # Attack delay in ms.
+			6000, # Attack range.
+			2000, # Move Speed.
+			MovementType.GROUND, # Movement type.
+			TargetType.ANY # Target types.
 		)
+
+class TroopLRobot(Troop):
+	"""
+	The seventh initial card, a near-combat robot. No extra attributes in his base class.
+	"""
+	
+	def __init__(self, blue_team):
+		"""
+		Initialize the L-Robot status.
+		"""
+		
+		super().__init__(
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			803, # Hitpoints.
+			205, # Damage.
+			1000, # First attack delay in ms.
+			1600, # Attack delay in ms.
+			1000, # Attack range.
+			2500, # Move Speed.
+			MovementType.GROUND, # Movement type.
+			TargetType.ONLY_GBH # Target types.
+		)
+
+class TroopBomber(Troop):
+	"""
+	The eighth initial card, two kamikazes. Extra attributes in his base class.
+	"""
+	
+	def __init__(self, blue_team):
+		"""
+		Initialize the Rope Bomber status.
+		"""
+		
+		super().__init__(
+			blue_team, # Team flag.
+			pygame.math.Vector2(0, 0), # Offset.
+			1000, # Deploy time.
+			173, # Hitpoints.
+			113, # Damage.
+			500, # First attack delay in ms.
+			500, # Attack delay in ms.
+			500, # Attack range.
+			3000, # Move Speed.
+			MovementType.AIR, # Movement type.
+			TargetType.ONLY_BH # Target types.
+		)
+
 
 def initialize_units():
 	register_troop("troop_gravedigger", TroopGravedigger)
@@ -157,3 +212,6 @@ def initialize_units():
 	register_building("building_bomb", BuildingBomb)
 	register_spell("spell_wave", SpellWave)
 	register_troop("troop_bandit", TroopBandit)
+	register_spell("troop_l_robot", TroopLRobot)
+	register_troop("troop_bomber", TroopBomber)
+

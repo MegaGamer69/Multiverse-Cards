@@ -13,13 +13,14 @@ class Unit(pygame.sprite.Sprite):
 	------------------------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, offset: pygame.math.Vector2, deploy_time: int):
+	def __init__(self, blue_team: bool, offset: pygame.math.Vector2, deploy_time: int):
 		"""
 		Initialize the troop system.
 		"""
 		
 		super().__init__()
 		
+		self.__blue_team = blue_team
 		self.__offset = offset
 		self.__deploy_time = deploy_time
 	
@@ -73,14 +74,14 @@ class Troop(Unit):
 	----------------------------------------------------------------------------
 	"""
 	
-	def __init__(self, offset: pygame.math.Vector2, deploy_time: int,
+	def __init__(self, blue_team, offset: pygame.math.Vector2, deploy_time: int,
 				hitpoints: int, damage: int, first_attack_delay: int,
 				attack_delay: int, attack_range: int, move_speed: int, movement_type: str, targets: str):
 		"""
 		Initialize the troop system.
 		"""
 		
-		super().__init__(offset, deploy_time)
+		super().__init__(blue_team, offset, deploy_time)
 		
 		self.__hitpoints = hitpoints
 		self.__damage = damage

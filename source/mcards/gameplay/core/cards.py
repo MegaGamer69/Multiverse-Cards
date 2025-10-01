@@ -30,11 +30,22 @@ class Card(pygame.sprite.Sprite):
 		
 		self.__ready = False
 		self.__selected = False
-		
-		self.__position = pygame.math.Vector2(0, 0)
 		self.__surface = pygame.Surface((120, 160))
 		
 		self.__surface.fill(pygame.Color(100, 100, 100))
+	
+	def load_image(self, reg_id: str):
+		"""
+		Set the image to load.
+		"""
+		
+		try:
+			self.__surface = pygame.image.load(f"./source/assets/images/cards/{reg_id}.png")
+			self.__surface = pygame.transform.scale(self.__surface, (120, 160))
+		except FileNotFoundError:
+			self.__surface = pygame.Surface((120, 160))
+			
+			self.__surface.fill(pygame.Color(100, 100, 100))
 	
 	def update(self, user: 'Player'):
 		"""
@@ -43,9 +54,9 @@ class Card(pygame.sprite.Sprite):
 		
 		self.__ready = (user.get_elixir() >= self.__cost)
 	
-	def draw(self, surface):
+	def draw(self, surface, position):
 		"""
 		Draws the card surface to other surface.
 		"""
 		
-		surface.blit(self.__surface, self.__position)
+		surface.blit(self.__surface, position)

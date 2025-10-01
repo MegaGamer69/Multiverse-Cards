@@ -44,16 +44,12 @@ class Engine:
 		Register the card to the dictionary.
 		"""
 		
-		print(f"Card {name} registered!")
-		
 		self.__cards.update({name: card})
 	
 	def register_hero(self, name: str, hero: type[Hero]):
 		"""
 		Register the spell to the dictionary.
 		"""
-		
-		print(f"Hero {name} registered!")
 		
 		self.__heroes.update({name: hero})
 	
@@ -62,8 +58,6 @@ class Engine:
 		Register the troop to the dictionary.
 		"""
 		
-		print(f"Troop {name} registered!")
-		
 		self.__troops.update({name: troop})
 	
 	def register_spell(self, name: str, spell: type[Spell]):
@@ -71,16 +65,12 @@ class Engine:
 		Register the spell to the dictionary.
 		"""
 		
-		print(f"Spell {name} registered!")
-		
 		self.__spells.update({name: spell})
 	
 	def register_building(self, name: str, building: type[Building]):
 		"""
 		Register the building to the dictionary.
 		"""
-		
-		print(f"Building {name} registered!")
 		
 		self.__buildings.update({name: building})
 	
@@ -179,7 +169,7 @@ class Engine:
 		
 		window = pygame.display.set_mode(gvars.WINDOW_SIZE)
 		
-		player.setup_player_deck([0, 1, 2, 3, 4, 5])
+		player.setup_player_deck([0, 1, 2, 3, 4, 5, 6, 7])
 		
 		while running:
 			# Difines the delta time.
@@ -194,9 +184,6 @@ class Engine:
 			
 			window.fill(pygame.Color(255, 255, 255))
 			game_manager.draw(window)
-			
-			for card in self.get_player(True).get_card_deck():
-				card.draw(window)
 			
 			pygame.display.flip()
 		

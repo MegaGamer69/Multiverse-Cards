@@ -2,7 +2,11 @@
 
 import pygame
 
+import mcards.gdefs as gdefs
+
 from mcards.gameplay.player import Player
+
+from mcards.gameplay.factory.card_factory import *
 
 CHANGE_STATE = pygame.USEREVENT + 1
 
@@ -17,6 +21,7 @@ class GameState:
 	---------------------------------------------------------------------
 	1. __manager (StateManager) - the state manager instance.
 	2. __elements (list[]) - the element sprite group.
+	3. __surface (Surface) - the state surface background.
 	---------------------------------------------------------------------
 	"""
 	
@@ -29,16 +34,21 @@ class GameState:
 		self.__elements = elements
 		
 		self.__surface = pygame.Surface((720, 1280))
-		
-		self.__surface.fill(pygame.Color(200, 200, 200))
 	
 	def handle_events(self, events, mobile):
 		pass
 	
-	def draw(self, surface):
-		surface.blit(self.__surface, (0, 0))
+	def get_surface(self):
+		return self.__surface
 	
-	def flip(self, delta_time):
+	def draw(self, surface: pygame.Surface):
+		surface.blit(self.__surface, (0, 0))
+		self.__elements.draw(surface)
+	
+	def flip(self, delta_time: float):
+		pass
+	
+	def add_sprite(self, sprite: pygame.sprite.Sprite):
 		pass
 
 class MenuState(GameState):
@@ -48,6 +58,8 @@ class MenuState(GameState):
 	
 	def __init__(self, manager):
 		super().__init__(manager, MENU_STATE_ELEMENTS)
+		
+		self.get_surface().fill((200, 200, 200))
 	
 	def handle_events(self, events, mobile):
 		for e in events:
@@ -65,6 +77,11 @@ class PlayState(GameState):
 	
 	def __init__(self, manager):
 		super().__init__(manager, PLAY_STATE_ELEMENTS)
+		
+		self.get_surface().fill((0, 100, 255))
+	
+	def add_sprite_card(self, reg_id: str):
+		self.add_sprite(gdefs.get_registered_card(sprite))
 	
 	def handle_events(self, events, mobile):
 		for e in events:
@@ -94,7 +111,11 @@ class GameManager:
 			"menu_state": MenuState(self),
 			"play_state": PlayState(self),
 		}
-		self.__current_state = self.__states["menu_state"]
+		self.__current_state = self.__states["play_state"]
+		
+		for reg_id in player.get_collected_cards_reg_ids():
+			if hasattr(self.__current_state, "add_sprite_reg_id"):
+				 self.__current_state.add_sprite_red_id(reg_id)
 	
 	def get_player(self):
 		return self.__player
