@@ -1,2 +1,0 @@
-# Multiverse Cards (MCards)
-
