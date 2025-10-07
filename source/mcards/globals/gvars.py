@@ -60,7 +60,7 @@ class CardDescriptions(Enum):
 	}
 	
 	SEAGULLS = {
-		"en_us": "Stupid birds... STOP EATING MY SANDWISH!",
+		"en_us": "Stupid birds... STOP EATING MY SANDWICH!",
 		"pt_br": "Pássaros estúpidos... PAREM DE COMER MEU SANDUÍCHE!",
 	}
 	

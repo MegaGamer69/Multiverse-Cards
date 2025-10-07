@@ -4,7 +4,7 @@ Caminho do módulo: mcards.factory.card_factory
 
 from mcards.base.card import Card
 from mcards.globals.gvars import *
-from mcards.globals.gdefs import register_troop
+from mcards.globals.gdefs import register_card
 
 # Cartas instânciadas.
 

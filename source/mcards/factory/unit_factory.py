@@ -4,7 +4,7 @@ Caminho do módulo: mcards.factory.unit_factory
 
 from mcards.base.unit import Troop, Spell
 from mcards.globals.gvars import *
-from mcards.globals.gdefs import register_troop
+from mcards.globals.gdefs import register_troop, register_spell
 
 class UnitGravedigger(Troop):
 	"""
@@ -120,6 +120,24 @@ class UnitLRobot(Troop):
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 90, 90)), blue_team,
 						782, 98, 1000, 1600, 2500, 500, TroopMoveType.GROUND, TroopTargetType.ONLY_GBH)
 
+class UnitStorm(Spell):
+	"""
+	Uma classe que estende a base de feitiço e representa uma Baleia.
+	"""
+	
+	def __init__(self, blue_team: bool, level: int, index: int) -> None:
+		"""
+		Crie uma nova instância da tropa.
+		
+		:param blue_team: -> Determinador de time da instância.
+		:param level: -> O nível atual da instância.
+		:param index: -> O índice atual da instância.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 60, 60)), blue_team,
+						85, 750, SpellTargetTypes.ANY)
+
 class UnitWhale(Spell):
 	"""
 	Uma classe que estende a base de feitiço e representa uma Baleia.
@@ -151,5 +169,5 @@ def initialize_units() -> None:
 	register_troop("troop_seagull", UnitSeagull)
 	register_troop("troop_bandit", UnitBandit)
 	register_troop("troop_l_robot", UnitLRobot)
-	register_troop("spell_storm", UnitStorm)
-	register_troop("spell_whale", UnitWhale)
+	register_spell("spell_storm", UnitStorm)
+	register_spell("spell_whale", UnitWhale)

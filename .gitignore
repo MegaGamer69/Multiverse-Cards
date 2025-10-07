@@ -2,4 +2,4 @@ __pycache__/
 bin/
 .buildozer/
 .vscode/
-.venv-3/
+.venv/

@@ -9,6 +9,7 @@ class Register:
 	
 	__CARDS = {}
 	__TROOPS = {}
+	__SPELLS = {}
 	
 	@classmethod
 	def register_card(cls, key: str, value) -> None:
@@ -33,6 +34,18 @@ class Register:
 		"""
 		
 		cls.__TROOPS.update({key: value})
+	
+	@classmethod
+	def register_spell(cls, key: str, value) -> None:
+		"""
+		Registra um feitiço no dicionário.
+		
+		:param key: -> Uma chave de registro do feitiço.
+		:param value: -> Um valor de armazenamento do feitiço.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		cls.__SPELLS.update({key: value})
 	
 	@classmethod
 	def get_registered_card(cls, key: str):
@@ -61,3 +74,17 @@ class Register:
 			raise KeyError(f"Não há evidência nenhuma de tropa com o registro {key}")
 		
 		return cls.__TROOPS[key]
+	
+	@classmethod
+	def get_registered_spell(cls, key: str):
+		"""
+		Obtenha um feitiço do dicionário.
+		
+		:param key: -> A chave do registro de tropas.
+		:return: -> A classe do feitiço será retornada.
+		"""
+		
+		if not key in cls.__SPELLS:
+			raise KeyError(f"Não há evidência nenhuma de feitiço com o registro {key}")
+		
+		return cls.__SPELLS[key]

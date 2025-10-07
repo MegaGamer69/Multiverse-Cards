@@ -26,6 +26,17 @@ def register_troop(key: str, value) -> None:
 	
 	Register.register_troop(key, value)
 
+def register_spell(key: str, value) -> None:
+	"""
+	Registra um feitiço no dicionário (use este método para registrar).
+	
+	:param key: -> Uma chave de registro do feitiço.
+	:param value: -> Um valor de armazenamento do feitiço.
+	:return: -> Nenhum valor a ser retornado.
+	"""
+	
+	Register.register_spell(key, value)
+
 def get_registered_card(key: str):
 	"""
 	Obtenha uma carta do dicionário.
@@ -45,3 +56,13 @@ def get_registered_troop(key: str):
 	"""
 	
 	return Register.get_registered_troop(key)
+
+def get_registered_spell(key: str):
+	"""
+	Obtenha um feitiço do dicionário.
+	
+	:param key: -> A chave do registro de feitiços.
+	:return: -> A classe do feitiço será retornada.
+	"""
+	
+	return Register.get_registered_spell(key)
