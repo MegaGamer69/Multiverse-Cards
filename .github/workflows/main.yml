@@ -18,6 +18,7 @@ jobs:
       - name: install-and-setup-dependencies
         run: |
          python --version
+         sudo apt-get install -y git unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
          python -m venv .venv
          source .venv/bin/activate
          pip install pygame-ce
@@ -28,7 +29,7 @@ jobs:
       - name: build-mcards
         run: |
          source .venv/bin/activate
-         buildozer android debug
+         printf "y\ny\nn\ny\n" | buildozer android debug
 
       - name: upload-apk
         uses: actions/upload-artifact@v4.6.2
