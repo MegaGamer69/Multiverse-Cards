@@ -27,6 +27,7 @@ jobs:
 
       - name: build-mcards
         run: |
+         source .venv/bin/activate
          buildozer android debug
 
       - name: upload-apk
