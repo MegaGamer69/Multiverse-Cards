@@ -18,6 +18,7 @@ jobs:
       - name: install-and-setup-dependencies
         run: |
          python --version
+         python -m venv .venv
          source .venv/bin/activate
          pip install pygame-ce
          pip install cython
