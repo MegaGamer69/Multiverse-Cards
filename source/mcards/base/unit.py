@@ -83,7 +83,7 @@ class Troop(Unit):
 		self.__tile_speed_ms = tile_speed_ms
 		self.__attack_range = attack_range
 		self.__move_type = move_type
-		self.__targets_types = targets_types
+		self.__target_types = target_types
 
 class Spell(Unit):
 	"""

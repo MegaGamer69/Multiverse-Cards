@@ -3,6 +3,10 @@ Caminho do módulo: mcards.base.card
 """
 
 import pygame
+import os
+
+from kivy.resources import resource_find
+from kivy.logger import Logger
 
 from mcards.globals.gvars import *
 
@@ -30,6 +34,8 @@ class Card(pygame.sprite.Sprite):
 		self.__name_variations = name_variations
 		self.__cost = cost
 		self.__description_variations = description_variations
+		
+		self.__surface = pygame.Surface([120, 160])
 	
 	def get_name_variations(self):
 		"""
@@ -57,4 +63,46 @@ class Card(pygame.sprite.Sprite):
 		"""
 		
 		return self.__description_variations
+	
+	def get_surface(self):
+		"""
+		Obtenha a superfície da carta.
+		
+		:return: -> O valor referente a superfície da carta.
+		"""
+		
+		return self.__surface
+	
+	def load_image_with_register(self, key: str) -> None:
+		"""
+		Carregue a imagem com base na chave de registro da carta.
+		Requer o tipo de arquivo `.png` para carregar.
+		
+		Caminho requirido: `assets/images/cards/{key}.png`;
+		
+		:param key: -> A chave do registro que será obtida.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		if not isinstance(key, str):
+			raise ValueError(f"Tentativa de usar um objeto diferente de string. Tipo: {type(key)};")
+		
+		image_path = None
+		found_path = resource_find(f"source/assets/images/card/{key}.png")
+		
+		if found_path:
+			image_path = found_path
+			
+			Logger.info(f"Caminho de arquivo encontrado: {found_path};")
+		
+		else:
+			Logger.error(f"Caminho de arquivo não encontrado!")
+			
+			self.__surface.fill(pygame.Color(255, 0, 0))
+			
+			return
+		
+		loaded = pygame.image.load(image_path)
+		
+		self.__surface = pygame.transform.smoothscale(loaded, [120, 160])
 

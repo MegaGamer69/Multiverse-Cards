@@ -29,6 +29,18 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
 
+from mcards.player import Player
+
+from mcards.globals.gdefs import get_registered_card
+
+from mcards.factory.unit_factory import initialize_units
+from mcards.factory.card_factory import initialize_cards
+
+initialize_units()
+initialize_cards()
+
+player = Player()
+
 class PygameWidget(Widget):
 	"""
 	Um widget que contém e gerencia a superfície da biblioteca `pygame`.
@@ -58,6 +70,10 @@ class PygameWidget(Widget):
 		"""
 		
 		self.__pygame_surface.fill((0, 0, 0))
+		
+		for index, card in enumerate(player.get_hand()):
+			self.__pygame_surface.blit(card.get_surface(), player.get_hand_position(index))
+		
 		self.draw()
 	
 	def draw(self) -> None:
@@ -91,12 +107,6 @@ class Application(App):
 		"""
 		
 		super().__init__(**kwargs)
-		
-		from mcards.factory.unit_factory import initialize_units
-		from mcards.factory.card_factory import initialize_cards
-		
-		initialize_units()
-		initialize_cards()
 	
 	def build(self) -> None:
 		"""

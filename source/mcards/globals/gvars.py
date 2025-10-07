@@ -38,6 +38,16 @@ class CardNames(Enum):
 		"en_us": "L-Robot",
 		"pt_br": "Robô-L",
 	}
+	
+	STORM = {
+		"en_us": "Storm",
+		"pt_br": "Tempestade",
+	}
+	
+	WHALE = {
+		"en_us": "Whale",
+		"pt_br": "Baleia",
+	}
 
 class CardDescriptions(Enum):
 	"""
@@ -72,6 +82,11 @@ class CardDescriptions(Enum):
 	L_ROBOT = {
 		"en_us": "A anti-nazist combat robot, created by the United States. But got abandoned as trash.\n\nThere's some times that I fell bad.",
 		"pt_br": "Um robô de combate anti-nazista, criado pelos Estados Unidos. Porém foi abandonado como lixo.\n\nÀs vezes eu tenho empatia.",
+	}
+	
+	STORM = {
+		"en_us": "A shoking Storm, hitting some enemies! The Storm can stun some enemies by a while.",
+		"pt_br": "Uma Tempestade chocante, atingindo alguns inimigos! A Tempestade pode atordoars alguns inimigos por um tempo.",
 	}
 	
 	WHALE = {
@@ -151,3 +166,7 @@ class TroopMoveType(Enum):
 
 WINDOW_SIZE = (720, 1280)
 TILE_SIZE = 500
+TEAMS = {
+	"blue": None,
+	"red": None,
+}

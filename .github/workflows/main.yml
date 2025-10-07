@@ -18,7 +18,7 @@ jobs:
       - name: install-and-setup-dependencies
         run: |
          python --version
-         sudo apt-get install -y git unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
+         sudo apt-get install -y git unzip openjdk-17-jdk autoconf libtool libtool-bin pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
          python -m venv .venv
          source .venv/bin/activate
          pip install pygame-ce
