@@ -120,6 +120,34 @@ class CardWhale(Card):
 		
 		super().__init__(CardNames.WHALE, 4, CardDescriptions.WHALE, {"spell_whale": 1})
 
+class CardCrusher(Card):
+	"""
+	Uma classe que estende a base de carta e representa o Esmagador.
+	"""
+	
+	def __init__(self) -> None:
+		"""
+		Crie uma nova instância da carta.
+		
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__(CardNames.CRUSHER, 7, CardDescriptions.CRUSHER, {"troop_crusher": 1})
+
+class CardHeroHunter(Card):
+	"""
+	Uma classe que estende a base de carta e representa a Caçadora de Heróis.
+	"""
+	
+	def __init__(self) -> None:
+		"""
+		Crie uma nova instância da carta.
+		
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__(CardNames.HERO_HUNTER, 4, CardDescriptions.HERO_HUNTER, {"troop_hero_hunter": 1})
+
 def initialize_cards() -> None:
 	"""
 	Inicialize as cartas para registrar-las.
@@ -133,3 +161,4 @@ def initialize_cards() -> None:
 	register_card("l_robot", CardLRobot)
 	register_card("storm", CardStorm)
 	register_card("whale", CardWhale)
+	register_card("crusher", CardCrusher)

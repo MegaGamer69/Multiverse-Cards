@@ -48,6 +48,11 @@ class CardNames(Enum):
 		"en_us": "Whale",
 		"pt_br": "Baleia",
 	}
+	
+	CRUSHER = {
+		"en_us": "Crusher",
+		"pt_br": "Esmagador",
+	}
 
 class CardDescriptions(Enum):
 	"""
@@ -85,13 +90,18 @@ class CardDescriptions(Enum):
 	}
 	
 	STORM = {
-		"en_us": "A shoking Storm, hitting some enemies! The Storm can stun some enemies by a while.",
-		"pt_br": "Uma Tempestade chocante, atingindo alguns inimigos! A Tempestade pode atordoars alguns inimigos por um tempo.",
+		"en_us": "A shoking Storm, hitting some enemies!\nThe Storm can stun some enemies by a while.",
+		"pt_br": "Uma Tempestade chocante, atingindo alguns inimigos!\nA Tempestade pode atordoars alguns inimigos por um tempo.",
 	}
 	
 	WHALE = {
 		"en_us": "The giant Livyatan... mysteriously flying every Tuesday! When the Whale falls, causes a huge area-damage and go away.",
 		"pt_br": "A imponente Livyatan... misteriosamente voando toda Terça-Feira! Qundo a Baleia cai, causa um imenso dano em área e voa para longe.",
+	}
+	
+	CRUSHER = {
+		"en_us": "What the hell is this sound?\n\nThe Crusher is not a simple samurai with yoroi, because he uses a strong hammer like Thor... with no powers!",
+		"pt_br": "O que cacetes é este som?\n\nO Esmagador não é um simples samurai vestido de yoroi, já que utiliza uma imensa marreta como Thor... sem poderes!",
 	}
 
 class TroopTargetType(Enum):

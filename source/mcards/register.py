@@ -111,7 +111,7 @@ class Register:
 		:return: -> A classe do herói será retornada.
 		"""
 		
-		if not key in cls.__SPELLS:
+		if not key in cls.__HEROES:
 			raise KeyError(f"Não há evidência nenhuma de herói com o registro {key}")
 		
-		return cls.__SPELLS[key]
+		return cls.__HEROES

@@ -72,7 +72,7 @@ class UnitIndian(Troop):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 75, 75)), blue_team,
-						160, 43, 800, 900, 2500, 3500, TroopMoveType.GROUND, TroopTargetType.ANY)
+						160, 43, 800, 900, 2500, 2500, TroopMoveType.GROUND, TroopTargetType.ANY)
 
 class UnitPelican(Troop):
 	"""
@@ -90,11 +90,11 @@ class UnitPelican(Troop):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 100, 100)), blue_team,
-						885, 75, 800, 1800, 1000, 500, TroopMoveType.AIR, TroopTargetType.ONLY_BH)
+						895, 100, 500, 1900, 1000, 500, TroopMoveType.AIR, TroopTargetType.ONLY_BH)
 		
 		self.__explosion_damages = {
-			"troops": 75,
-			"buildings": 150,
+			"troops": 100,
+			"buildings": 175,
 			"heroes": 150,
 		}
 
@@ -132,7 +132,7 @@ class UnitBandit(Troop):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 100, 100)), blue_team,
-						530, 77, 800, 1000, 2000, 5000, TroopMoveType.GROUND, TroopTargetType.ANY)
+						420, 70, 800, 1000, 2000, 3500, TroopMoveType.GROUND, TroopTargetType.ANY)
 
 class UnitLRobot(Troop):
 	"""
@@ -150,7 +150,7 @@ class UnitLRobot(Troop):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 90, 90)), blue_team,
-						782, 98, 1000, 1600, 2500, 500, TroopMoveType.GROUND, TroopTargetType.ONLY_GBH)
+						782, 110, 1000, 1500, 2500, 500, TroopMoveType.GROUND, TroopTargetType.ONLY_GBH)
 
 class UnitStorm(Spell):
 	"""
@@ -188,6 +188,55 @@ class UnitWhale(Spell):
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 90, 90)), blue_team,
 						333, 750, SpellTargetType.ANY)
 
+class UnitCrusher(Troop):
+	"""
+	Uma classe que estende a base de tropa e representa um Esmagador.
+	"""
+	
+	def __init__(self, blue_team: bool, level: int, index: int) -> None:
+		"""
+		Crie uma nova instância da tropa.
+		
+		:param blue_team: -> Determinador de time da instância.
+		:param level: -> O nível atual da instância.
+		:param index: -> O índice atual da instância.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 100, 100)), blue_team,
+						1288, 222, 1200, 1800, 1500, 500, TroopMoveType.GROUND, TroopTargetType.ONLY_GBH)
+		
+		self.__damage_bonus = {
+			"troops": 1.0,
+			"buildings": 1.25,
+			"heroes": 0.9,
+		}
+
+class UnitHeroHunter(Troop):
+	"""
+	Uma classe que estende a base de tropa e representa uma Caçadora de Heróis.
+	"""
+	
+	def __init__(self, blue_team: bool, level: int, index: int) -> None:
+		"""
+		Crie uma nova instância da tropa.
+		
+		:param blue_team: -> Determinador de time da instância.
+		:param level: -> O nível atual da instância.
+		:param index: -> O índice atual da instância.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 80, 80)), blue_team,
+						777, 80, 1000, 1300, 2500, 500, TroopMoveType.GROUND, TroopTargetType.ONLY_GBH)
+		
+		self.__damage_bonus_heroes = 1.7
+		self.__dash_distance = {
+			"max": 2500,
+			"min": 1500,
+		}
+		self.__dash_damage = 200
+
 def initialize_units() -> None:
 	"""
 	Registre todas as unidades do jogo.
@@ -195,8 +244,8 @@ def initialize_units() -> None:
 	:return: -> Nenhum valor a ser retornado.
 	"""
 	
-	register_troop("hero_pirate", HeroPirate)
-	register_troop("hero_mighty_indian", HeroMightyIndian)
+	register_hero("hero_pirate", HeroPirate)
+	register_hero("hero_mighty_indian", HeroMightyIndian)
 	register_troop("troop_gravedigger", UnitGravedigger)
 	register_troop("troop_indian", UnitIndian)
 	register_troop("troop_pelican", UnitPelican)
@@ -205,3 +254,5 @@ def initialize_units() -> None:
 	register_troop("troop_l_robot", UnitLRobot)
 	register_spell("spell_storm", UnitStorm)
 	register_spell("spell_whale", UnitWhale)
+	register_troop("troop_crusher", UnitCrusher)
+	register_troop("troop_hero_hunter", UnitHeroHunter)
