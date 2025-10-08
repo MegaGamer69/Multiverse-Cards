@@ -110,3 +110,30 @@ class Spell(Unit):
 		self.__damage = damage
 		self.__effect_area = effect_area
 		self.__targets_types = targets_types
+
+class Hero(Unit):
+	"""
+	Representa um herói, cujo deve ser defendido por ser o principal objetivo.
+	Pode atacar, porém fica estático a um ponto do seu lado da arena.
+	"""
+	
+	def __init__(self, blue_team: bool, hitpoints: int, damage: int,
+				first_attack_delay_ms: int, attack_delay_ms: int, attack_range: int) -> None:
+		"""
+		Crie uma nova instância de um herói.
+		
+		:param hitpoints: -> Os pontos de vida do herói (geralmente altos para não serem frágeis).
+		:param damage: -> O dano do herói (normalmente abaixo de 56).
+		:param fisrt_attack_delay_ms: -> O intervalo do primeiro ataque (em milissegundos).
+		:param attack_delay_ms: -> O intervalo de ataque após o primeiro (em milissegundos).
+		:param attack_range: -> O alcance de ataque (em tiles).
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__([pygame.math.Vector2(0, 0)], 0, pygame.Rect(500, 100), blue_team)
+		
+		self.__hitpoints = hitpoints
+		self.__damage = damage
+		self.__first_attack_delay_ms = first_attack_delay_ms
+		self.__attack_delay_ms = attack_delay_ms
+		self.__attack_range = attack_range

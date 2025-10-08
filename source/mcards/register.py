@@ -10,6 +10,7 @@ class Register:
 	__CARDS = {}
 	__TROOPS = {}
 	__SPELLS = {}
+	__HEROES = {}
 	
 	@classmethod
 	def register_card(cls, key: str, value) -> None:
@@ -48,6 +49,18 @@ class Register:
 		cls.__SPELLS.update({key: value})
 	
 	@classmethod
+	def register_hero(cls, key: str, value) -> None:
+		"""
+		Registra um herói no dicionário.
+		
+		:param key: -> Uma chave de registro do herói.
+		:param value: -> Um valor de armazenamento do herói.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		cls.__HEROES.update({key: value})
+	
+	@classmethod
 	def get_registered_card(cls, key: str):
 		"""
 		Obtenha uma carta do dicionário.
@@ -80,11 +93,25 @@ class Register:
 		"""
 		Obtenha um feitiço do dicionário.
 		
-		:param key: -> A chave do registro de tropas.
+		:param key: -> A chave do registro de feitiços.
 		:return: -> A classe do feitiço será retornada.
 		"""
 		
 		if not key in cls.__SPELLS:
 			raise KeyError(f"Não há evidência nenhuma de feitiço com o registro {key}")
+		
+		return cls.__SPELLS[key]
+	
+	@classmethod
+	def get_registered_hero(cls, key: str):
+		"""
+		Obtenha um herói do dicionário.
+		
+		:param key: -> A chave do registro de heróis.
+		:return: -> A classe do herói será retornada.
+		"""
+		
+		if not key in cls.__SPELLS:
+			raise KeyError(f"Não há evidência nenhuma de herói com o registro {key}")
 		
 		return cls.__SPELLS[key]

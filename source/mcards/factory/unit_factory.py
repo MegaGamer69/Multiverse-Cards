@@ -2,9 +2,41 @@
 Caminho do módulo: mcards.factory.unit_factory
 """
 
-from mcards.base.unit import Troop, Spell
+from mcards.base.unit import Troop, Spell, Hero
 from mcards.globals.gvars import *
 from mcards.globals.gdefs import register_troop, register_spell
+
+class HeroPirate(Hero):
+	"""
+	Uma classe que estende a base de herói e representa o Pirata.
+	"""
+	
+	def __init__(self, blue_team: bool, level: int) -> None:
+		"""
+		Crie uma nova instância do herói.
+		
+		:param blue_team: -> Determinador de time da instância.
+		:param level: -> O nível atual da instância.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__(blue_team, 1440, 45, 1000, 1000, 3500)
+
+class HeroMightyIndian(Hero):
+	"""
+	Uma classe que estende a base de herói e representa o Pajé Bombado.
+	"""
+	
+	def __init__(self, blue_team: bool, level: int) -> None:
+		"""
+		Crie uma nova instância do herói.
+		
+		:param blue_team: -> Determinador de time da instância.
+		:param level: -> O nível atual da instância.
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		super().__init__(blue_team, 1500, 20, 300, 500, 1500)
 
 class UnitGravedigger(Troop):
 	"""
@@ -163,6 +195,8 @@ def initialize_units() -> None:
 	:return: -> Nenhum valor a ser retornado.
 	"""
 	
+	register_troop("hero_pirate", HeroPirate)
+	register_troop("hero_mighty_indian", HeroMightyIndian)
 	register_troop("troop_gravedigger", UnitGravedigger)
 	register_troop("troop_indian", UnitIndian)
 	register_troop("troop_pelican", UnitPelican)
