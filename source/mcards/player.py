@@ -62,7 +62,13 @@ class Player:
 		:return: -> Nenhum valor a ser retornado.
 		"""
 		
-		self.__unlocked_cards.append(card_key)
+		if card_key in self.__unlocked_cards:
+			Logger.warn("Você está tentando desbloquear uma carta já desbloqueada.")
+			
+			return
+		
+		else:
+			self.__unlocked_cards.append(card_key)
 	
 	def get_hand_position(self, index) -> pygame.math.Vector2:
 		"""
@@ -72,7 +78,7 @@ class Player:
 		:return: -> Um vetor bidimensional, representando a posição.
 		"""
 		
-		return pygame.math.Vector2(0 + (index * 140), 320)
+		return pygame.math.Vector2(0 + (index * 140), 960)
 	
 	def get_team(self):
 		"""

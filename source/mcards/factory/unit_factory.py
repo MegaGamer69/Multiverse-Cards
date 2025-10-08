@@ -136,7 +136,7 @@ class UnitStorm(Spell):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 60, 60)), blue_team,
-						85, 750, SpellTargetTypes.ANY)
+						85, 750, SpellTargetType.ANY)
 
 class UnitWhale(Spell):
 	"""
@@ -154,7 +154,7 @@ class UnitWhale(Spell):
 		"""
 		
 		super().__init__([pygame.math.Vector2(0, 0)], index, pygame.Rect((0, 0, 90, 90)), blue_team,
-						333, 750, SpellTargetTypes.ANY)
+						333, 750, SpellTargetType.ANY)
 
 def initialize_units() -> None:
 	"""

@@ -30,6 +30,7 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 
 from mcards.player import Player
+from mcards.renderer import PreRenderedUI
 
 from mcards.globals.gdefs import get_registered_card
 
@@ -40,6 +41,9 @@ initialize_units()
 initialize_cards()
 
 player = Player()
+
+PreRenderedUI.pre_render_hand()
+PreRenderedUI.pre_render_card_cost()
 
 class PygameWidget(Widget):
 	"""
@@ -58,6 +62,7 @@ class PygameWidget(Widget):
 		
 		self.size = Window.size
 		self.__pygame_surface = pygame.Surface(self.size)
+		self.__texture = None
 		
 		Clock.schedule_interval(self.update, 1.0 / 60.0)
 	
@@ -69,11 +74,6 @@ class PygameWidget(Widget):
 		:return: -> Nenhum valor a ser retornado.
 		"""
 		
-		self.__pygame_surface.fill((0, 0, 0))
-		
-		for index, card in enumerate(player.get_hand()):
-			self.__pygame_surface.blit(card.get_surface(), player.get_hand_position(index))
-		
 		self.draw()
 	
 	def draw(self) -> None:
@@ -83,15 +83,31 @@ class PygameWidget(Widget):
 		:return: -> Nenhum valor a ser retornado.
 		"""
 		
+		if self.__texture is None:
+			self.__setup_texture()
+	
+	def __setup_texture(self) -> None:
+		"""
+		Configure a textura a ser criada via `kivy` e `pygame`.
+		
+		:return: -> Nenhum valor a ser retornado.
+		"""
+		
+		self.__pygame_surface.fill((32, 192, 32))
+		self.__pygame_surface.blit(PreRenderedUI.HAND_BG, [0, 800])
+		
+		for index, card in enumerate(player.get_hand()):
+			self.__pygame_surface.blit(card.get_surface(), player.get_hand_position(index))
+			self.__pygame_surface.blit(PreRenderedUI.CARD_COST_BG, player.get_hand_position(index))
+		
 		pygame_string = pygame.image.tostring(self.__pygame_surface, "RGB")
-		texture = Texture.create(size=self.__pygame_surface.get_size())
+		self.__texture = Texture.create(size=self.__pygame_surface.get_size())
 		
-		texture.blit_buffer(pygame_string, colorfmt='rgb', bufferfmt='ubyte')
-		
-		self.canvas.clear()
+		self.__texture.blit_buffer(pygame_string, colorfmt='rgb', bufferfmt='ubyte')
+		self.__texture.flip_vertical()
 		
 		with self.canvas:
-			Rectangle(texture=texture, pos=self.pos, size=self.size)
+			Rectangle(texture=self.__texture, pos=self.pos, size=self.size)
 
 class Application(App):
 	"""
